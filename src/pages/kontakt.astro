@@ -1,0 +1,138 @@
+---
+import Layout from '../layouts/Layout.astro';
+---
+<Layout title="Contact" lang="en">
+  
+<!-- Hero Section -->
+<section class="relative py-24 md:py-32 overflow-hidden industrial-grid bg-surface-container-low">
+<div class="max-w-container-max mx-auto px-margin-desktop relative z-10">
+<div class="max-w-3xl">
+<span class="font-label-md text-secondary tracking-widest uppercase mb-4 block">Centrala Bremen, Niemcy</span>
+<h1 class="font-display text-headline-lg-mobile md:text-display text-primary mb-6">Skontaktuj się z nami</h1>
+<p class="font-body-lg text-on-surface-variant max-w-2xl">
+                        Jesteśmy Twoim strategicznym partnerem w zakresie spawalnictwa, badań NDT oraz zarządzania ochroną antykorozyjną. Zapraszamy do dialogu technicznego.
+                    </p>
+</div>
+</div>
+<!-- Atmospheric Element -->
+<div class="absolute right-0 top-0 w-1/3 h-full opacity-10 pointer-events-none">
+<span class="material-symbols-outlined text-[320px] absolute -right-20 top-10" style="font-variation-settings: 'wght' 100;">architecture</span>
+</div>
+</section>
+<!-- Main Content: Bento Layout -->
+<section class="py-12 md:py-24 max-w-container-max mx-auto px-margin-desktop">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<!-- Contact Form Card -->
+<div class="lg:col-span-7 bg-surface-container-lowest border border-outline-variant p-8 md:p-12">
+<h2 class="font-display text-headline-md text-primary mb-8">Formularz zgłoszeniowy</h2>
+<form class="space-y-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="font-label-md text-on-surface-variant block">Imię i Nazwisko</label>
+<input class="w-full bg-surface border border-outline-variant focus:border-primary focus:ring-0 transition-colors p-3 rounded-DEFAULT font-body-md" placeholder="Jan Kowalski" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="font-label-md text-on-surface-variant block">Email</label>
+<input class="w-full bg-surface border border-outline-variant focus:border-primary focus:ring-0 transition-colors p-3 rounded-DEFAULT font-body-md" placeholder="email@firma.pl" type="email"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="font-label-md text-on-surface-variant block">Temat zapytania</label>
+<div class="relative">
+<select class="w-full bg-surface border border-outline-variant focus:border-primary focus:ring-0 transition-colors p-3 rounded-DEFAULT font-body-md appearance-none">
+<option value="welding">Welding (Spawalnictwo)</option>
+<option value="ndt">NDT (Badania Nieniszczące)</option>
+<option value="corrosion">Corrosion (Antykorozja)</option>
+<option value="other">Inny temat</option>
+</select>
+<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant">expand_more</span>
+</div>
+</div>
+<div class="space-y-2">
+<label class="font-label-md text-on-surface-variant block">Wiadomość</label>
+<textarea class="w-full bg-surface border border-outline-variant focus:border-primary focus:ring-0 transition-colors p-3 rounded-DEFAULT font-body-md" placeholder="Opisz szczegóły swojego projektu lub zapytania..." rows="5"></textarea>
+</div>
+<div class="flex items-center gap-3 py-2">
+<input class="rounded-DEFAULT border-outline-variant text-primary focus:ring-0" id="consent" type="checkbox"/>
+<label class="text-label-md text-on-surface-variant leading-tight" for="consent">Wyrażam zgodę na przetwarzanie danych zgodnie z polityką prywatności.</label>
+</div>
+<button class="w-full md:w-auto bg-primary text-on-primary px-10 py-4 font-label-md rounded-DEFAULT hover:bg-secondary transition-all active:scale-95 flex items-center justify-center gap-2 group" type="submit">
+                            Wyślij wiadomość
+                            <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">send</span>
+</button>
+</form>
+</div>
+<!-- Info & Map Sidebar -->
+<div class="lg:col-span-5 space-y-gutter">
+<!-- Contact Info Card -->
+<div class="bg-primary text-on-primary p-8 md:p-10 border border-primary">
+<h3 class="font-display text-headline-sm mb-8">Dane kontaktowe</h3>
+<div class="space-y-8">
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 bg-white/10 flex items-center justify-center rounded-DEFAULT shrink-0">
+<span class="material-symbols-outlined">call</span>
+</div>
+<div>
+<p class="font-label-md text-white/60 mb-1">Telefon</p>
+<a class="font-display text-headline-sm hover:text-secondary-fixed transition-colors" href="tel:+490421XXXXXXX">+49 (0) 421 XXX XX XX</a>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 bg-white/10 flex items-center justify-center rounded-DEFAULT shrink-0">
+<span class="material-symbols-outlined">mail</span>
+</div>
+<div>
+<p class="font-label-md text-white/60 mb-1">E-mail</p>
+<a class="font-display text-headline-sm hover:text-secondary-fixed transition-colors" href="mailto:office@asn-network.de">office@asn-network.de</a>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<div class="w-12 h-12 bg-white/10 flex items-center justify-center rounded-DEFAULT shrink-0">
+<span class="material-symbols-outlined">location_on</span>
+</div>
+<div>
+<p class="font-label-md text-white/60 mb-1">Adres</p>
+<p class="font-display text-headline-sm leading-tight">Brema Headquarters,<br/>Germany</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Map/Visual Representation -->
+<div class="aspect-video bg-surface-container-high border border-outline-variant relative group overflow-hidden">
+<div class="w-full h-full opacity-60 grayscale group-hover:grayscale-0 transition-all duration-700" data-location="Bremen" style="">
+<!-- Stylized Map Placeholder -->
+<div class="absolute inset-0 bg-neutral-200">
+<img class="w-full h-full object-cover" data-alt="A high-end, minimalist technical map illustration of Bremen, Germany, featuring clean industrial lines and navy blue accents. The map uses a sophisticated architectural drawing style with subtle grid patterns. The lighting is soft and professional, emphasizing a modern light-mode interface aesthetic with precise, authoritative cartographic details." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVWmA8wM3MxEXmQ9Y2wEOiG8OGB6YWeZWuw7WVdnr_itAAshRpJ31ULVbofn_fl5bbpaalep6vqVYaG3_UwPD5EgW3V91P0awyRLjMRiU-tXIWKvgcMNvjz-FVbtJ_pC_vEXyQZwHpNXigv39IpxU2_cusbMD19NRdw5b0UuXQ1o7zt34A8GnQziGUOd8tDOK_RLuh0sOWhO1WOeSJ7fsdenBaZP1FbsDgTqAHhPa6hWZIT_1CJlgeoZv0aQ1wBD_PHQE3sdO668I"/>
+</div>
+</div>
+<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
+<div class="bg-primary text-on-primary px-4 py-2 rounded-DEFAULT font-label-md flex items-center gap-2 animate-pulse shadow-lg">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">location_on</span>
+                                BREMEN HQ
+                            </div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- CTA Section: Join Network -->
+<section class="bg-surface-container-highest py-20 border-y border-outline-variant/30">
+<div class="max-w-container-max mx-auto px-margin-desktop text-center">
+<div class="max-w-3xl mx-auto">
+<h2 class="font-display text-headline-md text-primary mb-6">Zostań częścią naszej sieci</h2>
+<p class="font-body-lg text-on-surface-variant mb-10">
+                        Jesteś specjalistą NDT lub doświadczonym inżynierem spawalnictwa? Poszukujemy partnerów do realizacji prestiżowych projektów przemysłowych w całej Europie.
+                    </p>
+<div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+<button class="bg-primary text-on-primary px-8 py-4 font-label-md rounded-DEFAULT hover:bg-secondary transition-all w-full sm:w-auto">
+                            Zgłoś swoją kandydaturę
+                        </button>
+<button class="border border-primary text-primary px-8 py-4 font-label-md rounded-DEFAULT hover:bg-primary hover:text-on-primary transition-all w-full sm:w-auto">
+                            Dla Partnerów Biznesowych
+                        </button>
+</div>
+</div>
+</div>
+</section>
+
+</Layout>

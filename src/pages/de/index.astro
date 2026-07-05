@@ -1,0 +1,307 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { fetchApi, getMedia } from '../../lib/pocketbase';
+
+const pageData = await fetchApi({
+  collection: 'home_page',
+  locale: 'de'
+});
+
+const attrs = pageData || {};
+const title = attrs.title || "Startseite";
+const seoTitle = attrs.seoTitle;
+const seoDesc = attrs.seoDesc;
+
+const heroTitle = attrs.heroTitle || "Ekspercka wiedza.<br/><span class=\"text-secondary\">Realna odpowiedzialność.</span>";
+const heroDesc = attrs.heroDesc || "Profesjonalne usługi inżynieryjne i koordynacja projektów w obszarach spawalnictwa, NDT i ochrony antykorozyjnej. Zapewniamy precyzję tam, gdzie bezpieczeństwo jest priorytetem.";
+const heroImage = getMedia(attrs.heroImage, pageData) || "https://lh3.googleusercontent.com/aida-public/AB6AXuBBrGiolNSi1aj_eMj1dC52n6Fhn9p1dzew3rJjbium6Hcp0su75LUGgByvEvfD7gzxGp6dkOqMh4sDXy5yUXgpQujccUM6Igb5FOBweEzo5oiELmnPTZFp3HeqCcWxzH0JlyKhYpKb8AN_yCCzbt_697NM4eYFHYx68s0z4LxT19W_czhbgEk9HExO1APRQli5cfWmoCZdipk2ZqcVJQfAEZCl3VJwEXF1keSSA4XtPYcoMlMFW7uZeRnGsvWpOY63Kbj49EQHhV8";
+---
+<Layout title={title} seoTitle={seoTitle} seoDescription={seoDesc} lang="de">
+  
+<!-- Hero Section -->
+<section class="relative pt-40 pb-24 md:pt-64 md:pb-48 industrial-grid" id="home">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<div class="md:col-span-8 lg:col-span-7">
+<div class="inline-flex items-center gap-2 px-3 py-1 bg-secondary-container text-on-secondary-container text-label-md rounded-full mb-6">
+<span class="material-symbols-outlined text-[18px]">verified</span>
+<span>Engineering Excellence</span>
+</div>
+<h1 class="font-display text-headline-lg-mobile md:text-display mb-6 text-primary uppercase tracking-tight" set:html={heroTitle}>
+</h1>
+<p class="font-body-md text-body-lg text-on-surface-variant mb-10 max-w-2xl" set:html={heroDesc}>
+</p>
+<div class="flex flex-wrap gap-4">
+<a class="px-8 py-4 bg-navy text-white font-display text-label-md rounded-DEFAULT hover:bg-secondary transition-all flex items-center gap-2 group" href="/de/uslugi.html">
+                            Poznaj nasze usługi
+                            <span class="material-symbols-outlined transition-transform group-hover:translate-x-1">arrow_forward</span>
+</a>
+<a class="px-8 py-4 border border-navy text-navy font-display text-label-md rounded-DEFAULT hover:bg-navy hover:text-white transition-all" href="/de/about.html">
+                            Über das ASN-Netzwerk
+                        </a>
+</div>
+</div>
+</div>
+<!-- Visual Element -->
+<div class="absolute right-0 bottom-0 w-1/3 h-full hidden lg:block opacity-10 pointer-events-none">
+<img class="object-contain w-full h-full object-right-bottom" src={heroImage} />
+</div>
+</section>
+<!-- The Three Pillars Section -->
+<section class="py-24 bg-white" id="services">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="mb-16">
+<h2 class="font-display text-headline-md text-primary mb-4">Filary naszej działalności</h2>
+<div class="w-20 h-1 bg-secondary"></div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+<!-- Card 1 -->
+<div class="group border border-outline-variant p-8 hover:border-navy transition-all duration-300 flex flex-col h-full bg-surface-container-lowest">
+<div class="mb-8 text-secondary">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'wght' 300">precision_manufacturing</span>
+</div>
+<h3 class="font-display text-headline-sm text-primary mb-4">Spawalnictwo i technika spawalnicza</h3>
+<p class="font-body-md text-on-surface-variant mb-8 flex-grow">
+                            Kompleksowa koordynacja procesów spawalniczych, dobór technologii oraz optymalizacja parametrów zgodnie z normami ISO 3834 i EN 1090.
+                        </p>
+<div class="flex items-center text-label-md text-primary font-bold group-hover:gap-4 transition-all">
+                            SZCZEGÓŁY <span class="material-symbols-outlined">chevron_right</span>
+</div>
+</div>
+<!-- Card 2 -->
+<div class="group border border-outline-variant p-8 hover:border-navy transition-all duration-300 flex flex-col h-full bg-surface-container-lowest">
+<div class="mb-8 text-secondary">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'wght' 300">microwave</span>
+</div>
+<h3 class="font-display text-headline-sm text-primary mb-4">Badania Nieniszczące (NDT)</h3>
+<p class="font-body-md text-on-surface-variant mb-8 flex-grow">
+                            Niezależny nadzór i realizacja badań VT, PT, MT, UT, RT. Gwarantujemy precyzję pomiarową i najwyższe standardy kontroli jakości.
+                        </p>
+<div class="flex items-center text-label-md text-primary font-bold group-hover:gap-4 transition-all">
+                            SZCZEGÓŁY <span class="material-symbols-outlined">chevron_right</span>
+</div>
+</div>
+<!-- Card 3 -->
+<div class="group border border-outline-variant p-8 hover:border-navy transition-all duration-300 flex flex-col h-full bg-surface-container-lowest">
+<div class="mb-8 text-secondary">
+<span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'wght' 300">layers</span>
+</div>
+<h3 class="font-display text-headline-sm text-primary mb-4">Ochrona Antykorozyjna</h3>
+<p class="font-body-md text-on-surface-variant mb-8 flex-grow">
+                            Nadzór nad procesami przygotowania powierzchni i aplikacji powłok. Trwałość struktur i pełna zgodność ze specyfikacją projektu.
+                        </p>
+<div class="flex items-center text-label-md text-primary font-bold group-hover:gap-4 transition-all">
+                            SZCZEGÓŁY <span class="material-symbols-outlined">chevron_right</span>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Model of Cooperation -->
+<section class="py-24 bg-navy text-white overflow-hidden relative">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop relative z-10">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+<div>
+<h2 class="font-display text-headline-md mb-8">Model współpracy oparty na kompetencjach</h2>
+<p class="text-body-lg text-white/80 mb-6 leading-relaxed">
+                            ASN Weld & Inspection Network to nie agencja rekrutacyjna. Jesteśmy wyspecjalizowaną spółką inżynieryjną realizującą projekty w modelu <span class="text-secondary-fixed">Werkvertrag (umowa o dzieło) lub outsourcingu procesowego</span>.
+                        </p>
+<p class="text-body-lg text-white/80 mb-10 leading-relaxed">
+                            Bierzemy pełną odpowiedzialność za dostarczone rezultaty, oferując realne wsparcie techniczne i merytoryczne na każdym etapie projektu. Skupiamy się na rozwiązywaniu problemów, a nie tylko dostarczaniu zasobów.
+                        </p>
+<ul class="space-y-4">
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary-fixed">check_circle</span>
+<span>Gwarancja jakości i terminowości</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary-fixed">check_circle</span>
+<span>Własne know-how i narzędzia</span>
+</li>
+<li class="flex items-start gap-3">
+<span class="material-symbols-outlined text-secondary-fixed">check_circle</span>
+<span>Transparentne rozliczanie efektów</span>
+</li>
+</ul>
+</div>
+<div class="relative">
+<div class="aspect-square bg-surface/5 rounded-full absolute -top-20 -right-20 w-full h-full"></div>
+<img class="relative z-10 rounded-lg shadow-2xl grayscale hover:grayscale-0 transition-all duration-700" data-alt="A professional engineer in a white hard hat and safety glasses, meticulously inspecting a massive industrial steel weld with a modern ultrasonic testing device. The setting is a clean, well-lit manufacturing hall with a cold industrial blue and steel palette. The photo is high-contrast with sharp focus on the engineer's concentration and the technical device, embodying competence and precision." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBdDq9lwIV5DN0ed-ttRHDyOZ-VzD9VQMf75uiJDYszJoSi_mkRdsLIp0ZYuslkK7em6qzLY2SmZRlo6A2NYG2o1wO1UzvtatgaoM6B-dPQjXsHCvcPYWD6qHhi36u_ip8JRETX98BQWiUZsiMUPkotL4AbCX7xMKUIkg8aoaDW_3AZ8sFo4p349TYK5wKTlkpEQDJiKf1GwCmQACeV5QVm-9A-XHNsH6cKQYLnhKf21GdOXy4v6wFWMmcqJo10UgiOoBiTWhAnXfI"/>
+</div>
+</div>
+</div>
+</section>
+<!-- Support Areas (Bento Grid Style) -->
+<section class="py-24 bg-surface">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="text-center mb-16">
+<h2 class="font-display text-headline-md text-primary mb-4">Obszary wsparcia technicznego</h2>
+<p class="text-on-surface-variant max-w-2xl mx-auto">Zapewniamy wsparcie eksperckie w kluczowych etapach cyklu życia produktu i konstrukcji.</p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
+<div class="bg-white p-6 border border-outline-variant hover:border-secondary transition-colors group">
+<span class="material-symbols-outlined text-secondary mb-4 block">fact_check</span>
+<h4 class="font-display font-bold text-label-md">QA/QC</h4>
+</div>
+<div class="bg-white p-6 border border-outline-variant hover:border-secondary transition-colors group">
+<span class="material-symbols-outlined text-secondary mb-4 block">assignment_turned_in</span>
+<h4 class="font-display font-bold text-label-md">QS/QM</h4>
+</div>
+<div class="bg-white p-6 border border-outline-variant hover:border-secondary transition-colors group">
+<span class="material-symbols-outlined text-secondary mb-4 block">description</span>
+<h4 class="font-display font-bold text-label-md">Dokumentacja Techniczna</h4>
+</div>
+<div class="bg-white p-6 border border-outline-variant hover:border-secondary transition-colors group">
+<span class="material-symbols-outlined text-secondary mb-4 block">engineering</span>
+<h4 class="font-display font-bold text-label-md">Engineering Support</h4>
+</div>
+<div class="bg-white p-6 border border-outline-variant hover:border-secondary transition-colors group md:col-span-2 lg:col-span-1">
+<span class="material-symbols-outlined text-secondary mb-4 block">schema</span>
+<h4 class="font-display font-bold text-label-md">Koordynacja Projektów</h4>
+</div>
+</div>
+</div>
+</section>
+<!-- Why ASN? Section -->
+<section class="py-24 bg-white border-y border-outline-variant/30">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
+<div class="lg:col-span-4">
+<h2 class="font-display text-headline-md text-primary mb-6">Dlaczego ASN?</h2>
+<p class="text-on-surface-variant mb-8">Nasza przewaga rynkowa wynika z bezpośredniego doświadczenia w przemyśle i zrozumienia wyzwań operacyjnych naszych klientów.</p>
+<div class="h-px w-full bg-outline-variant/30 mb-8"></div>
+<div class="space-y-6">
+<div class="flex gap-4">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-secondary">update</span>
+</div>
+<div>
+<h4 class="font-bold">Elastyczność</h4>
+<p class="text-sm text-on-surface-variant">Szybka reakcja na potrzeby projektu i adaptacja do wymagań.</p>
+</div>
+</div>
+<div class="flex gap-4">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center flex-shrink-0">
+<span class="material-symbols-outlined text-secondary">handshake</span>
+</div>
+<div>
+<h4 class="font-bold">Niezawodność</h4>
+<p class="text-sm text-on-surface-variant">Partnerstwo oparte na zaufaniu i dotrzymywaniu słowa.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="lg:col-start-6 lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="p-8 bg-surface-container rounded-lg border border-outline-variant/30">
+<h4 class="font-display font-bold text-headline-sm mb-4">Odpowiedzialność</h4>
+<p class="text-on-surface-variant">Nie tylko raportujemy błędy, ale aktywnie wspieramy w ich eliminacji i wdrażaniu działań korygujących.</p>
+</div>
+<div class="p-8 bg-surface-container rounded-lg border border-outline-variant/30">
+<h4 class="font-display font-bold text-headline-sm mb-4">Praktyka</h4>
+<p class="text-on-surface-variant">Nasi specjaliści to praktycy z wieloletnim stażem w branżach Offshore, Oil&Gas oraz energetyce.</p>
+</div>
+<div class="p-8 bg-navy text-white rounded-lg md:col-span-2">
+<h4 class="font-display font-bold text-headline-sm mb-4">Sieć Kompetencji</h4>
+<p class="text-white/80">Łączymy najlepszych ekspertów w branży, tworząc unikalny ekosystem wiedzy technicznej zarządzany z naszej centrali w Bremie.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- About the Network (Brema) -->
+<section class="py-24 bg-surface overflow-hidden" id="experience">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="flex flex-col md:flex-row gap-16 items-center">
+<div class="md:w-1/2">
+<div class="w-full aspect-video bg-cover bg-center rounded-lg shadow-lg" data-alt="A modern, high-tech architectural office building in Bremen, Germany, featuring glass and steel elements. The photo is captured at dusk with warm interior lights glowing against the deep blue twilight sky. The setting reflects stability, professional headquarters, and European engineering standards." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCYNJUdF8iJGjIp_gSgXSNT4HFetvsvTY46A5dgKZayiiZguisQxpMCCNQQbqF0LO90IOZJcUprOCQkcZA9DfmWpslXe9FJ5Vih2xRZlBUS6kfcVmKzh-q29Kr4N6FbNOd3ZwMQ3r5BNrHGFBCa17mTLc24q_OEnV75qK5_dNFc9tFk0nbXlT-DUFdbnVMqrJZGmG7aH6GAafobNcp3055byb8fimpS5Qjy-1Cg6nBGqt6TexplE_TXmAMPyd9c_9sI2bSpc7wbTfw')"></div>
+</div>
+<div class="md:w-1/2">
+<h2 class="font-display text-headline-md text-primary mb-6">Centrala w Bremie</h2>
+<p class="text-body-lg text-on-surface-variant mb-6">
+                            ASN Weld & Inspection Network UG ma swoją siedzibę w Bremie, strategicznym punkcie na mapie europejskiego przemysłu. Stąd koordynujemy nasze działania w całej Europie, dbając o jednolity standard usług.
+                        </p>
+<p class="text-body-lg text-on-surface-variant mb-8">
+                            Naszym celem jest budowanie trwałych relacji z klientami oraz sieci wybitnych specjalistów, dla których inżynieria to pasja podparta solidnym fundamentem teoretycznym i praktycznym.
+                        </p>
+<div class="flex items-center gap-4 p-4 border-l-4 border-secondary bg-white">
+<span class="material-symbols-outlined text-4xl text-secondary">location_on</span>
+<div>
+<p class="font-bold">Brema Headquarters</p>
+<p class="text-sm text-on-surface-variant">Niemcy, Hanseatic City of Bremen</p>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Section -->
+<section class="py-24 bg-white" id="contact">
+<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-16">
+<div>
+<h2 class="font-display text-headline-md text-primary mb-6">Skontaktuj się z nami</h2>
+<p class="text-body-lg text-on-surface-variant mb-10">
+                            Masz pytania dotyczące naszych usług lub szukasz partnera do realizacji projektu? Nasi eksperci są do Twojej dyspozycji.
+                        </p>
+<div class="space-y-8">
+<div class="flex gap-6">
+<div class="w-12 h-12 bg-surface-container rounded-full flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined">call</span>
+</div>
+<div>
+<p class="text-sm text-on-surface-variant mb-1">Zadzwoń do nas</p>
+<p class="font-display font-bold text-headline-sm text-navy">+49 (0) 421 XXX XX XX</p>
+</div>
+</div>
+<div class="flex gap-6">
+<div class="w-12 h-12 bg-surface-container rounded-full flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined">mail</span>
+</div>
+<div>
+<p class="text-sm text-on-surface-variant mb-1">Napisz e-mail</p>
+<p class="font-display font-bold text-headline-sm text-navy">office@asn-network.de</p>
+</div>
+</div>
+<div class="flex gap-6">
+<div class="w-12 h-12 bg-surface-container rounded-full flex items-center justify-center text-secondary">
+<span class="material-symbols-outlined">map</span>
+</div>
+<div>
+<p class="text-sm text-on-surface-variant mb-1">Adres biura</p>
+<p class="font-display font-bold text-headline-sm text-navy">Bremen, Germany</p>
+</div>
+</div>
+</div>
+</div>
+<div class="bg-surface-container p-8 md:p-12 rounded-lg">
+<form class="space-y-6">
+<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+<div class="space-y-2">
+<label class="text-label-md text-on-surface-variant block">Imię i Nazwisko</label>
+<input class="w-full bg-white border border-outline-variant px-4 py-3 rounded-DEFAULT focus:border-navy focus:ring-0 transition-all" placeholder="Jan Kowalski" type="text"/>
+</div>
+<div class="space-y-2">
+<label class="text-label-md text-on-surface-variant block">E-mail służbowy</label>
+<input class="w-full bg-white border border-outline-variant px-4 py-3 rounded-DEFAULT focus:border-navy focus:ring-0 transition-all" placeholder="jan@firma.pl" type="email"/>
+</div>
+</div>
+<div class="space-y-2">
+<label class="text-label-md text-on-surface-variant block">Temat rozmowy</label>
+<select class="w-full bg-white border border-outline-variant px-4 py-3 rounded-DEFAULT focus:border-navy focus:ring-0 transition-all">
+<option>Zapytanie ofertowe</option>
+<option>Współpraca projektowa</option>
+<option>Dołącz do sieci ASN</option>
+<option>Inne</option>
+</select>
+</div>
+<div class="space-y-2">
+<label class="text-label-md text-on-surface-variant block">Wiadomość</label>
+<textarea class="w-full bg-white border border-outline-variant px-4 py-3 rounded-DEFAULT focus:border-navy focus:ring-0 transition-all" placeholder="W czym możemy pomóc?" rows="4"></textarea>
+</div>
+<button class="w-full py-4 bg-navy text-white font-display font-bold uppercase tracking-widest hover:bg-secondary transition-all" type="submit">Wyślij zapytanie</button>
+</form>
+</div>
+</div>
+</div>
+</section>
+
+</Layout>

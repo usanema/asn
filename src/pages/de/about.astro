@@ -1,0 +1,112 @@
+---
+import Layout from '../../layouts/Layout.astro';
+import { fetchApi } from '../../lib/pocketbase';
+
+const pageData = await fetchApi({
+  collection: 'about_page',
+  locale: 'de'
+});
+
+const attrs = pageData || {};
+const title = attrs.title || "Über uns";
+const seoTitle = attrs.seoTitle || "Über uns | ASN Weld & Inspection Network";
+const seoDesc = attrs.seoDesc || "Erfahren Sie mehr über das ASN Weld & Inspection Network.";
+
+const mainTitle = attrs.mainTitle || "Qualitätsexperten.<br/><span class=\"text-secondary\">Geschäftspartner.</span>";
+const mainContent = attrs.mainContent || "<p class=\"mb-6\">Unser Marktvorteil ergibt sich aus direkter Branchenerfahrung und dem Verständnis für die operativen Herausforderungen unserer Kunden. Wir vereinen die besten Experten der Branche in einem einzigartigen Ökosystem technischen Wissens, das von unserem Hauptsitz in Bremen aus verwaltet wird.</p><p>Wir sind stolz darauf, das Fundament für Sicherheit in den wichtigsten Zweigen der europäischen Industrie zu bilden, von Offshore bis zur Energiewirtschaft.</p>";
+---
+
+<Layout title={title} seoTitle={seoTitle} seoDescription={seoDesc} lang="de">
+  
+  <!-- Hero Section -->
+  <section class="relative pt-40 pb-24 md:pt-48 md:pb-32 bg-surface overflow-hidden">
+    <!-- Abstract Tech Graphic -->
+    <div class="absolute inset-0 z-0 opacity-5 pointer-events-none" style="background-image: radial-gradient(#112c3f 1px, transparent 1px); background-size: 32px 32px;"></div>
+    
+    <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop relative z-10 grid grid-cols-1 lg:grid-cols-2 gap-16 items-center">
+      <div>
+        <div class="inline-flex items-center gap-2 px-3 py-1 bg-secondary-container text-on-secondary-container text-label-md rounded-full mb-6">
+          <span class="material-symbols-outlined text-[18px]">hub</span>
+          <span>Über das ASN-Netzwerk</span>
+        </div>
+        <h1 class="font-display text-headline-lg-mobile md:text-display mb-8 text-primary uppercase tracking-tight" set:html={mainTitle}></h1>
+        <div class="font-body-md text-body-lg text-on-surface-variant leading-relaxed" set:html={mainContent}></div>
+      </div>
+      <div class="relative">
+        <div class="absolute -inset-4 bg-gradient-to-tr from-secondary/20 to-primary/5 rounded-2xl transform rotate-3"></div>
+        <img src="https://lh3.googleusercontent.com/aida-public/AB6AXuCYNJUdF8iJGjIp_gSgXSNT4HFetvsvTY46A5dgKZayiiZguisQxpMCCNQQbqF0LO90IOZJcUprOCQkcZA9DfmWpslXe9FJ5Vih2xRZlBUS6kfcVmKzh-q29Kr4N6FbNOd3ZwMQ3r5BNrHGFBCa17mTLc24q_OEnV75qK5_dNFc9tFk0nbXlT-DUFdbnVMqrJZGmG7aH6GAafobNcp3055byb8fimpS5Qjy-1Cg6nBGqt6TexplE_TXmAMPyd9c_9sI2bSpc7wbTfw" alt="Hauptsitz in Bremen" class="relative rounded-xl shadow-2xl object-cover aspect-[4/3] w-full" />
+      </div>
+    </div>
+  </section>
+
+  <!-- Core Values / Philosophy -->
+  <section class="py-24 bg-white border-y border-outline-variant/30">
+    <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+      <div class="text-center mb-16">
+        <h2 class="font-display text-headline-md text-primary mb-4">Unsere Arbeitsphilosophie</h2>
+        <div class="w-20 h-1 bg-secondary mx-auto"></div>
+      </div>
+      
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="p-8 border border-outline-variant hover:border-navy transition-all duration-300 bg-surface-container-lowest group rounded-lg">
+          <div class="w-14 h-14 bg-secondary-container rounded-lg flex items-center justify-center mb-6 text-secondary group-hover:scale-110 transition-transform">
+            <span class="material-symbols-outlined text-3xl">verified_user</span>
+          </div>
+          <h3 class="font-display text-headline-sm text-primary mb-4">Kompromisslose Qualität</h3>
+          <p class="text-on-surface-variant">Wir machen keine Abkürzungen. In der Welt der Schweißtechnik und NDT führt Qualität direkt zu menschlicher und ökologischer Sicherheit.</p>
+        </div>
+        
+        <div class="p-8 border border-outline-variant hover:border-navy transition-all duration-300 bg-surface-container-lowest group rounded-lg">
+          <div class="w-14 h-14 bg-secondary-container rounded-lg flex items-center justify-center mb-6 text-secondary group-hover:scale-110 transition-transform">
+            <span class="material-symbols-outlined text-3xl">psychology</span>
+          </div>
+          <h3 class="font-display text-headline-sm text-primary mb-4">Wissen und Erfahrung</h3>
+          <p class="text-on-surface-variant">Wir beschäftigen zertifizierte Experten mit langjähriger Erfahrung. Wir wissen, wie man Normen in Bezug auf die Produktionsrealität interpretiert.</p>
+        </div>
+
+        <div class="p-8 border border-outline-variant hover:border-navy transition-all duration-300 bg-surface-container-lowest group rounded-lg">
+          <div class="w-14 h-14 bg-secondary-container rounded-lg flex items-center justify-center mb-6 text-secondary group-hover:scale-110 transition-transform">
+            <span class="material-symbols-outlined text-3xl">handshake</span>
+          </div>
+          <h3 class="font-display text-headline-sm text-primary mb-4">Geschäftspartnerschaft</h3>
+          <p class="text-on-surface-variant">Ihr Erfolg ist unser Erfolg. Wir arbeiten Hand in Hand mit Ihrem Team, lösen Probleme an der Quelle und optimieren Produktionsprozesse.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Metrics / Trust -->
+  <section class="py-24 bg-navy text-white relative">
+    <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-white/10">
+      <div>
+        <div class="font-display text-display font-bold text-secondary-fixed mb-2">15+</div>
+        <div class="font-bold text-label-md uppercase tracking-wider text-white/80">Jahre Erfahrung</div>
+      </div>
+      <div>
+        <div class="font-display text-display font-bold text-secondary-fixed mb-2">500+</div>
+        <div class="font-bold text-label-md uppercase tracking-wider text-white/80">Durchgeführte Audits</div>
+      </div>
+      <div>
+        <div class="font-display text-display font-bold text-secondary-fixed mb-2">12</div>
+        <div class="font-bold text-label-md uppercase tracking-wider text-white/80">Länder in Europa</div>
+      </div>
+      <div>
+        <div class="font-display text-display font-bold text-secondary-fixed mb-2">100%</div>
+        <div class="font-bold text-label-md uppercase tracking-wider text-white/80">Konformitätsgarantie</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Call to Action -->
+  <section class="py-24 bg-surface text-center">
+    <div class="max-w-3xl mx-auto px-margin-mobile">
+      <h2 class="font-display text-headline-md text-primary mb-6">Bereit für eine Zusammenarbeit?</h2>
+      <p class="text-body-lg text-on-surface-variant mb-10">Vertrauen Sie Ingenieuren, die wissen, wie man die höchsten Ausführungsstandards in Ihrem Projekt garantiert.</p>
+      <a href="/de/kontakt.html" class="inline-flex items-center gap-2 px-8 py-4 bg-navy text-white font-display text-label-md rounded-DEFAULT hover:bg-secondary transition-all group">
+        Kontaktieren Sie einen Experten
+        <span class="material-symbols-outlined transition-transform group-hover:translate-x-1">arrow_forward</span>
+      </a>
+    </div>
+  </section>
+
+</Layout>

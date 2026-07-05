@@ -1,0 +1,181 @@
+---
+import { fetchApi, getMedia } from '../lib/pocketbase';
+const { currentPath, lang = 'en', globalSettings } = Astro.props;
+
+// Fetch navigation dynamically
+const navItems = await fetchApi({
+  collection: 'navigation',
+  locale: lang,
+  isList: true
+});
+
+const t = {
+  en: { getInTouch: "Get in Touch", menu: "Menu", close: "Close" },
+  pl: { getInTouch: "Skontaktuj się", menu: "Menu", close: "Zamknij" },
+  de: { getInTouch: "Kontakt aufnehmen", menu: "Menü", close: "Schließen" }
+};
+
+const texts = t[lang] || t['en'];
+
+// Helper for generating correct links based on language
+const getLink = (path) => {
+  if (lang === 'en') return path;
+  if (path === '/') return `/${lang}/`;
+  return `/${lang}${path.startsWith('/') ? path : '/' + path}`;
+};
+
+// Remove trailing slash and prefix to compare current path easily
+const isActive = (path) => {
+  if (currentPath === path || currentPath === `${path}/`) return true;
+  if (lang !== 'en' && (currentPath === `/${lang}${path}` || currentPath === `/${lang}${path}/`)) return true;
+  return false;
+};
+
+// Logo logic
+const logoUrl = getMedia(globalSettings?.logo, globalSettings);
+const logoText = globalSettings?.logoText || "ASN Weld & Inspection Network";
+---
+
+<header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-md border-b border-outline-variant/30 transition-all duration-300">
+  <div class="flex justify-between items-center h-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+    <!-- Logo -->
+    <a class="font-display text-headline-sm font-bold text-primary flex items-center gap-3 group" href={getLink("/")}>
+      {logoUrl ? (
+        <img src={logoUrl} alt={logoText} class="h-10 w-auto object-contain transition-transform group-hover:scale-105 duration-200" />
+      ) : (
+        <span class="tracking-tight text-navy group-hover:text-secondary transition-colors">{logoText}</span>
+      )}
+    </a>
+    
+    <!-- Desktop Navigation -->
+    <nav class="hidden lg:flex gap-8 items-center">
+      <div class="flex gap-6 items-center">
+        {navItems.map((item) => (
+          <a 
+            class={`font-display text-label-md transition-all relative py-2 ${
+              isActive(item.path) 
+                ? 'text-primary font-bold after:content-[""] after:absolute after:bottom-0 after:left-0 after:w-full after:h-[2px] after:bg-secondary' 
+                : 'text-on-surface-variant hover:text-primary'
+            }`} 
+            href={getLink(item.path)}
+          >
+            {item.title}
+          </a>
+        ))}
+      </div>
+      
+      <!-- Language Switcher -->
+      <div class="flex items-center gap-1.5 ml-2 border-l border-outline-variant/50 pl-6">
+        <a href="/" class={`px-2 py-1 rounded text-xs font-bold uppercase transition-all ${lang === 'en' ? 'bg-primary text-white shadow-sm' : 'text-on-surface-variant hover:bg-surface-container hover:text-primary'}`}>EN</a>
+        <a href="/de/" class={`px-2 py-1 rounded text-xs font-bold uppercase transition-all ${lang === 'de' ? 'bg-primary text-white shadow-sm' : 'text-on-surface-variant hover:bg-surface-container hover:text-primary'}`}>DE</a>
+        <a href="/pl/" class={`px-2 py-1 rounded text-xs font-bold uppercase transition-all ${lang === 'pl' ? 'bg-primary text-white shadow-sm' : 'text-on-surface-variant hover:bg-surface-container hover:text-primary'}`}>PL</a>
+      </div>
+
+      <!-- CTA Button -->
+      <a 
+        class="ml-4 px-6 py-2.5 bg-navy text-white font-display text-label-md rounded-DEFAULT hover:bg-secondary transition-all shadow-md hover:shadow-lg active:scale-95 duration-150 flex items-center gap-1 group" 
+        href={getLink("/kontakt.html")}
+      >
+        <span>{texts.getInTouch}</span>
+        <span class="material-symbols-outlined text-sm transition-transform group-hover:translate-x-0.5">arrow_forward</span>
+      </a>
+    </nav>
+
+    <!-- Mobile Hamburger Button -->
+    <button 
+      id="mobile-menu-toggle" 
+      aria-label={texts.menu}
+      class="lg:hidden p-2.5 rounded-lg text-primary hover:bg-surface-container transition-colors focus:outline-none focus:ring-2 focus:ring-primary/20"
+    >
+      <span class="material-symbols-outlined text-2xl block" id="menu-icon">menu</span>
+    </button>
+  </div>
+
+  <!-- Mobile Menu Drawer -->
+  <div 
+    id="mobile-drawer" 
+    class="fixed inset-x-0 top-20 bg-surface/98 backdrop-blur-xl border-b border-outline-variant shadow-2xl transition-all duration-300 ease-in-out opacity-0 pointer-events-none -translate-y-4 lg:hidden max-h-[calc(100vh-5rem)] overflow-y-auto"
+  >
+    <div class="px-margin-mobile py-8 flex flex-col gap-6">
+      <!-- Navigation Links -->
+      <div class="flex flex-col gap-3">
+        {navItems.map((item) => (
+          <a 
+            class={`font-display text-lg py-3 px-4 rounded-lg transition-all flex items-center justify-between ${
+              isActive(item.path) 
+                ? 'bg-secondary-container/50 text-primary font-bold border-l-4 border-secondary' 
+                : 'text-on-surface-variant hover:bg-surface-container hover:text-primary'
+            }`} 
+            href={getLink(item.path)}
+          >
+            <span>{item.title}</span>
+            <span class="material-symbols-outlined text-sm opacity-50">chevron_right</span>
+          </a>
+        ))}
+      </div>
+
+      <hr class="border-outline-variant/30" />
+
+      <!-- Language Selector Mobile -->
+      <div class="flex flex-col gap-2">
+        <span class="text-xs font-bold text-on-surface-variant uppercase tracking-wider px-2">Language / Język / Sprache</span>
+        <div class="grid grid-cols-3 gap-2">
+          <a href="/" class={`text-center py-2.5 rounded-lg text-sm font-bold transition-all ${lang === 'en' ? 'bg-primary text-white shadow' : 'bg-surface-container text-on-surface-variant'}`}>English</a>
+          <a href="/de/" class={`text-center py-2.5 rounded-lg text-sm font-bold transition-all ${lang === 'de' ? 'bg-primary text-white shadow' : 'bg-surface-container text-on-surface-variant'}`}>Deutsch</a>
+          <a href="/pl/" class={`text-center py-2.5 rounded-lg text-sm font-bold transition-all ${lang === 'pl' ? 'bg-primary text-white shadow' : 'bg-surface-container text-on-surface-variant'}`}>Polski</a>
+        </div>
+      </div>
+
+      <!-- CTA Button Mobile -->
+      <div class="pt-2">
+        <a 
+          class="w-full py-4 bg-navy text-white font-display text-label-md rounded-DEFAULT hover:bg-secondary transition-all shadow-lg flex items-center justify-center gap-2 text-center group" 
+          href={getLink("/kontakt.html")}
+        >
+          <span>{texts.getInTouch}</span>
+          <span class="material-symbols-outlined transition-transform group-hover:translate-x-1">arrow_forward</span>
+        </a>
+      </div>
+    </div>
+  </div>
+</header>
+
+<script>
+  // Mobile menu interactive script
+  function setupMobileMenu() {
+    const toggleBtn = document.getElementById('mobile-menu-toggle');
+    const drawer = document.getElementById('mobile-drawer');
+    const menuIcon = document.getElementById('menu-icon');
+
+    if (!toggleBtn || !drawer || !menuIcon) return;
+
+    let isOpen = false;
+
+    toggleBtn.addEventListener('click', () => {
+      isOpen = !isOpen;
+      if (isOpen) {
+        drawer.classList.remove('opacity-0', 'pointer-events-none', '-translate-y-4');
+        drawer.classList.add('opacity-100', 'pointer-events-auto', 'translate-y-0');
+        menuIcon.textContent = 'close';
+      } else {
+        drawer.classList.add('opacity-0', 'pointer-events-none', '-translate-y-4');
+        drawer.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
+        menuIcon.textContent = 'menu';
+      }
+    });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (event) => {
+      if (isOpen && !drawer.contains(event.target as Node) && !toggleBtn.contains(event.target as Node)) {
+        isOpen = false;
+        drawer.classList.add('opacity-0', 'pointer-events-none', '-translate-y-4');
+        drawer.classList.remove('opacity-100', 'pointer-events-auto', 'translate-y-0');
+        menuIcon.textContent = 'menu';
+      }
+    });
+  }
+
+  // Run setup on page load and after Astro transitions
+  setupMobileMenu();
+  document.addEventListener('astro:after-swap', setupMobileMenu);
+</script>

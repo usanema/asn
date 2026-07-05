@@ -1,0 +1,61 @@
+---
+const { lang } = Astro.props;
+
+const t = {
+  en: {
+    desc: "Professional engineering network specializing in the coordination and supervision of welding processes and NDT testing. Headquartered in Bremen, European reach.",
+    services: "Services",
+    legal: "Legal"
+  },
+  pl: {
+    desc: "Profesjonalna sieć inżynieryjna specjalizująca się w koordynacji i nadzorze procesów spawalniczych oraz badaniach NDT. Siedziba w Bremie, zasięg europejski.",
+    services: "Usługi",
+    legal: "Legal"
+  },
+  de: {
+    desc: "Professionelles Ingenieurnetzwerk, spezialisiert auf die Koordination und Überwachung von Schweißprozessen und ZfP-Prüfungen. Hauptsitz in Bremen, europaweite Reichweite.",
+    services: "Dienstleistungen",
+    legal: "Rechtliches"
+  }
+};
+
+const texts = t[lang] || t['en'];
+---
+<footer class="w-full py-12 bg-surface-container-highest">
+  <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+    <div class="col-span-1 md:col-span-2">
+      <a class="font-display text-headline-sm font-bold text-on-surface block mb-6" href="#">ASN Weld & Inspection Network</a>
+      <p class="text-on-surface-variant max-w-md mb-8">
+        {texts.desc}
+      </p>
+      <div class="flex gap-4">
+        <a class="w-10 h-10 border border-outline flex items-center justify-center hover:bg-navy hover:text-white transition-all rounded-full" href="#">
+          <span class="material-symbols-outlined text-sm">share</span>
+        </a>
+      </div>
+    </div>
+    <div>
+      <h4 class="font-bold mb-6 uppercase text-label-md tracking-wider">{texts.services}</h4>
+      <ul class="space-y-3">
+        <li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Spawalnictwo</a></li>
+        <li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Badania NDT</a></li>
+        <li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Antykorozyjna</a></li>
+        <li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">QA/QC Support</a></li>
+      </ul>
+    </div>
+    <div>
+      <h4 class="font-bold mb-6 uppercase text-label-md tracking-wider">{texts.legal}</h4>
+      <ul class="space-y-3">
+        <li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
+        <li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Terms of Service</a></li>
+        <li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Compliance</a></li>
+        <li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Impressum</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mt-12 pt-8 border-t border-outline-variant/30">
+    <p class="text-on-surface-variant text-sm text-center md:text-left">
+      © 2024 ASN Weld & Inspection Network. All rights reserved. Brema Headquarters.
+    </p>
+  </div>
+</footer>
