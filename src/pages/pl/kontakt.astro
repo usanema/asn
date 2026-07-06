@@ -1,138 +1,152 @@
 ---
 import Layout from '../../layouts/Layout.astro';
----
-<Layout title="Contact" lang="pl">
-  
-<!-- Hero Section -->
-<section class="relative py-24 md:py-32 overflow-hidden industrial-grid bg-surface-container-low">
-<div class="max-w-container-max mx-auto px-margin-desktop relative z-10">
-<div class="max-w-3xl">
-<span class="font-label-md text-secondary tracking-widest uppercase mb-4 block">Centrala Bremen, Niemcy</span>
-<h1 class="font-display text-headline-lg-mobile md:text-display text-primary mb-6">Skontaktuj się z nami</h1>
-<p class="font-body-lg text-on-surface-variant max-w-2xl">
-                        Jesteśmy Twoim strategicznym partnerem w zakresie spawalnictwa, badań NDT oraz zarządzania ochroną antykorozyjną. Zapraszamy do dialogu technicznego.
-                    </p>
-</div>
-</div>
-<!-- Atmospheric Element -->
-<div class="absolute right-0 top-0 w-1/3 h-full opacity-10 pointer-events-none">
-<span class="material-symbols-outlined text-[320px] absolute -right-20 top-10" style="font-variation-settings: 'wght' 100;">architecture</span>
-</div>
-</section>
-<!-- Main Content: Bento Layout -->
-<section class="py-12 md:py-24 max-w-container-max mx-auto px-margin-desktop">
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
-<!-- Contact Form Card -->
-<div class="lg:col-span-7 bg-surface-container-lowest border border-outline-variant p-8 md:p-12">
-<h2 class="font-display text-headline-md text-primary mb-8">Formularz zgłoszeniowy</h2>
-<form class="space-y-6">
-<div class="grid grid-cols-1 md:grid-cols-2 gap-6">
-<div class="space-y-2">
-<label class="font-label-md text-on-surface-variant block">Imię i Nazwisko</label>
-<input class="w-full bg-surface border border-outline-variant focus:border-primary focus:ring-0 transition-colors p-3 rounded-DEFAULT font-body-md" placeholder="Jan Kowalski" type="text"/>
-</div>
-<div class="space-y-2">
-<label class="font-label-md text-on-surface-variant block">Email</label>
-<input class="w-full bg-surface border border-outline-variant focus:border-primary focus:ring-0 transition-colors p-3 rounded-DEFAULT font-body-md" placeholder="email@firma.pl" type="email"/>
-</div>
-</div>
-<div class="space-y-2">
-<label class="font-label-md text-on-surface-variant block">Temat zapytania</label>
-<div class="relative">
-<select class="w-full bg-surface border border-outline-variant focus:border-primary focus:ring-0 transition-colors p-3 rounded-DEFAULT font-body-md appearance-none">
-<option value="welding">Welding (Spawalnictwo)</option>
-<option value="ndt">NDT (Badania Nieniszczące)</option>
-<option value="corrosion">Corrosion (Antykorozja)</option>
-<option value="other">Inny temat</option>
-</select>
-<span class="material-symbols-outlined absolute right-3 top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant">expand_more</span>
-</div>
-</div>
-<div class="space-y-2">
-<label class="font-label-md text-on-surface-variant block">Wiadomość</label>
-<textarea class="w-full bg-surface border border-outline-variant focus:border-primary focus:ring-0 transition-colors p-3 rounded-DEFAULT font-body-md" placeholder="Opisz szczegóły swojego projektu lub zapytania..." rows="5"></textarea>
-</div>
-<div class="flex items-center gap-3 py-2">
-<input class="rounded-DEFAULT border-outline-variant text-primary focus:ring-0" id="consent" type="checkbox"/>
-<label class="text-label-md text-on-surface-variant leading-tight" for="consent">Wyrażam zgodę na przetwarzanie danych zgodnie z polityką prywatności.</label>
-</div>
-<button class="w-full md:w-auto bg-primary text-on-primary px-10 py-4 font-label-md rounded-DEFAULT hover:bg-secondary transition-all active:scale-95 flex items-center justify-center gap-2 group" type="submit">
-                            Wyślij wiadomość
-                            <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform">send</span>
-</button>
-</form>
-</div>
-<!-- Info & Map Sidebar -->
-<div class="lg:col-span-5 space-y-gutter">
-<!-- Contact Info Card -->
-<div class="bg-primary text-on-primary p-8 md:p-10 border border-primary">
-<h3 class="font-display text-headline-sm mb-8">Dane kontaktowe</h3>
-<div class="space-y-8">
-<div class="flex items-start gap-4">
-<div class="w-12 h-12 bg-white/10 flex items-center justify-center rounded-DEFAULT shrink-0">
-<span class="material-symbols-outlined">call</span>
-</div>
-<div>
-<p class="font-label-md text-white/60 mb-1">Telefon</p>
-<a class="font-display text-headline-sm hover:text-secondary-fixed transition-colors" href="tel:+490421XXXXXXX">+49 (0) 421 XXX XX XX</a>
-</div>
-</div>
-<div class="flex items-start gap-4">
-<div class="w-12 h-12 bg-white/10 flex items-center justify-center rounded-DEFAULT shrink-0">
-<span class="material-symbols-outlined">mail</span>
-</div>
-<div>
-<p class="font-label-md text-white/60 mb-1">E-mail</p>
-<a class="font-display text-headline-sm hover:text-secondary-fixed transition-colors" href="mailto:office@asn-network.de">office@asn-network.de</a>
-</div>
-</div>
-<div class="flex items-start gap-4">
-<div class="w-12 h-12 bg-white/10 flex items-center justify-center rounded-DEFAULT shrink-0">
-<span class="material-symbols-outlined">location_on</span>
-</div>
-<div>
-<p class="font-label-md text-white/60 mb-1">Adres</p>
-<p class="font-display text-headline-sm leading-tight">Brema Headquarters,<br/>Germany</p>
-</div>
-</div>
-</div>
-</div>
-<!-- Map/Visual Representation -->
-<div class="aspect-video bg-surface-container-high border border-outline-variant relative group overflow-hidden">
-<div class="w-full h-full opacity-60 grayscale group-hover:grayscale-0 transition-all duration-700" data-location="Bremen" style="">
-<!-- Stylized Map Placeholder -->
-<div class="absolute inset-0 bg-neutral-200">
-<img class="w-full h-full object-cover" data-alt="A high-end, minimalist technical map illustration of Bremen, Germany, featuring clean industrial lines and navy blue accents. The map uses a sophisticated architectural drawing style with subtle grid patterns. The lighting is soft and professional, emphasizing a modern light-mode interface aesthetic with precise, authoritative cartographic details." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBVWmA8wM3MxEXmQ9Y2wEOiG8OGB6YWeZWuw7WVdnr_itAAshRpJ31ULVbofn_fl5bbpaalep6vqVYaG3_UwPD5EgW3V91P0awyRLjMRiU-tXIWKvgcMNvjz-FVbtJ_pC_vEXyQZwHpNXigv39IpxU2_cusbMD19NRdw5b0UuXQ1o7zt34A8GnQziGUOd8tDOK_RLuh0sOWhO1WOeSJ7fsdenBaZP1FbsDgTqAHhPa6hWZIT_1CJlgeoZv0aQ1wBD_PHQE3sdO668I"/>
-</div>
-</div>
-<div class="absolute inset-0 flex items-center justify-center pointer-events-none">
-<div class="bg-primary text-on-primary px-4 py-2 rounded-DEFAULT font-label-md flex items-center gap-2 animate-pulse shadow-lg">
-<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">location_on</span>
-                                BREMEN HQ
-                            </div>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- CTA Section: Join Network -->
-<section class="bg-surface-container-highest py-20 border-y border-outline-variant/30">
-<div class="max-w-container-max mx-auto px-margin-desktop text-center">
-<div class="max-w-3xl mx-auto">
-<h2 class="font-display text-headline-md text-primary mb-6">Zostań częścią naszej sieci</h2>
-<p class="font-body-lg text-on-surface-variant mb-10">
-                        Jesteś specjalistą NDT lub doświadczonym inżynierem spawalnictwa? Poszukujemy partnerów do realizacji prestiżowych projektów przemysłowych w całej Europie.
-                    </p>
-<div class="flex flex-col sm:flex-row items-center justify-center gap-4">
-<button class="bg-primary text-on-primary px-8 py-4 font-label-md rounded-DEFAULT hover:bg-secondary transition-all w-full sm:w-auto">
-                            Zgłoś swoją kandydaturę
-                        </button>
-<button class="border border-primary text-primary px-8 py-4 font-label-md rounded-DEFAULT hover:bg-primary hover:text-on-primary transition-all w-full sm:w-auto">
-                            Dla Partnerów Biznesowych
-                        </button>
-</div>
-</div>
-</div>
-</section>
+import { fetchApi } from '../../lib/pocketbase';
 
+const pageData = await fetchApi({
+  collection: 'contact_page',
+  locale: 'pl'
+});
+
+const attrs = pageData || {};
+const title = attrs.title || "Kontakt";
+const seoTitle = attrs.seoTitle || "Kontakt | ASN Weld & Inspection Network";
+const seoDesc = attrs.seoDesc || "Skontaktuj się z naszym zespołem inżynieryjnym w Bremie.";
+
+const badge = attrs.badge || "Centrala Bremen, Niemcy";
+const heroTitle = attrs.heroTitle || "Skontaktuj się z nami";
+const heroDesc = attrs.heroDesc || "Jesteśmy Twoim strategicznym partnerem w zakresie spawalnictwa, badań NDT oraz zarządzania ochroną antykorozyjną. Zapraszamy do dialogu technicznego.";
+
+const formTitle = attrs.formTitle || "Formularz zgłoszeniowy";
+const addressTitle = attrs.addressTitle || "Adres centrali";
+const addressText = attrs.addressText || "ASN Weld & Inspection Network GmbH<br/>Am Wall 120<br/>28195 Bremen, Niemcy";
+const emailText = attrs.emailText || "contact@asn-network.de";
+const phoneText = attrs.phoneText || "+49 (0) 421 123 4567";
+
+const mapImg = "https://lh3.googleusercontent.com/aida-public/AB6AXuBVWmA8wM3MxEXmQ9Y2wEOiG8OGB6YWeZWuw7WVdnr_itAAshRpJ31ULVbofn_fl5bbpaalep6vqVYaG3_UwPD5EgW3V91P0awyRLjMRiU-tXIWKvgcMNvjz-FVbtJ_pC_vEXyQZwHpNXigv39IpxU2_cusbMD19NRdw5b0UuXQ1o7zt34A8GnQziGUOd8tDOK_RLuh0sOWhO1WOeSJ7fsdenBaZP1FbsDgTqAHhPa6hWZIT_1CJlgeoZv0aQ1wBD_PHQE3sdO668I";
+---
+<Layout title={title} seoTitle={seoTitle} seoDescription={seoDesc} lang="pl">
+  <!-- Hero Section -->
+  <section class="relative py-20 md:py-28 bg-navy text-white overflow-hidden border-b border-outline-variant/30">
+    <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop relative z-10">
+      <div class="max-w-3xl">
+        <span class="font-display text-sm font-bold text-secondary tracking-widest uppercase mb-4 block">{badge}</span>
+        <h1 class="font-display text-4xl md:text-6xl font-bold mb-6 leading-tight" set:html={heroTitle} />
+        <p class="font-body-md text-lg text-gray-300 max-w-2xl leading-relaxed" set:html={heroDesc} />
+      </div>
+    </div>
+  </section>
+
+  <!-- Main Content: Bento Layout -->
+  <section class="py-16 md:py-24 max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-12">
+      <!-- Contact Form Card -->
+      <div class="lg:col-span-7 bg-surface border border-outline-variant/30 p-8 md:p-12 rounded-2xl shadow-sm">
+        <h2 class="font-display text-2xl md:text-3xl font-bold text-primary mb-8">{formTitle}</h2>
+        <form class="space-y-6" onsubmit="event.preventDefault(); alert('Wiadomość została wysłana! Nasz zespół wkrótce się z Tobą skontaktuje.');">
+          <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+            <div class="space-y-2">
+              <label class="font-bold text-xs text-on-surface uppercase tracking-wider block">Imię i Nazwisko</label>
+              <input required class="w-full bg-surface-container-low border border-outline-variant/30 focus:border-primary p-3.5 rounded-lg text-sm outline-none transition-all" placeholder="Jan Kowalski" type="text"/>
+            </div>
+            <div class="space-y-2">
+              <label class="font-bold text-xs text-on-surface uppercase tracking-wider block">Adres E-mail</label>
+              <input required class="w-full bg-surface-container-low border border-outline-variant/30 focus:border-primary p-3.5 rounded-lg text-sm outline-none transition-all" placeholder="jan@firma.pl" type="email"/>
+            </div>
+          </div>
+          <div class="space-y-2">
+            <label class="font-bold text-xs text-on-surface uppercase tracking-wider block">Temat zapytania</label>
+            <div class="relative">
+              <select class="w-full bg-surface-container-low border border-outline-variant/30 focus:border-primary p-3.5 rounded-lg text-sm outline-none transition-all appearance-none">
+                <option value="welding">Koordynacja Spawalnicza (IWE/EWE)</option>
+                <option value="ndt">Badania Nieniszczące (NDT)</option>
+                <option value="corrosion">Ochrona Antykorozyjna (FROSIO/NACE)</option>
+                <option value="other">Ogólne zapytanie techniczne</option>
+              </select>
+              <span class="material-symbols-outlined absolute right-3.5 top-1/2 -translate-y-1/2 pointer-events-none text-on-surface-variant">expand_more</span>
+            </div>
+          </div>
+          <div class="space-y-2">
+            <label class="font-bold text-xs text-on-surface uppercase tracking-wider block">Treść wiadomości</label>
+            <textarea required class="w-full bg-surface-container-low border border-outline-variant/30 focus:border-primary p-3.5 rounded-lg text-sm outline-none transition-all" placeholder="Opisz szczegóły swojego projektu, lokalizację i wymagania techniczne..." rows="5"></textarea>
+          </div>
+          <div class="flex items-center gap-3 pt-2">
+            <input required class="rounded border-outline-variant/30 text-primary w-4 h-4 cursor-pointer" id="consent_pl" type="checkbox"/>
+            <label class="text-xs text-on-surface-variant cursor-pointer select-none" for="consent_pl">Wyrażam zgodę na przetwarzanie danych osobowych zgodnie z Polityką Prywatności.</label>
+          </div>
+          <button class="w-full md:w-auto bg-primary text-white px-8 py-4 font-bold rounded-lg hover:bg-secondary transition-all flex items-center justify-center gap-2 shadow-md group" type="submit">
+            Wyślij wiadomość
+            <span class="material-symbols-outlined group-hover:translate-x-1 transition-transform text-sm">send</span>
+          </button>
+        </form>
+      </div>
+
+      <!-- Info & Map Sidebar -->
+      <div class="lg:col-span-5 space-y-8">
+        <!-- Contact Info Card -->
+        <div class="bg-navy text-white p-8 md:p-10 rounded-2xl shadow-xl border border-white/10">
+          <h3 class="font-display text-2xl font-bold mb-8 text-white">{addressTitle}</h3>
+          <div class="space-y-8">
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-white/10 flex items-center justify-center rounded-lg shrink-0 text-secondary">
+                <span class="material-symbols-outlined">call</span>
+              </div>
+              <div>
+                <p class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">Telefon</p>
+                <a class="font-display text-lg font-bold hover:text-secondary transition-colors" href={`tel:${phoneText}`}>{phoneText}</a>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-white/10 flex items-center justify-center rounded-lg shrink-0 text-secondary">
+                <span class="material-symbols-outlined">mail</span>
+              </div>
+              <div>
+                <p class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">E-mail</p>
+                <a class="font-display text-lg font-bold hover:text-secondary transition-colors" href={`mailto:${emailText}`}>{emailText}</a>
+              </div>
+            </div>
+            <div class="flex items-start gap-4">
+              <div class="w-12 h-12 bg-white/10 flex items-center justify-center rounded-lg shrink-0 text-secondary">
+                <span class="material-symbols-outlined">location_on</span>
+              </div>
+              <div>
+                <p class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">Adres</p>
+                <div class="font-display text-base font-bold leading-relaxed text-white" set:html={addressText} />
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Map/Visual Representation -->
+        <div class="aspect-video bg-surface-container rounded-2xl overflow-hidden border border-outline-variant/30 relative group shadow-md">
+          <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src={mapImg} alt="Mapa Bremen" />
+          <div class="absolute inset-0 bg-navy/40 flex items-center justify-center pointer-events-none">
+            <div class="bg-navy text-white px-4 py-2 rounded-full text-xs font-bold flex items-center gap-2 border border-white/20 shadow-xl">
+              <span class="material-symbols-outlined text-secondary text-sm">location_on</span>
+              CENTRALA BREMA
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section: Join Network -->
+  <section class="bg-surface-container-low py-20 border-t border-outline-variant/30">
+    <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop text-center">
+      <div class="max-w-3xl mx-auto">
+        <h2 class="font-display text-2xl md:text-3xl font-bold text-primary mb-4">Zostań częścią naszej sieci</h2>
+        <p class="text-on-surface-variant mb-8 leading-relaxed">
+          Jesteś certyfikowanym inspektorem NDT lub doświadczonym inżynierem spawalnictwa? Poszukujemy partnerów do realizacji prestiżowych projektów przemysłowych w całej Europie.
+        </p>
+        <div class="flex flex-col sm:flex-row items-center justify-center gap-4">
+          <a href="/pl/about.html" class="bg-primary text-white px-8 py-3.5 font-bold text-sm rounded-lg hover:bg-secondary transition-all w-full sm:w-auto shadow-sm">
+            Zgłoś kandydaturę
+          </a>
+          <a href="/pl/uslugi.html" class="border border-primary text-primary px-8 py-3.5 font-bold text-sm rounded-lg hover:bg-primary hover:text-white transition-all w-full sm:w-auto">
+            Dla Partnerów Biznesowych
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
 </Layout>

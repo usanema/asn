@@ -1,153 +1,151 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import { fetchApi, getMedia } from '../../lib/pocketbase';
+
+const pageData = await fetchApi({
+  collection: 'experience_page',
+  locale: 'pl'
+});
+
+const attrs = pageData || {};
+const title = attrs.title || "Doświadczenie";
+const seoTitle = attrs.seoTitle || "Doświadczenie | ASN Weld & Inspection Network";
+const seoDesc = attrs.seoDesc || "Poznaj nasze doświadczenie i model odpowiedzialności technicznej.";
+
+const badge = attrs.badge || "NASZA TOŻSAMOŚĆ";
+const heroTitle = attrs.heroTitle || "Wiedza, Doświadczenie, Odpowiedzialność.";
+const heroDesc = attrs.heroDesc || "ASN Weld & Inspection Network to zespół ekspertów dedykowany branży spawalniczej i NDT. Nie dostarczamy jedynie zasobów – dostarczamy kompletne rozwiązania techniczne oparte na najwyższych standardach inżynieryjnych.";
+
+const modelTitle = attrs.modelTitle || "Model Współpracy: Werkvertrag & Outsourcing";
+const modelDesc = attrs.modelDesc || "<p class=\"mb-4\">Nasz model biznesowy opiera się na umowach o dzieło (Werkvertrag) oraz pełnym outsourcingu procesów technicznych. W przeciwieństwie do agencji pracy, bierzemy pełną odpowiedzialność za końcowy rezultat projektu, jakość spoin oraz zgodność z normami NDT.</p>";
+
+const s1Val = attrs.stat1Val || "15+";
+const s1Lbl = attrs.stat1Lbl || "Lat w branży Offshore";
+const s2Val = attrs.stat2Val || "100%";
+const s2Lbl = attrs.stat2Lbl || "Zgodności z normami EN/ISO";
+const s3Val = attrs.stat3Val || "50+";
+const s3Lbl = attrs.stat3Lbl || "Zrealizowanych kontraktów";
+
+const img1 = getMedia(attrs.image1, pageData) || "https://images.unsplash.com/photo-1541888946425-d0abb18086f6?auto=format&fit=crop&q=80&w=800";
+const hqImg = "https://lh3.googleusercontent.com/aida-public/AB6AXuAdqFr86OltPylJyJf6vgZTVDTHJhEFfvb6ORZ-L7YL9hprkzbr3hdjRBiSG6_6n8I3tb20w3oRRVOkrpAzqW-u1OSNcSvJ0uaR2b_68qRH0HGJXgdqt1AOF8UvbKcnBEN99JuPQj7IaDsnDmNeqvAC59rL4u3bKq7ugRGDZ3OO0VaySi7Eyr-v-r6WZKftMgMzcbOIHMfZBh027NBW2hT2GmaNifIAbOHkGnuhAqicMIu7G2EssENST3VHpP1OqY5QvrZO8nDgd4c";
 ---
-<Layout title="Experience" lang="pl">
-  
-<!-- Hero Section -->
-<section class="relative py-24 md:py-32 bg-surface overflow-hidden border-b border-outline-variant/30">
-<div class="absolute inset-0 opacity-10 pointer-events-none">
+<Layout title={title} seoTitle={seoTitle} seoDescription={seoDesc} lang="pl">
+  <!-- Hero Section -->
+  <section class="relative py-20 md:py-28 bg-navy text-white overflow-hidden border-b border-outline-variant/30">
+    <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop relative z-10">
+      <div class="max-w-3xl">
+        <span class="font-display text-sm font-bold text-secondary tracking-widest uppercase mb-4 block">{badge}</span>
+        <h1 class="font-display text-4xl md:text-6xl font-bold mb-8 leading-tight" set:html={heroTitle} />
+        <p class="font-body-md text-lg text-gray-300 mb-10 border-l-4 border-secondary pl-6 leading-relaxed" set:html={heroDesc} />
+      </div>
+    </div>
+  </section>
 
-</div>
-<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop relative z-10">
-<div class="max-w-3xl">
-<span class="font-display text-label-md text-secondary tracking-widest uppercase mb-4 block">NASZA TOŻSAMOŚĆ</span>
-<h1 class="font-display text-headline-lg-mobile md:text-display text-primary mb-8">
-                        Wiedza, Doświadczenie, Odpowiedzialność.
-                    </h1>
-<p class="font-body-md text-body-lg text-on-surface-variant mb-12 border-l-4 border-primary pl-6">
-                        ASN Weld &amp; Inspection Network to zespół ekspertów dedykowany branży spawalniczej i NDT. Nie dostarczamy jedynie zasobów – dostarczamy kompletne rozwiązania techniczne oparte na najwyższych standardach inżynieryjnych.
-                    </p>
-</div>
-</div>
-</section>
-<!-- Model Współpracy: Werkvertrag & Outsourcing -->
-<section class="py-24 bg-surface-container-lowest">
-<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
-<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter items-center">
-<div>
-<h2 class="font-display text-headline-md text-primary mb-6">Model Współpracy: Werkvertrag &amp; Outsourcing</h2>
-<p class="font-body-md text-body-md text-on-surface-variant mb-8">
-                            Nasz model biznesowy opiera się na umowach o dzieło (Werkvertrag) oraz pełnym outsourcingu procesów technicznych. W przeciwieństwie do agencji pracy, bierzemy pełną odpowiedzialność za końcowy rezultat projektu, jakość spoin oraz zgodność z normami NDT.
-                        </p>
-<div class="space-y-4">
-<div class="flex items-start gap-4 p-4 border border-outline-variant/30">
-<span class="material-symbols-outlined text-primary" data-icon="assignment_turned_in">assignment_turned_in</span>
-<div>
-<h4 class="font-display text-label-md text-primary mb-1">PROJEKTOWOŚĆ</h4>
-<p class="text-sm text-on-surface-variant">Koncentracja na dostarczeniu konkretnego dzieła w określonym czasie.</p>
-</div>
-</div>
-<div class="flex items-start gap-4 p-4 border border-outline-variant/30">
-<span class="material-symbols-outlined text-primary" data-icon="verified_user">verified_user</span>
-<div>
-<h4 class="font-display text-label-md text-primary mb-1">GWARANCJA JAKOŚCI</h4>
-<p class="text-sm text-on-surface-variant">Własny nadzór inżynierski i certyfikowani inspektorzy na każdym etapie.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="relative aspect-square">
-<img class="w-full h-full object-cover" data-alt="A high-contrast, professional industrial photography shot of a heavy steel structure being welded by a technician in a sterile, modern workshop. The lighting is focused and dramatic, highlighting the sparks and the precision of the weld. The color palette is dominated by cool blues and blacks, maintaining the industrial minimalism aesthetic of the ASN brand. Sharp focus on technical details of the equipment." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCOVZ4hMpBBTaPkPx9by12ZcD0l48mosVPukNcHqJ3EFEWemBHx0I-B-sQrSsCOMZRnVKBKaIEk1395YOvfzrKSVZuhXySisDhhDxwHN-66VviRi5dq6KUBSp1AyJOFxgWTMZzn9OROYTqCHW5kYCl1vKHPrD-xMhm5fyz8xF84dJt7NDL-KROlfbJ8SXqnoY9a81Lmht97y2sR6BhlWFbPfC4z9jQyX_GI50v4QMw5e9SB8mh1PWofc2q6Ad66NQw_iTp-jTTbKiI"/>
-<div class="absolute -bottom-6 -left-6 bg-primary p-8 hidden md:block">
-<p class="text-on-primary font-display text-headline-sm">0% Staffing<br/>100% Excellence</p>
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Our Approach: Bento Grid -->
-<section class="py-24 bg-surface-container-low">
-<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
-<div class="mb-16">
-<h2 class="font-display text-headline-md text-primary mb-4 text-center md:text-left">Podejście ASN: Ekspertyza w działaniu</h2>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
-<!-- Card 1 -->
-<div class="md:col-span-8 bg-surface p-12 border border-outline-variant/30 flex flex-col justify-between hover-lift">
-<div>
-<span class="material-symbols-outlined text-primary text-4xl mb-6" data-icon="troubleshoot">troubleshoot</span>
-<h3 class="font-display text-headline-sm text-primary mb-4">Problem-Solving Oriented</h3>
-<p class="font-body-md text-on-surface-variant">
-                                Nie analizujemy problemów bez ich rozwiązywania. Nasz zespół inżynierów wchodzi do projektu tam, gdzie inni widzą bariery techniczne, optymalizując procesy spawalnicze i inspekcyjne w czasie rzeczywistym.
-                            </p>
-</div>
-</div>
-<!-- Card 2 -->
-<div class="md:col-span-4 bg-primary p-12 flex flex-col justify-between">
-<span class="material-symbols-outlined text-on-primary text-4xl mb-6" data-icon="coordinator">border_top</span>
-<div>
-<h3 class="font-display text-headline-sm text-on-primary mb-4">Koordynacja</h3>
-<p class="font-body-md text-on-primary/80">Eksperckie zarządzanie procesami wykonawczymi bez obciążania struktur klienta.</p>
-</div>
-</div>
-<!-- Card 3 -->
-<div class="md:col-span-4 bg-surface p-12 border border-outline-variant/30 hover-lift">
-<h3 class="font-display text-headline-sm text-primary mb-4">Sieć Specjalistów</h3>
-<p class="font-body-md text-on-surface-variant">
-                            Od inżynierów IWE/EWE po wyspecjalizowanych spawaczy i monterów – stale rozwijająca się sieć partnerów.
-                        </p>
-</div>
-<!-- Card 4 -->
-<div class="md:col-span-8 bg-surface p-12 border border-outline-variant/30 hover-lift relative overflow-hidden">
-<div class="relative z-10">
-<h3 class="font-display text-headline-sm text-primary mb-4">Network of Specialists</h3>
-<p class="font-body-md text-on-surface-variant max-w-md">
-                                Łączymy talenty z wymagającymi projektami. Nasza sieć obejmuje certyfikowanych inspektorów NDT (VT, PT, MT, UT, RT) oraz kadrę inżynierską z wieloletnim stażem.
-                            </p>
-</div>
-<div class="absolute right-0 top-0 h-full w-1/3 opacity-20 hidden md:block">
+  <!-- Stats Banner -->
+  <section class="bg-surface-container py-12 border-b border-outline-variant/30">
+    <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center">
+        <div class="p-6 bg-surface rounded-xl border border-outline-variant/20 shadow-sm">
+          <div class="font-display text-4xl md:text-5xl font-extrabold text-primary mb-2">{s1Val}</div>
+          <div class="text-sm font-bold text-on-surface-variant uppercase tracking-wider">{s1Lbl}</div>
+        </div>
+        <div class="p-6 bg-surface rounded-xl border border-outline-variant/20 shadow-sm">
+          <div class="font-display text-4xl md:text-5xl font-extrabold text-primary mb-2">{s2Val}</div>
+          <div class="text-sm font-bold text-on-surface-variant uppercase tracking-wider">{s2Lbl}</div>
+        </div>
+        <div class="p-6 bg-surface rounded-xl border border-outline-variant/20 shadow-sm">
+          <div class="font-display text-4xl md:text-5xl font-extrabold text-primary mb-2">{s3Val}</div>
+          <div class="text-sm font-bold text-on-surface-variant uppercase tracking-wider">{s3Lbl}</div>
+        </div>
+      </div>
+    </div>
+  </section>
 
-</div>
-</div>
-</div>
-</div>
-</section>
-<!-- Why ASN -->
-<section class="py-24 border-b border-outline-variant/30">
-<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
-<div class="grid grid-cols-1 md:grid-cols-3 gap-12">
-<div class="text-center md:text-left">
-<div class="w-16 h-1 bg-primary mb-6 mx-auto md:mx-0"></div>
-<h3 class="font-display text-headline-sm text-primary mb-4">Elastyczność</h3>
-<p class="text-on-surface-variant">Dopasowujemy skalę zespołu do aktualnej fazy projektu, minimalizując koszty stałe klienta.</p>
-</div>
-<div class="text-center md:text-left">
-<div class="w-16 h-1 bg-primary mb-6 mx-auto md:mx-0"></div>
-<h3 class="font-display text-headline-sm text-primary mb-4">Niezawodność</h3>
-<p class="text-on-surface-variant">Sygnowane marką ASN projekty przechodzą przez rygorystyczne sita kontroli jakości.</p>
-</div>
-<div class="text-center md:text-left">
-<div class="w-16 h-1 bg-primary mb-6 mx-auto md:mx-0"></div>
-<h3 class="font-display text-headline-sm text-primary mb-4">Praktyka</h3>
-<p class="text-on-surface-variant">Nasza wiedza nie jest tylko teoretyczna. Wywodzimy się z przemysłu ciężkiego i offshore.</p>
-</div>
-</div>
-</div>
-</section>
-<!-- Headquarters Section -->
-<section class="py-24 bg-surface-container-highest">
-<div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
-<div class="grid grid-cols-1 md:grid-cols-2 gap-gutter items-stretch">
-<div class="bg-cover bg-center min-h-[400px]" data-alt="A photograph of a sleek, ultra-modern corporate office building in Bremen, Germany at dusk. The building features large glass facades reflecting the deep blue evening sky and warm interior lights. The architecture is clean and professional, symbolizing stability and engineering excellence. Minimalist urban landscape with well-maintained surroundings, shot with a professional architectural lens." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuAdqFr86OltPylJyJf6vgZTVDTHJhEFfvb6ORZ-L7YL9hprkzbr3hdjRBiSG6_6n8I3tb20w3oRRVOkrpAzqW-u1OSNcSvJ0uaR2b_68qRH0HGJXgdqt1AOF8UvbKcnBEN99JuPQj7IaDsnDmNeqvAC59rL4u3bKq7ugRGDZ3OO0VaySi7Eyr-v-r6WZKftMgMzcbOIHMfZBh027NBW2hT2GmaNifIAbOHkGnuhAqicMIu7G2EssENST3VHpP1OqY5QvrZO8nDgd4c')"></div>
-<div class="bg-surface p-12 md:p-20 flex flex-col justify-center">
-<h2 class="font-display text-headline-md text-primary mb-6">Brema Headquarters</h2>
-<p class="font-body-md text-body-md text-on-surface-variant mb-8 leading-relaxed">
-                            Nasze centrum dowodzenia znajduje się w Bremen, jednym z kluczowych hubów przemysłowych Europy. Stąd koordynujemy operacje na rynkach międzynarodowych, dbając o logistykę i compliance każdego przedsięwzięcia.
-                        </p>
-<div class="flex items-center gap-6">
-<div class="flex flex-col">
-<span class="text-xs font-bold uppercase text-outline mb-1">Lokalizacja</span>
-<span class="text-primary font-semibold">Bremen, Germany</span>
-</div>
-<div class="w-px h-10 bg-outline-variant"></div>
-<div class="flex flex-col">
-<span class="text-xs font-bold uppercase text-outline mb-1">Standardy</span>
-<span class="text-primary font-semibold">ISO &amp; ASME Certified</span>
-</div>
-</div>
-</div>
-</div>
-</div>
-</section>
+  <!-- Cooperation Model Section -->
+  <section class="py-24 bg-surface">
+    <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
+        <div>
+          <h2 class="font-display text-3xl md:text-4xl font-bold text-primary mb-6">{modelTitle}</h2>
+          <div class="font-body-md text-base text-on-surface-variant mb-8 leading-relaxed prose max-w-none" set:html={modelDesc} />
+          <div class="space-y-4">
+            <div class="flex items-start gap-4 p-5 bg-surface-container-low rounded-xl border border-outline-variant/30">
+              <span class="material-symbols-outlined text-secondary text-3xl">assignment_turned_in</span>
+              <div>
+                <h4 class="font-display font-bold text-primary mb-1">PROJEKTOWOŚĆ</h4>
+                <p class="text-sm text-on-surface-variant">Koncentracja na dostarczeniu konkretnego dzieła technicznengo w określonym czasie i standardzie.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-4 p-5 bg-surface-container-low rounded-xl border border-outline-variant/30">
+              <span class="material-symbols-outlined text-secondary text-3xl">verified_user</span>
+              <div>
+                <h4 class="font-display font-bold text-primary mb-1">GWARANCJA JAKOŚCI</h4>
+                <p class="text-sm text-on-surface-variant">Własny nadzór inżynierski i certyfikowani inspektorzy obecni na każdym kluczowym etapie.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="relative aspect-square rounded-2xl overflow-hidden shadow-xl border border-outline-variant/30">
+          <img class="w-full h-full object-cover" src={img1} alt={modelTitle} />
+          <div class="absolute bottom-6 left-6 right-6 bg-navy/95 backdrop-blur-md p-6 rounded-xl border border-white/10 hidden sm:block">
+            <p class="text-white font-display text-lg font-bold">0% Agencji Pracy<br/><span class="text-secondary font-normal">100% Odpowiedzialności Inżynieryjnej</span></p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 
+  <!-- Why ASN Section -->
+  <section class="py-20 bg-surface-container-low border-t border-outline-variant/30">
+    <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+      <div class="text-center mb-14">
+        <h2 class="font-display text-3xl font-bold text-primary mb-3">Dlaczego ASN?</h2>
+        <p class="text-on-surface-variant max-w-xl mx-auto">Nasza przewaga konkurencyjna wynika z praktycznej praktyki przemysłowej i bezkompromisowej jakości.</p>
+      </div>
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div class="bg-surface p-8 rounded-xl border border-outline-variant/30 shadow-sm">
+          <div class="w-12 h-1 bg-secondary mb-6"></div>
+          <h3 class="font-display text-xl font-bold text-primary mb-3">Elastyczność</h3>
+          <p class="text-sm text-on-surface-variant leading-relaxed">Dopasowujemy skalę zespołu i kompetencje do aktualnej fazy projektu, minimalizując koszty stałe klienta.</p>
+        </div>
+        <div class="bg-surface p-8 rounded-xl border border-outline-variant/30 shadow-sm">
+          <div class="w-12 h-1 bg-secondary mb-6"></div>
+          <h3 class="font-display text-xl font-bold text-primary mb-3">Niezawodność</h3>
+          <p class="text-sm text-on-surface-variant leading-relaxed">Każdy raport i inspekcja sygnowane marką ASN przechodzą przez rygorystyczne sita weryfikacji norm EN/ISO.</p>
+        </div>
+        <div class="bg-surface p-8 rounded-xl border border-outline-variant/30 shadow-sm">
+          <div class="w-12 h-1 bg-secondary mb-6"></div>
+          <h3 class="font-display text-xl font-bold text-primary mb-3">Praktyka Przemysłowa</h3>
+          <p class="text-sm text-on-surface-variant leading-relaxed">Nasza wiedza nie jest tylko akademicka. Wywodzimy się bezpośrednio z przemysłu ciężkiego, stoczniowego i offshore.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Headquarters Section -->
+  <section class="py-20 bg-navy text-white">
+    <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
+      <div class="grid grid-cols-1 md:grid-cols-2 gap-12 items-stretch rounded-2xl overflow-hidden border border-white/10 shadow-2xl">
+        <div class="bg-cover bg-center min-h-[350px]" style={`background-image: url('${hqImg}')`}></div>
+        <div class="p-10 md:p-16 flex flex-col justify-center bg-navy">
+          <span class="text-secondary font-bold text-xs uppercase tracking-wider mb-2">Centrala Operacyjna</span>
+          <h2 class="font-display text-3xl font-bold text-white mb-6">Brema Headquarters</h2>
+          <p class="text-gray-300 mb-8 leading-relaxed">
+            Nasze centrum dowodzenia znajduje się w Bremen, jednym z kluczowych hubów morskich i przemysłowych Europy. Stąd koordynujemy operacje na rynkach europejskich, dbając o logistykę i zgodność normatywną każdego przedsięwzięcia.
+          </p>
+          <div class="flex items-center gap-6 pt-6 border-t border-white/10">
+            <div>
+              <span class="text-xs font-bold uppercase text-gray-400 block mb-1">Lokalizacja</span>
+              <span class="text-white font-bold">Bremen, Niemcy</span>
+            </div>
+            <div class="w-px h-10 bg-white/20"></div>
+            <div>
+              <span class="text-xs font-bold uppercase text-gray-400 block mb-1">Standardy Jakości</span>
+              <span class="text-secondary font-bold">Certyfikacja ISO & ASME</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
 </Layout>

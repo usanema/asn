@@ -1,61 +1,80 @@
 ---
-const { lang } = Astro.props;
+const { lang = 'en', globalSettings } = Astro.props;
 
 const t = {
   en: {
     desc: "Professional engineering network specializing in the coordination and supervision of welding processes and NDT testing. Headquartered in Bremen, European reach.",
     services: "Services",
-    legal: "Legal"
+    legal: "Legal",
+    welding: "Welding Coordination",
+    ndt: "NDT Testing",
+    corrosion: "Anti-Corrosion Protection",
+    qaqc: "QA/QC Support"
   },
   pl: {
     desc: "Profesjonalna sieć inżynieryjna specjalizująca się w koordynacji i nadzorze procesów spawalniczych oraz badaniach NDT. Siedziba w Bremie, zasięg europejski.",
     services: "Usługi",
-    legal: "Legal"
+    legal: "Informacje prawne",
+    welding: "Spawalnictwo",
+    ndt: "Badania NDT",
+    corrosion: "Antykorozyjna",
+    qaqc: "Wsparcie QA/QC"
   },
   de: {
     desc: "Professionelles Ingenieurnetzwerk, spezialisiert auf die Koordination und Überwachung von Schweißprozessen und ZfP-Prüfungen. Hauptsitz in Bremen, europaweite Reichweite.",
     services: "Dienstleistungen",
-    legal: "Rechtliches"
+    legal: "Rechtliches",
+    welding: "Schweißkoordination",
+    ndt: "ZfP-Prüfung",
+    corrosion: "Korrosionsschutz",
+    qaqc: "QA/QC Unterstützung"
   }
 };
 
 const texts = t[lang] || t['en'];
+const footerCopyright = globalSettings?.footerText || "© 2024 ASN Weld & Inspection Network. All rights reserved. Brema Headquarters.";
+const logoText = globalSettings?.logoText || "ASN Weld & Inspection Network";
+
+const getLink = (path) => {
+  if (lang === 'en') return path;
+  return `/${lang}${path.startsWith('/') ? path : '/' + path}`;
+};
 ---
-<footer class="w-full py-12 bg-surface-container-highest">
+<footer class="w-full py-12 bg-surface-container-highest border-t border-outline-variant/30">
   <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
     <div class="col-span-1 md:col-span-2">
-      <a class="font-display text-headline-sm font-bold text-on-surface block mb-6" href="#">ASN Weld & Inspection Network</a>
-      <p class="text-on-surface-variant max-w-md mb-8">
+      <a class="font-display text-headline-sm font-bold text-on-surface block mb-6 hover:text-primary transition-colors" href={getLink("/")}>{logoText}</a>
+      <p class="text-on-surface-variant max-w-md mb-8 leading-relaxed">
         {texts.desc}
       </p>
       <div class="flex gap-4">
-        <a class="w-10 h-10 border border-outline flex items-center justify-center hover:bg-navy hover:text-white transition-all rounded-full" href="#">
+        <a class="w-10 h-10 border border-outline flex items-center justify-center hover:bg-navy hover:text-white transition-all rounded-full shadow-sm" href="#" aria-label="Share">
           <span class="material-symbols-outlined text-sm">share</span>
         </a>
       </div>
     </div>
     <div>
-      <h4 class="font-bold mb-6 uppercase text-label-md tracking-wider">{texts.services}</h4>
+      <h4 class="font-bold mb-6 uppercase text-label-md tracking-wider text-primary">{texts.services}</h4>
       <ul class="space-y-3">
-        <li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Spawalnictwo</a></li>
-        <li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Badania NDT</a></li>
-        <li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Antykorozyjna</a></li>
-        <li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">QA/QC Support</a></li>
+        <li><a class="text-on-surface-variant hover:text-primary transition-colors block py-1" href={getLink("/uslugi.html")}>{texts.welding}</a></li>
+        <li><a class="text-on-surface-variant hover:text-primary transition-colors block py-1" href={getLink("/uslugi.html")}>{texts.ndt}</a></li>
+        <li><a class="text-on-surface-variant hover:text-primary transition-colors block py-1" href={getLink("/uslugi.html")}>{texts.corrosion}</a></li>
+        <li><a class="text-on-surface-variant hover:text-primary transition-colors block py-1" href={getLink("/uslugi.html")}>{texts.qaqc}</a></li>
       </ul>
     </div>
     <div>
-      <h4 class="font-bold mb-6 uppercase text-label-md tracking-wider">{texts.legal}</h4>
+      <h4 class="font-bold mb-6 uppercase text-label-md tracking-wider text-primary">{texts.legal}</h4>
       <ul class="space-y-3">
-        <li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Privacy Policy</a></li>
-        <li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Terms of Service</a></li>
-        <li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Compliance</a></li>
-        <li><a class="text-on-surface-variant hover:text-primary transition-colors" href="#">Impressum</a></li>
+        <li><a class="text-on-surface-variant hover:text-primary transition-colors block py-1" href="#">Privacy Policy</a></li>
+        <li><a class="text-on-surface-variant hover:text-primary transition-colors block py-1" href="#">Terms of Service</a></li>
+        <li><a class="text-on-surface-variant hover:text-primary transition-colors block py-1" href="#">Compliance</a></li>
+        <li><a class="text-on-surface-variant hover:text-primary transition-colors block py-1" href="#">Impressum</a></li>
       </ul>
     </div>
   </div>
   <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop mt-12 pt-8 border-t border-outline-variant/30">
-    <p class="text-on-surface-variant text-sm text-center md:text-left">
-      © 2024 ASN Weld & Inspection Network. All rights reserved. Brema Headquarters.
+    <p class="text-on-surface-variant text-sm text-center md:text-left font-medium">
+      {footerCopyright}
     </p>
   </div>
 </footer>

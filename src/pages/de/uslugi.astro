@@ -1,177 +1,193 @@
 ---
 import Layout from '../../layouts/Layout.astro';
+import { fetchApi, getMedia } from '../../lib/pocketbase';
+
+const pageData = await fetchApi({
+  collection: 'services_page',
+  locale: 'de'
+});
+
+const attrs = pageData || {};
+const title = attrs.title || "Dienstleistungen";
+const seoTitle = attrs.seoTitle || "Dienstleistungen | ASN Weld & Inspection Network";
+const seoDesc = attrs.seoDesc || "Umfassende technische Unterstützung in den Bereichen Schweißtechnik, ZfP und Korrosionsschutz.";
+
+const badge = attrs.badge || "PROFESSIONALITÄT & QUALITÄT";
+const heroTitle = attrs.heroTitle || "Unsere Dienstleistungen";
+const heroDesc = attrs.heroDesc || "Umfassende technische Unterstützung in den Bereichen Schweißtechnik, zerstörungsfreie Prüfung und Korrosionsschutz für die Schwerindustrie und den Energiesektor.";
+
+const p1Title = attrs.pillar1Title || "Schweißkoordination & Überwachung (IWE/EWE)";
+const p1Desc = attrs.pillar1Desc || "Vollständige Überwachung von Schweißprozessen gemäß EN ISO 3834, EN 1090 und Offshore-Standards.";
+const p1Img = getMedia(attrs.pillar1Image, pageData) || "https://lh3.googleusercontent.com/aida-public/AB6AXuCozDnJai0fc5h24His7_lwuuvRkWNw7ycEntToxRTQvtqihRfEzRqgqf9dkI9NuXpMLgVWdHjLSYsns1jsacdBgfQFRgdEslR605HA0H65G9DYwgS-8YehgjaxGWEWBz1yHb-6dtWQ8no6mXE8xH6tKBApAcTuOZ0oEnrcWAzF2Bn-Fr21IqvEPbl2ReUaDnlz7vMN1dP5upquIj9c3ofTTr4jaGCMnZU3dePX71czqNmU_wxU-a9rgymTke6XBiR6XrstC1w2Rdw";
+
+const p2Title = attrs.pillar2Title || "Zerstörungsfreie Prüfung (ZfP / VT, PT, MT, UT, RT)";
+const p2Desc = attrs.pillar2Desc || "Zertifizierte Inspektionen durch Personal der Stufen II und III gemäß ISO 9712.";
+const p2Img = getMedia(attrs.pillar2Image, pageData) || "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&q=80&w=800";
+
+const p3Title = attrs.pillar3Title || "Korrosionsschutz & FROSIO/NACE-Inspektion";
+const p3Desc = attrs.pillar3Desc || "Umfassende Beschichtungsinspektionen, Analyse der Oberflächenvorbereitung und Qualitätssicherung.";
+const p3Img = getMedia(attrs.pillar3Image, pageData) || "https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?auto=format&fit=crop&q=80&w=800";
 ---
-<Layout title="Services" lang="de">
-  
-<!-- Hero Section -->
-<section class="relative h-[614px] flex items-center overflow-hidden bg-primary-container">
+<Layout title={title} seoTitle={seoTitle} seoDescription={seoDesc} lang="de">
+  <!-- Hero Section -->
+  <section class="relative min-h-[520px] flex items-center overflow-hidden bg-navy py-20">
+    <div class="relative z-10 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full">
+      <div class="max-w-2xl">
+        <span class="font-label-md text-secondary bg-white/10 px-3 py-1 rounded-full mb-6 inline-block tracking-wider uppercase font-bold">{badge}</span>
+        <h1 class="font-display text-4xl md:text-6xl font-bold text-white mb-6 leading-tight" set:html={heroTitle} />
+        <p class="font-body-md text-lg text-gray-300 max-w-xl leading-relaxed" set:html={heroDesc} />
+      </div>
+    </div>
+    <div class="absolute bottom-0 right-0 p-margin-desktop hidden lg:block pointer-events-none">
+      <div class="w-64 h-64 border border-white/10 industrial-grid opacity-20"></div>
+    </div>
+  </section>
 
-<div class="relative z-10 px-margin-desktop max-w-container-max mx-auto w-full">
-<div class="max-w-2xl">
-<span class="font-label-md text-secondary-fixed bg-on-secondary-fixed-variant/20 px-3 py-1 rounded-full mb-6 inline-block">PROFESJONALIZM I JAKOŚĆ</span>
-<h1 class="font-display text-display text-on-primary mb-6">Nasze Usługi</h1>
-<p class="font-body-lg text-primary-fixed-dim max-w-xl">
-                        Kompleksowe wsparcie techniczne w zakresie spawalnictwa, badań nieniszczących oraz ochrony antykorozyjnej dla przemysłu ciężkiego i energetyki.
-                    </p>
-</div>
-</div>
-<div class="absolute bottom-0 right-0 p-margin-desktop hidden lg:block">
-<div class="w-64 h-64 border border-outline-variant/20 industrial-grid opacity-20"></div>
-</div>
-</section>
-<!-- Main Pillars -->
-<section class="py-24 px-margin-desktop max-w-container-max mx-auto">
-<div class="grid grid-cols-1 gap-gutter">
-<!-- Pillar 1: Welding -->
-<div class="group grid md:grid-cols-12 gap-12 items-center border-b border-outline-variant pb-16">
-<div class="md:col-span-5">
-<div class="aspect-video bg-surface-container rounded-xl overflow-hidden border border-outline-variant group-hover:border-primary transition-colors">
-<img class="w-full h-full object-cover" data-alt="A high-precision close-up of a professional robotic welding arm in a modern industrial factory setting. The lighting is focused, highlighting the blue electrical arc and sparks against a deep navy background. The overall aesthetic is clean, technological, and precise, matching a professional engineering brand identity with metallic textures and industrial atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCozDnJai0fc5h24His7_lwuuvRkWNw7ycEntToxRTQvtqihRfEzRqgqf9dkI9NuXpMLgVWdHjLSYsns1jsacdBgfQFRgdEslR605HA0H65G9DYwgS-8YehgjaxGWEWBz1yHb-6dtWQ8no6mXE8xH6tKBApAcTuOZ0oEnrcWAzF2Bn-Fr21IqvEPbl2ReUaDnlz7vMN1dP5upquIj9c3ofTTr4jaGCMnZU3dePX71czqNmU_wxU-a9rgymTke6XBiR6XrstC1w2Rdw"/>
-</div>
-</div>
-<div class="md:col-span-7">
-<div class="flex items-center gap-4 mb-6">
-<div class="w-12 h-12 bg-surface-container-high flex items-center justify-center rounded border border-outline-variant group-hover:bg-primary-container group-hover:text-primary-fixed transition-all">
-<span class="material-symbols-outlined" data-icon="precision_manufacturing">precision_manufacturing</span>
-</div>
-<h2 class="font-display text-headline-lg">Spawalnictwo i technika spawalnicza</h2>
-</div>
-<p class="text-on-surface-variant font-body-md mb-8">
-                            Oferujemy profesjonalną koordynację prac spawalniczych oraz dobór parametrów technologicznych. Nasze działania gwarantują pełną zgodność z międzynarodowymi normami jakościowymi.
-                        </p>
-<div class="grid grid-cols-2 gap-6">
-<div class="flex items-start gap-2">
-<span class="material-symbols-outlined text-secondary" data-icon="check_circle">check_circle</span>
-<div>
-<h4 class="font-label-md text-on-surface">ISO 3834</h4>
-<p class="text-sm text-on-surface-variant">Pełna zgodność z wymaganiami jakościowymi.</p>
-</div>
-</div>
-<div class="flex items-start gap-2">
-<span class="material-symbols-outlined text-secondary" data-icon="check_circle">check_circle</span>
-<div>
-<h4 class="font-label-md text-on-surface">EN 1090</h4>
-<p class="text-sm text-on-surface-variant">Nadzór nad wykonaniem konstrukcji stalowych.</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-<!-- Pillar 2: NDT -->
-<div class="group grid md:grid-cols-12 gap-12 items-center border-b border-outline-variant py-16">
-<div class="md:col-span-7 order-2 md:order-1">
-<div class="flex items-center gap-4 mb-6">
-<div class="w-12 h-12 bg-surface-container-high flex items-center justify-center rounded border border-outline-variant group-hover:bg-primary-container group-hover:text-primary-fixed transition-all">
-<span class="material-symbols-outlined" data-icon="visibility">visibility</span>
-</div>
-<h2 class="font-display text-headline-lg">Badania Nieniszczące (NDT)</h2>
-</div>
-<p class="text-on-surface-variant font-body-md mb-8">
-                            Zapewniamy najwyższą jakość inspekcji poprzez zastosowanie nowoczesnych metod badawczych. Nasz zespół certyfikowanych inspektorów dostarcza precyzyjne wyniki analizy stanu technicznego.
-                        </p>
-<div class="flex flex-wrap gap-4">
-<span class="px-4 py-2 bg-surface-container rounded-full font-label-md border border-outline-variant hover:border-secondary transition-colors">VT - Wizualne</span>
-<span class="px-4 py-2 bg-surface-container rounded-full font-label-md border border-outline-variant hover:border-secondary transition-colors">PT - Penetracyjne</span>
-<span class="px-4 py-2 bg-surface-container rounded-full font-label-md border border-outline-variant hover:border-secondary transition-colors">MT - Magnetyczno-proszkowe</span>
-<span class="px-4 py-2 bg-surface-container rounded-full font-label-md border border-outline-variant hover:border-secondary transition-colors">UT - Ultradźwiękowe</span>
-<span class="px-4 py-2 bg-surface-container rounded-full font-label-md border border-outline-variant hover:border-secondary transition-colors">RT - Radiograficzne</span>
-</div>
-</div>
-<div class="md:col-span-5 order-1 md:order-2">
-<div class="aspect-video bg-surface-container rounded-xl overflow-hidden border border-outline-variant group-hover:border-primary transition-colors">
-<img class="w-full h-full object-cover" data-alt="A technician in professional workwear performing an ultrasonic NDT test on a large industrial pipe. The scene is shot in a clean, high-tech industrial environment with soft cinematic lighting. The focus is on the digital display of the testing device showing signal waves, conveying a sense of technical mastery and rigorous quality control." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBiXAjSIZ2Sx4bzg-ixVU_9hz-Nm-s-J1guXXWxOxhSWJ-RRs20uPlilpsBEoewY8135SWb61pm7XwOM8wJMItSvMQpDzBNikg19YBxc258crE1R76VZK05gvnFwYYNrS_z66QTxozr1248L8d1Ce121fwDfYwVIIP1rr2BCPpmUWlyMNe9ytDtxipzc4MwWUoUj_2-G4KZb_uR3BGoVs8L37Ne_gd_JguV-sv8Iok8E2NuPxy57J4RvYQ9VjaXmnau8VUYhH0TP5c"/>
-</div>
-</div>
-</div>
-<!-- Pillar 3: Corrosion Protection -->
-<div class="group grid md:grid-cols-12 gap-12 items-center py-16">
-<div class="md:col-span-5">
-<div class="aspect-video bg-surface-container rounded-xl overflow-hidden border border-outline-variant group-hover:border-primary transition-colors">
-<img class="w-full h-full object-cover" data-alt="A macro shot of a perfectly coated industrial surface with a uniform texture. In the background, professional sandblasting and coating equipment is visible but slightly out of focus. The color palette is dominated by dark navy and metallic grays, with emerald green light accents reflecting off the smooth, protected surface. The mood is clean and protective." src="https://lh3.googleusercontent.com/aida-public/AB6AXuABap20BLW8zpycwbgSO4PU0zDQ7T_PH7mG7PYFOE7LiL2VY1YWkX8SO5icChz0-5JP91KQvcTeHWW-hqpUjQSAfe7uQVtZN55b36v-uNWGdKcnhUc7ZRkkdVBrDB-Z9RjQPCGd2uJeDY_XqnNOqjchK-wHrH6uifs9rh6Uk-BKabjpm062nV46zndmmgqKfPayjd123qp1ZbycCdpRlmnxSlfxA2YQnvuy8ruC6ek16WgAew_EcHVULDO9_mu5G4i-Ed7HGNeWJg0"/>
-</div>
-</div>
-<div class="md:col-span-7">
-<div class="flex items-center gap-4 mb-6">
-<div class="w-12 h-12 bg-surface-container-high flex items-center justify-center rounded border border-outline-variant group-hover:bg-primary-container group-hover:text-primary-fixed transition-all">
-<span class="material-symbols-outlined" data-icon="layers">layers</span>
-</div>
-<h2 class="font-display text-headline-lg">Ochrona Antykorozyjna</h2>
-</div>
-<p class="text-on-surface-variant font-body-md mb-8">
-                            Kompleksowy nadzór nad przygotowaniem powierzchni oraz procesem nakładania powłok malarskich. Gwarantujemy długowieczność konstrukcji w najbardziej wymagających środowiskach korozyjnych.
-                        </p>
-<ul class="space-y-3">
-<li class="flex items-center gap-3 font-body-md text-on-surface">
-<span class="w-1.5 h-1.5 bg-secondary rounded-full"></span>
-                                Kontrola czystości podłoża i profilu chropowatości
-                            </li>
-<li class="flex items-center gap-3 font-body-md text-on-surface">
-<span class="w-1.5 h-1.5 bg-secondary rounded-full"></span>
-                                Pomiary warunków klimatycznych podczas aplikacji
-                            </li>
-<li class="flex items-center gap-3 font-body-md text-on-surface">
-<span class="w-1.5 h-1.5 bg-secondary rounded-full"></span>
-                                Weryfikacja grubości powłok i przyczepności
-                            </li>
-</ul>
-</div>
-</div>
-</div>
-</section>
-<!-- Technical Support Section (Bento Grid) -->
-<section class="bg-surface-container-low py-24">
-<div class="px-margin-desktop max-w-container-max mx-auto">
-<div class="text-center mb-16">
-<h2 class="font-display text-headline-lg mb-4">Obszary Wsparcia Technicznego</h2>
-<p class="text-on-surface-variant max-w-2xl mx-auto">Dodatkowe kompetencje wspierające realizację kluczowych projektów inżynieryjnych.</p>
-</div>
-<div class="grid grid-cols-1 md:grid-cols-3 lg:grid-cols-5 gap-6">
-<!-- QA/QC -->
-<div class="bg-surface-container-lowest p-8 rounded-xl border border-outline-variant hover:border-primary transition-all flex flex-col items-center text-center">
-<span class="material-symbols-outlined text-4xl mb-4 text-secondary" data-icon="verified">verified</span>
-<h3 class="font-display text-headline-sm mb-2">QA/QC</h3>
-<p class="text-sm text-on-surface-variant">Zapewnienie i kontrola jakości na każdym etapie produkcji.</p>
-</div>
-<!-- QS/QM -->
-<div class="bg-surface-container-lowest p-8 rounded-xl border border-outline-variant hover:border-primary transition-all flex flex-col items-center text-center">
-<span class="material-symbols-outlined text-4xl mb-4 text-secondary" data-icon="rule">rule</span>
-<h3 class="font-display text-headline-sm mb-2">QS/QM</h3>
-<p class="text-sm text-on-surface-variant">Systemowe zarządzanie bezpieczeństwem i jakością.</p>
-</div>
-<!-- Documentation -->
-<div class="bg-surface-container-lowest p-8 rounded-xl border border-outline-variant hover:border-primary transition-all flex flex-col items-center text-center">
-<span class="material-symbols-outlined text-4xl mb-4 text-secondary" data-icon="description">description</span>
-<h3 class="font-display text-headline-sm mb-2">Documentation</h3>
-<p class="text-sm text-on-surface-variant">Kompletne opracowanie dokumentacji powykonawczej.</p>
-</div>
-<!-- Engineering -->
-<div class="bg-surface-container-lowest p-8 rounded-xl border border-outline-variant hover:border-primary transition-all flex flex-col items-center text-center">
-<span class="material-symbols-outlined text-4xl mb-4 text-secondary" data-icon="engineering">engineering</span>
-<h3 class="font-display text-headline-sm mb-2">Engineering</h3>
-<p class="text-sm text-on-surface-variant">Wsparcie inżynieryjne przy optymalizacji procesów.</p>
-</div>
-<!-- Project Coordination -->
-<div class="bg-surface-container-lowest p-8 rounded-xl border border-outline-variant hover:border-primary transition-all flex flex-col items-center text-center">
-<span class="material-symbols-outlined text-4xl mb-4 text-secondary" data-icon="account_tree">account_tree</span>
-<h3 class="font-display text-headline-sm mb-2">Coordination</h3>
-<p class="text-sm text-on-surface-variant">Zarządzanie terminami i koordynacja międzybranżowa.</p>
-</div>
-</div>
-</div>
-</section>
-<!-- CTA Section -->
-<section class="py-24 px-margin-desktop max-w-container-max mx-auto text-center">
-<div class="bg-primary text-on-primary rounded-2xl p-12 relative overflow-hidden">
-<div class="absolute inset-0 industrial-grid opacity-10"></div>
-<div class="relative z-10">
-<h2 class="font-display text-headline-lg mb-6">Potrzebujesz ekspertyzy technicznej?</h2>
-<p class="font-body-lg text-primary-fixed-dim mb-10 max-w-xl mx-auto">Skontaktuj się z nami, aby omówić wymagania Twojego projektu i otrzymać indywidualną wycenę.</p>
-<div class="flex flex-col sm:flex-row gap-4 justify-center">
-<button class="bg-secondary text-on-secondary px-8 py-4 rounded font-label-md hover:opacity-90 transition-all">Zapytaj o ofertę</button>
-<button class="border border-on-primary text-on-primary px-8 py-4 rounded font-label-md hover:bg-on-primary hover:text-primary transition-all">Nasze realizacje</button>
-</div>
-</div>
-</div>
-</section>
+  <!-- Main Pillars -->
+  <section class="py-24 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+    <div class="grid grid-cols-1 gap-16 md:gap-24">
+      <!-- Pillar 1: Welding -->
+      <div class="group grid md:grid-cols-12 gap-12 items-center border-b border-outline-variant/30 pb-16">
+        <div class="md:col-span-5">
+          <div class="aspect-video bg-surface-container rounded-xl overflow-hidden border border-outline-variant/30 group-hover:border-primary transition-all shadow-md">
+            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src={p1Img} alt={p1Title} />
+          </div>
+        </div>
+        <div class="md:col-span-7">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-12 h-12 bg-surface-container flex items-center justify-center rounded-lg border border-outline-variant/30 text-primary group-hover:bg-primary group-hover:text-white transition-all shadow-sm">
+              <span class="material-symbols-outlined text-2xl">precision_manufacturing</span>
+            </div>
+            <h2 class="font-display text-2xl md:text-3xl font-bold text-primary">{p1Title}</h2>
+          </div>
+          <div class="text-on-surface-variant font-body-md mb-8 leading-relaxed prose max-w-none" set:html={p1Desc} />
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
+            <div class="flex items-start gap-3 bg-surface-container/50 p-4 rounded-lg border border-outline-variant/20">
+              <span class="material-symbols-outlined text-secondary mt-0.5">check_circle</span>
+              <div>
+                <h4 class="font-bold text-on-surface text-sm">ISO 3834</h4>
+                <p class="text-xs text-on-surface-variant mt-0.5">Vollständige Einhaltung der internationalen Schweißqualitätsanforderungen.</p>
+              </div>
+            </div>
+            <div class="flex items-start gap-3 bg-surface-container/50 p-4 rounded-lg border border-outline-variant/20">
+              <span class="material-symbols-outlined text-secondary mt-0.5">check_circle</span>
+              <div>
+                <h4 class="font-bold text-on-surface text-sm">EN 1090</h4>
+                <p class="text-xs text-on-surface-variant mt-0.5">Fachkundige Überwachung der Herstellung von Stahlkonstruktionen.</p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
 
+      <!-- Pillar 2: NDT -->
+      <div class="group grid md:grid-cols-12 gap-12 items-center border-b border-outline-variant/30 pb-16">
+        <div class="md:col-span-7 order-2 md:order-1">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-12 h-12 bg-surface-container flex items-center justify-center rounded-lg border border-outline-variant/30 text-primary group-hover:bg-primary group-hover:text-white transition-all shadow-sm">
+              <span class="material-symbols-outlined text-2xl">visibility</span>
+            </div>
+            <h2 class="font-display text-2xl md:text-3xl font-bold text-primary">{p2Title}</h2>
+          </div>
+          <div class="text-on-surface-variant font-body-md mb-8 leading-relaxed prose max-w-none" set:html={p2Desc} />
+          <div class="flex flex-wrap gap-2.5">
+            <span class="px-3.5 py-1.5 bg-surface-container rounded-full text-xs font-bold border border-outline-variant/30 text-on-surface">VT - Visuell</span>
+            <span class="px-3.5 py-1.5 bg-surface-container rounded-full text-xs font-bold border border-outline-variant/30 text-on-surface">PT - Eindringprüfung</span>
+            <span class="px-3.5 py-1.5 bg-surface-container rounded-full text-xs font-bold border border-outline-variant/30 text-on-surface">MT - Magnetpulver</span>
+            <span class="px-3.5 py-1.5 bg-surface-container rounded-full text-xs font-bold border border-outline-variant/30 text-on-surface">UT - Ultraschall</span>
+            <span class="px-3.5 py-1.5 bg-surface-container rounded-full text-xs font-bold border border-outline-variant/30 text-on-surface">RT - Radiographie</span>
+          </div>
+        </div>
+        <div class="md:col-span-5 order-1 md:order-2">
+          <div class="aspect-video bg-surface-container rounded-xl overflow-hidden border border-outline-variant/30 group-hover:border-primary transition-all shadow-md">
+            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src={p2Img} alt={p2Title} />
+          </div>
+        </div>
+      </div>
+
+      <!-- Pillar 3: Corrosion Protection -->
+      <div class="group grid md:grid-cols-12 gap-12 items-center">
+        <div class="md:col-span-5">
+          <div class="aspect-video bg-surface-container rounded-xl overflow-hidden border border-outline-variant/30 group-hover:border-primary transition-all shadow-md">
+            <img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src={p3Img} alt={p3Title} />
+          </div>
+        </div>
+        <div class="md:col-span-7">
+          <div class="flex items-center gap-4 mb-6">
+            <div class="w-12 h-12 bg-surface-container flex items-center justify-center rounded-lg border border-outline-variant/30 text-primary group-hover:bg-primary group-hover:text-white transition-all shadow-sm">
+              <span class="material-symbols-outlined text-2xl">layers</span>
+            </div>
+            <h2 class="font-display text-2xl md:text-3xl font-bold text-primary">{p3Title}</h2>
+          </div>
+          <div class="text-on-surface-variant font-body-md mb-8 leading-relaxed prose max-w-none" set:html={p3Desc} />
+          <ul class="space-y-2.5">
+            <li class="flex items-center gap-3 text-sm text-on-surface font-medium">
+              <span class="w-2 h-2 bg-secondary rounded-full"></span>
+              Überprüfung der Oberflächenreinheit und des Rauheitsprofils
+            </li>
+            <li class="flex items-center gap-3 text-sm text-on-surface font-medium">
+              <span class="w-2 h-2 bg-secondary rounded-full"></span>
+              Überwachung der klimatischen Bedingungen während der Applikation
+            </li>
+            <li class="flex items-center gap-3 text-sm text-on-surface font-medium">
+              <span class="w-2 h-2 bg-secondary rounded-full"></span>
+              Messung der Schichtdicke und Haftfestigkeit
+            </li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Technical Support Section -->
+  <section class="bg-surface-container-low py-20 border-y border-outline-variant/30">
+    <div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+      <div class="text-center mb-14">
+        <h2 class="font-display text-3xl font-bold mb-3 text-primary">Bereiche der technischen Unterstützung</h2>
+        <p class="text-on-surface-variant max-w-2xl mx-auto text-sm md:text-base">Zusätzliche Ingenieurkompetenzen zur Unterstützung wichtiger Industrieprojekte.</p>
+      </div>
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
+        <div class="bg-surface p-6 rounded-xl border border-outline-variant/30 hover:border-primary transition-all flex flex-col items-center text-center shadow-sm">
+          <span class="material-symbols-outlined text-3xl mb-3 text-secondary">verified</span>
+          <h3 class="font-bold text-base mb-1">QA/QC</h3>
+          <p class="text-xs text-on-surface-variant leading-relaxed">Qualitätssicherung und -kontrolle in jeder Phase der Fertigung.</p>
+        </div>
+        <div class="bg-surface p-6 rounded-xl border border-outline-variant/30 hover:border-primary transition-all flex flex-col items-center text-center shadow-sm">
+          <span class="material-symbols-outlined text-3xl mb-3 text-secondary">rule</span>
+          <h3 class="font-bold text-base mb-1">QS/QM</h3>
+          <p class="text-xs text-on-surface-variant leading-relaxed">Systemisches Sicherheits- und Qualitätsmanagement.</p>
+        </div>
+        <div class="bg-surface p-6 rounded-xl border border-outline-variant/30 hover:border-primary transition-all flex flex-col items-center text-center shadow-sm">
+          <span class="material-symbols-outlined text-3xl mb-3 text-secondary">description</span>
+          <h3 class="font-bold text-base mb-1">Dokumentation</h3>
+          <p class="text-xs text-on-surface-variant leading-relaxed">Vollständige Erstellung technischer Bestandsdokumentationen.</p>
+        </div>
+        <div class="bg-surface p-6 rounded-xl border border-outline-variant/30 hover:border-primary transition-all flex flex-col items-center text-center shadow-sm">
+          <span class="material-symbols-outlined text-3xl mb-3 text-secondary">engineering</span>
+          <h3 class="font-bold text-base mb-1">Engineering</h3>
+          <p class="text-xs text-on-surface-variant leading-relaxed">Ingenieurtechnische Unterstützung bei der Prozessoptimierung.</p>
+        </div>
+        <div class="bg-surface p-6 rounded-xl border border-outline-variant/30 hover:border-primary transition-all flex flex-col items-center text-center shadow-sm">
+          <span class="material-symbols-outlined text-3xl mb-3 text-secondary">account_tree</span>
+          <h3 class="font-bold text-base mb-1">Koordination</h3>
+          <p class="text-xs text-on-surface-variant leading-relaxed">Terminmanagement und interdisziplinäre Koordination.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA Section -->
+  <section class="py-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto text-center">
+    <div class="bg-navy text-white rounded-2xl p-10 md:p-16 relative overflow-hidden shadow-xl">
+      <div class="absolute inset-0 industrial-grid opacity-10"></div>
+      <div class="relative z-10 max-w-2xl mx-auto">
+        <h2 class="font-display text-3xl md:text-4xl font-bold mb-4">Benötigen Sie technische Expertise?</h2>
+        <p class="text-gray-300 mb-8 leading-relaxed">Kontaktieren Sie unseren Hauptsitz in Bremen, um Ihre Projektanforderungen zu besprechen und eine individuelle Lösung zu erhalten.</p>
+        <div class="flex flex-col sm:flex-row gap-4 justify-center">
+          <a href="/de/kontakt.html" class="bg-secondary text-white px-8 py-3.5 rounded-lg font-bold hover:opacity-90 transition-all shadow-md">Angebot anfordern</a>
+          <a href="/de/about.html" class="border border-white/40 text-white px-8 py-3.5 rounded-lg font-bold hover:bg-white hover:text-navy transition-all">Mehr über uns erfahren</a>
+        </div>
+      </div>
+    </div>
+  </section>
 </Layout>
