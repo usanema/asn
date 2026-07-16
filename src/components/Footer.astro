@@ -1,4 +1,5 @@
 ---
+import { getMedia } from '../lib/data';
 const { lang = 'en', globalSettings } = Astro.props;
 
 const t = {
@@ -33,6 +34,7 @@ const t = {
 
 const texts = t[lang] || t['en'];
 const footerCopyright = globalSettings?.footerText || "© 2024 ASN Weld & Inspection Network. All rights reserved. Brema Headquarters.";
+const logoUrl = getMedia(globalSettings?.logo, globalSettings);
 const logoText = globalSettings?.logoText || "ASN Weld & Inspection Network";
 
 const getLink = (path) => {
@@ -43,7 +45,13 @@ const getLink = (path) => {
 <footer class="w-full py-12 bg-surface-container-highest border-t border-outline-variant/30">
   <div class="grid grid-cols-1 md:grid-cols-4 gap-gutter px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
     <div class="col-span-1 md:col-span-2">
-      <a class="font-display text-headline-sm font-bold text-on-surface block mb-6 hover:text-primary transition-colors" href={getLink("/")}>{logoText}</a>
+      <a class="font-display text-headline-sm font-bold text-on-surface block mb-6 hover:text-primary transition-colors" href={getLink("/")}>
+        {logoUrl ? (
+          <img src={logoUrl} alt={logoText} class="h-24 w-auto object-contain" />
+        ) : (
+          logoText
+        )}
+      </a>
       <p class="text-on-surface-variant max-w-md mb-8 leading-relaxed">
         {texts.desc}
       </p>

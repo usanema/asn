@@ -1,51 +1,22 @@
 /**
- * Helper to fetch data from PocketBase API
+ * Helper to fetch content data
  */
 export async function fetchApi({ collection, endpoint, locale = 'en', query = {}, isList = false }) {
   const colName = collection || endpoint;
   const col = colName.replace(/-/g, '_');
 
-  const baseUrl = import.meta.env.POCKETBASE_URL || 'http://srv50.mikr.us:40249';
-  const url = new URL(`${baseUrl}/api/collections/${col}/records`);
-
-  if (locale && col !== 'global_setting' && col !== 'global_settings') {
-    url.searchParams.append('filter', `locale = '${locale}'`);
-  }
-
-  Object.entries(query).forEach(([key, value]) => {
-    if (key !== 'locale' && key !== 'populate') {
-      url.searchParams.append(key, value);
+  const data = getLocalData(col, locale);
+  if (data && data.items && Array.isArray(data.items)) {
+    if (isList || col === 'navigation' || col === 'navigations') {
+      return data.items;
     }
-  });
-
-  const headers = {};
-  if (import.meta.env.POCKETBASE_TOKEN) {
-    headers['Authorization'] = import.meta.env.POCKETBASE_TOKEN;
+    return data.items[0] || null;
   }
-
-  try {
-    const res = await fetch(url.toString(), { headers });
-    if (!res.ok) {
-      throw new Error(`Failed to fetch from PocketBase: ${res.status} ${res.statusText}`);
-    }
-    const data = await res.json();
-    
-    if (data.items && Array.isArray(data.items)) {
-      if (isList || col === 'navigation' || col === 'navigations') {
-        return data.items;
-      }
-      return data.items[0] || null;
-    }
-    
-    return data;
-  } catch (error) {
-    console.warn(`[PocketBase Mock] Failed to fetch '${col}'. Falling back to local mock data. (${error.message})`);
-    return getMockData(col, locale);
-  }
+  return data;
 }
 
 /**
- * Zwraca adres URL do pliku/obrazka z PocketBase
+ * Returns URL for media files
  */
 export function getMedia(filename, record) {
   if (filename == null) {
@@ -54,17 +25,13 @@ export function getMedia(filename, record) {
   if (typeof filename === 'string' && (filename.startsWith('http') || filename.startsWith('//'))) {
     return filename;
   }
-  const baseUrl = import.meta.env.POCKETBASE_URL || 'http://srv50.mikr.us:40249';
-  if (record && record.id && record.collectionId) {
-    return `${baseUrl}/api/files/${record.collectionId}/${record.id}/${filename}`;
-  }
   return filename;
 }
 
 /**
- * Complete multilingual mock data for local development or offline fallback.
+ * Complete multilingual content data
  */
-function getMockData(col, locale = 'en') {
+function getLocalData(col, locale = 'en') {
   if (col.startsWith('global_setting')) {
     return {
       id: "mock_global_id",
@@ -77,7 +44,7 @@ function getMockData(col, locale = 'en') {
       colorText: "#1f2937",
       logoText: "ASN Weld & Inspection Network",
       footerText: "© 2024 ASN Weld & Inspection Network. All rights reserved. Brema Headquarters.",
-      logo: null
+      logo: "/logo.png"
     };
   }
   

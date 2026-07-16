@@ -1,5 +1,5 @@
 ---
-import { fetchApi, getMedia } from '../lib/pocketbase';
+import { fetchApi, getMedia } from '../lib/data';
 const { currentPath, lang = 'en', globalSettings } = Astro.props;
 
 // Fetch navigation dynamically
@@ -37,11 +37,11 @@ const logoText = globalSettings?.logoText || "ASN Weld & Inspection Network";
 ---
 
 <header class="fixed top-0 w-full z-50 bg-surface/90 backdrop-blur-md border-b border-outline-variant/30 transition-all duration-300">
-  <div class="flex justify-between items-center h-20 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
+  <div class="flex justify-between items-center h-24 md:h-28 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
     <!-- Logo -->
     <a class="font-display text-headline-sm font-bold text-primary flex items-center gap-3 group" href={getLink("/")}>
       {logoUrl ? (
-        <img src={logoUrl} alt={logoText} class="h-10 w-auto object-contain transition-transform group-hover:scale-105 duration-200" />
+        <img src={logoUrl} alt={logoText} class="h-20 w-auto object-contain transition-transform group-hover:scale-105 duration-200" />
       ) : (
         <span class="tracking-tight text-navy group-hover:text-secondary transition-colors">{logoText}</span>
       )}
