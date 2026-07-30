@@ -31,6 +31,9 @@ export async function fetchApi({ collection, endpoint, locale = 'en', query = {}
               ) || item.translations[0] || {};
               merged = { ...merged, ...trans };
             }
+            if (typeof merged.path === 'string') {
+              merged.path = merged.path.replace(/\.html$/, '');
+            }
             return merged;
           };
 
