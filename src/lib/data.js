@@ -414,7 +414,7 @@ function getLocalData(col, locale = 'en') {
         ],
         pillar2Title: "Non-Destructive Testing (NDT / VT, PT, MT, UT, RT)",
         pillar2Desc: "Certified inspections by level II and III personnel according to ISO 9712.",
-        pillar2Image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&q=80&w=800",
+        pillar2Image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBBrGiolNSi1aj_eMj1dC52n6Fhn9p1dzew3rJjbium6Hcp0su75LUGgByvEvfD7gzxGp6dkOqMh4sDXy5yUXgpQujccUM6Igb5FOBweEzo5oiELmnPTZFp3HeqCcWxzH0JlyKhYpKb8AN_yCCzbt_697NM4eYFHYx68s0z4LxT19W_czhbgEk9HExO1APRQli5cfWmoCZdipk2ZqcVJQfAEZCl3VJwEXF1keSSA4XtPYcoMlMFW7uZeRnGsvWpOY63Kbj49EQHhV8",
         pillar2List: [
           "Visual (VT), Penetrant (PT), and Magnetic Particle (MT) inspections",
           "Ultrasonic (UT) and Radiographic (RT) testing evaluation",
@@ -422,7 +422,7 @@ function getLocalData(col, locale = 'en') {
         ],
         pillar3Title: "Anti-Corrosion Protection & FROSIO/NACE Inspection",
         pillar3Desc: "Comprehensive coating inspections, surface preparation analysis, and quality assurance.",
-        pillar3Image: "https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?auto=format&fit=crop&q=80&w=800",
+        pillar3Image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBBrGiolNSi1aj_eMj1dC52n6Fhn9p1dzew3rJjbium6Hcp0su75LUGgByvEvfD7gzxGp6dkOqMh4sDXy5yUXgpQujccUM6Igb5FOBweEzo5oiELmnPTZFp3HeqCcWxzH0JlyKhYpKb8AN_yCCzbt_697NM4eYFHYx68s0z4LxT19W_czhbgEk9HExO1APRQli5cfWmoCZdipk2ZqcVJQfAEZCl3VJwEXF1keSSA4XtPYcoMlMFW7uZeRnGsvWpOY63Kbj49EQHhV8",
         pillar3List: [
           "Surface cleanliness and roughness evaluation",
           "Dry film thickness (DFT) and wet film thickness (WFT) measurements",
@@ -454,7 +454,7 @@ function getLocalData(col, locale = 'en') {
         ],
         pillar2Title: "Badania Nieniszczące (NDT / VT, PT, MT, UT, RT)",
         pillar2Desc: "Certyfikowane inspekcje wykonywane przez personel drugiego i trzeciego stopnia według normy ISO 9712.",
-        pillar2Image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&q=80&w=800",
+        pillar2Image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBBrGiolNSi1aj_eMj1dC52n6Fhn9p1dzew3rJjbium6Hcp0su75LUGgByvEvfD7gzxGp6dkOqMh4sDXy5yUXgpQujccUM6Igb5FOBweEzo5oiELmnPTZFp3HeqCcWxzH0JlyKhYpKb8AN_yCCzbt_697NM4eYFHYx68s0z4LxT19W_czhbgEk9HExO1APRQli5cfWmoCZdipk2ZqcVJQfAEZCl3VJwEXF1keSSA4XtPYcoMlMFW7uZeRnGsvWpOY63Kbj49EQHhV8",
         pillar2List: [
           "Badania wizualne (VT), penetracyjne (PT) i magnetyczno-proszkowe (MT)",
           "Ocena badań ultradźwiękowych (UT) i radiograficznych (RT)",
@@ -462,7 +462,7 @@ function getLocalData(col, locale = 'en') {
         ],
         pillar3Title: "Ochrona Antykorozyjna i Inspekcje FROSIO/NACE",
         pillar3Desc: "Kompleksowe inspekcje powłok malarskich, analiza przygotowania powierzchni i kontrola jakości.",
-        pillar3Image: "https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?auto=format&fit=crop&q=80&w=800",
+        pillar3Image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBBrGiolNSi1aj_eMj1dC52n6Fhn9p1dzew3rJjbium6Hcp0su75LUGgByvEvfD7gzxGp6dkOqMh4sDXy5yUXgpQujccUM6Igb5FOBweEzo5oiELmnPTZFp3HeqCcWxzH0JlyKhYpKb8AN_yCCzbt_697NM4eYFHYx68s0z4LxT19W_czhbgEk9HExO1APRQli5cfWmoCZdipk2ZqcVJQfAEZCl3VJwEXF1keSSA4XtPYcoMlMFW7uZeRnGsvWpOY63Kbj49EQHhV8",
         pillar3List: [
           "Ocena czystości i chropowatości powierzchni przed aplikacją",
           "Pomiary grubości powłok na sucho (DFT) i na mokro (WFT)",
@@ -494,7 +494,7 @@ function getLocalData(col, locale = 'en') {
         ],
         pillar2Title: "Zerstörungsfreie Prüfung (ZfP / VT, PT, MT, UT, RT)",
         pillar2Desc: "Zertifizierte Inspektionen durch Personal der Stufen II und III gemäß ISO 9712.",
-        pillar2Image: "https://images.unsplash.com/photo-1581092160607-ee22621dd758?auto=format&fit=crop&q=80&w=800",
+        pillar2Image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBBrGiolNSi1aj_eMj1dC52n6Fhn9p1dzew3rJjbium6Hcp0su75LUGgByvEvfD7gzxGp6dkOqMh4sDXy5yUXgpQujccUM6Igb5FOBweEzo5oiELmnPTZFp3HeqCcWxzH0JlyKhYpKb8AN_yCCzbt_697NM4eYFHYx68s0z4LxT19W_czhbgEk9HExO1APRQli5cfWmoCZdipk2ZqcVJQfAEZCl3VJwEXF1keSSA4XtPYcoMlMFW7uZeRnGsvWpOY63Kbj49EQHhV8",
         pillar2List: [
           "Sicht- (VT), Eindring- (PT) und Magnetpulverprüfungen (MT)",
           "Auswertung von Ultraschall- (UT) und Durchstrahlungsprüfungen (RT)",
@@ -502,7 +502,7 @@ function getLocalData(col, locale = 'en') {
         ],
         pillar3Title: "Korrosionsschutz & FROSIO/NACE-Inspektion",
         pillar3Desc: "Umfassende Beschichtungsinspektionen, Analyse der Oberflächenvorbereitung und Qualitätssicherung.",
-        pillar3Image: "https://images.unsplash.com/photo-1504917599217-d4dc5ebe6122?auto=format&fit=crop&q=80&w=800",
+        pillar3Image: "https://lh3.googleusercontent.com/aida-public/AB6AXuBBrGiolNSi1aj_eMj1dC52n6Fhn9p1dzew3rJjbium6Hcp0su75LUGgByvEvfD7gzxGp6dkOqMh4sDXy5yUXgpQujccUM6Igb5FOBweEzo5oiELmnPTZFp3HeqCcWxzH0JlyKhYpKb8AN_yCCzbt_697NM4eYFHYx68s0z4LxT19W_czhbgEk9HExO1APRQli5cfWmoCZdipk2ZqcVJQfAEZCl3VJwEXF1keSSA4XtPYcoMlMFW7uZeRnGsvWpOY63Kbj49EQHhV8",
         pillar3List: [
           "Bewertung der Oberflächensauberkeit und -rauheit vor der Applikation",
           "Messungen der Trocken- (DFT) und Nassschichtdicke (WFT)",
@@ -535,7 +535,7 @@ function getLocalData(col, locale = 'en') {
         stat1Val: "15+", stat1Lbl: "Years in Offshore Industry",
         stat2Val: "100%", stat2Lbl: "Compliance with EN/ISO",
         stat3Val: "50+", stat3Lbl: "Completed Major Projects",
-        image1: "https://images.unsplash.com/photo-1541888946425-d0abb18086f6?auto=format&fit=crop&q=80&w=800",
+        image1: "https://lh3.googleusercontent.com/aida-public/AB6AXuBBrGiolNSi1aj_eMj1dC52n6Fhn9p1dzew3rJjbium6Hcp0su75LUGgByvEvfD7gzxGp6dkOqMh4sDXy5yUXgpQujccUM6Igb5FOBweEzo5oiELmnPTZFp3HeqCcWxzH0JlyKhYpKb8AN_yCCzbt_697NM4eYFHYx68s0z4LxT19W_czhbgEk9HExO1APRQli5cfWmoCZdipk2ZqcVJQfAEZCl3VJwEXF1keSSA4XtPYcoMlMFW7uZeRnGsvWpOY63Kbj49EQHhV8",
         projectsTitle: "Industrial Sectors & Experience",
         projectsDesc: "We provide high-level supervision across Europe's most demanding sectors.",
         projectsList: [
@@ -568,7 +568,7 @@ function getLocalData(col, locale = 'en') {
         stat1Val: "15+", stat1Lbl: "Lat w branży Offshore",
         stat2Val: "100%", stat2Lbl: "Zgodności z normami EN/ISO",
         stat3Val: "50+", stat3Lbl: "Zrealizowanych kontraktów",
-        image1: "https://images.unsplash.com/photo-1541888946425-d0abb18086f6?auto=format&fit=crop&q=80&w=800",
+        image1: "https://lh3.googleusercontent.com/aida-public/AB6AXuBBrGiolNSi1aj_eMj1dC52n6Fhn9p1dzew3rJjbium6Hcp0su75LUGgByvEvfD7gzxGp6dkOqMh4sDXy5yUXgpQujccUM6Igb5FOBweEzo5oiELmnPTZFp3HeqCcWxzH0JlyKhYpKb8AN_yCCzbt_697NM4eYFHYx68s0z4LxT19W_czhbgEk9HExO1APRQli5cfWmoCZdipk2ZqcVJQfAEZCl3VJwEXF1keSSA4XtPYcoMlMFW7uZeRnGsvWpOY63Kbj49EQHhV8",
         projectsTitle: "Sektory Przemysłowe i Doświadczenie",
         projectsDesc: "Świadczymy nadzór techniczny na najwyższym poziomie w najbardziej wymagających sektorach Europy.",
         projectsList: [
@@ -601,7 +601,7 @@ function getLocalData(col, locale = 'en') {
         stat1Val: "15+", stat1Lbl: "Jahre in der Offshore-Industrie",
         stat2Val: "100%", stat2Lbl: "Konformität mit EN/ISO",
         stat3Val: "50+", stat3Lbl: "Abgeschlossene Großprojekte",
-        image1: "https://images.unsplash.com/photo-1541888946425-d0abb18086f6?auto=format&fit=crop&q=80&w=800",
+        image1: "https://lh3.googleusercontent.com/aida-public/AB6AXuBBrGiolNSi1aj_eMj1dC52n6Fhn9p1dzew3rJjbium6Hcp0su75LUGgByvEvfD7gzxGp6dkOqMh4sDXy5yUXgpQujccUM6Igb5FOBweEzo5oiELmnPTZFp3HeqCcWxzH0JlyKhYpKb8AN_yCCzbt_697NM4eYFHYx68s0z4LxT19W_czhbgEk9HExO1APRQli5cfWmoCZdipk2ZqcVJQfAEZCl3VJwEXF1keSSA4XtPYcoMlMFW7uZeRnGsvWpOY63Kbj49EQHhV8",
         projectsTitle: "Industriesektoren & Erfahrung",
         projectsDesc: "Wir bieten technische Überwachung auf höchstem Niveau in den anspruchsvollsten Sektoren Europas.",
         projectsList: [
