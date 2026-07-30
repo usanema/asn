@@ -32,7 +32,7 @@ const isActive = (path) => {
 };
 
 // Logo logic
-const logoUrl = getMedia(globalSettings?.logo, globalSettings);
+const logoUrl = getMedia(globalSettings?.logo, globalSettings) || "/logo.png";
 const logoText = globalSettings?.logoText || "ASN Weld & Inspection Network";
 ---
 

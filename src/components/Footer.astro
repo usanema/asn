@@ -3,7 +3,7 @@ import { getMedia } from '../lib/data';
 const { lang = 'en', globalSettings } = Astro.props;
 
 const footerCopyright = globalSettings?.footerText || "© 2024 ASN Weld & Inspection Network. All rights reserved. Brema Headquarters.";
-const logoUrl = getMedia(globalSettings?.logo, globalSettings);
+const logoUrl = getMedia(globalSettings?.logo, globalSettings) || "/logo.png";
 const logoText = globalSettings?.logoText || "ASN Weld & Inspection Network";
 
 const desc = globalSettings?.footerDesc || "Professional engineering network specializing in the coordination and supervision of welding processes and NDT testing. Headquartered in Bremen, European reach.";
