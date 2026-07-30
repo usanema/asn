@@ -135,24 +135,24 @@ function getLocalData(col, locale = 'en') {
     const t = {
       en: [
         { id: "nav1", title: "Home", path: "/" },
-        { id: "nav2", title: "About Us", path: "/about.html" },
-        { id: "nav3", title: "Services", path: "/uslugi.html" },
-        { id: "nav4", title: "Experience", path: "/doswiadczenie.html" },
-        { id: "nav5", title: "Contact", path: "/kontakt.html" }
+        { id: "nav2", title: "About Us", path: "/about" },
+        { id: "nav3", title: "Services", path: "/uslugi" },
+        { id: "nav4", title: "Experience", path: "/doswiadczenie" },
+        { id: "nav5", title: "Contact", path: "/kontakt" }
       ],
       pl: [
         { id: "nav1", title: "Strona Główna", path: "/" },
-        { id: "nav2", title: "O nas", path: "/about.html" },
-        { id: "nav3", title: "Usługi", path: "/uslugi.html" },
-        { id: "nav4", title: "Doświadczenie", path: "/doswiadczenie.html" },
-        { id: "nav5", title: "Kontakt", path: "/kontakt.html" }
+        { id: "nav2", title: "O nas", path: "/about" },
+        { id: "nav3", title: "Usługi", path: "/uslugi" },
+        { id: "nav4", title: "Doświadczenie", path: "/doswiadczenie" },
+        { id: "nav5", title: "Kontakt", path: "/kontakt" }
       ],
       de: [
         { id: "nav1", title: "Startseite", path: "/" },
-        { id: "nav2", title: "Über uns", path: "/about.html" },
-        { id: "nav3", title: "Dienstleistungen", path: "/uslugi.html" },
-        { id: "nav4", title: "Erfahrung", path: "/doswiadczenie.html" },
-        { id: "nav5", title: "Kontakt", path: "/kontakt.html" }
+        { id: "nav2", title: "Über uns", path: "/about" },
+        { id: "nav3", title: "Dienstleistungen", path: "/uslugi" },
+        { id: "nav4", title: "Erfahrung", path: "/doswiadczenie" },
+        { id: "nav5", title: "Kontakt", path: "/kontakt" }
       ]
     };
     return t[locale] || t['en'];
