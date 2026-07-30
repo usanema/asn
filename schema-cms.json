@@ -1,0 +1,2133 @@
+{
+  "version": 1,
+  "directus": "12.1.1",
+  "collections": [
+    {
+      "collection": "languages",
+      "meta": {
+        "collection": "languages",
+        "icon": "translate",
+        "note": "Available website languages (en, pl, de)",
+        "display_template": "{{name}} ({{code}})",
+        "hidden": false,
+        "singleton": false
+      },
+      "schema": {
+        "name": "languages"
+      }
+    },
+    {
+      "collection": "global_settings",
+      "meta": {
+        "collection": "global_settings",
+        "icon": "settings",
+        "note": "Global website configuration, colors, and footer settings",
+        "singleton": true,
+        "translations_path": "translations"
+      },
+      "schema": {
+        "name": "global_settings"
+      }
+    },
+    {
+      "collection": "global_settings_translations",
+      "meta": {
+        "collection": "global_settings_translations",
+        "icon": "import_export",
+        "hidden": true
+      },
+      "schema": {
+        "name": "global_settings_translations"
+      }
+    },
+    {
+      "collection": "navigation",
+      "meta": {
+        "collection": "navigation",
+        "icon": "menu",
+        "note": "Main navigation menu links",
+        "sort_field": "sort",
+        "translations_path": "translations"
+      },
+      "schema": {
+        "name": "navigation"
+      }
+    },
+    {
+      "collection": "navigation_translations",
+      "meta": {
+        "collection": "navigation_translations",
+        "icon": "import_export",
+        "hidden": true
+      },
+      "schema": {
+        "name": "navigation_translations"
+      }
+    },
+    {
+      "collection": "home_page",
+      "meta": {
+        "collection": "home_page",
+        "icon": "home",
+        "note": "Home Page content and sections",
+        "singleton": true,
+        "translations_path": "translations"
+      },
+      "schema": {
+        "name": "home_page"
+      }
+    },
+    {
+      "collection": "home_page_translations",
+      "meta": {
+        "collection": "home_page_translations",
+        "icon": "import_export",
+        "hidden": true
+      },
+      "schema": {
+        "name": "home_page_translations"
+      }
+    },
+    {
+      "collection": "about_page",
+      "meta": {
+        "collection": "about_page",
+        "icon": "info",
+        "note": "About Us page content, philosophy, and metrics",
+        "singleton": true,
+        "translations_path": "translations"
+      },
+      "schema": {
+        "name": "about_page"
+      }
+    },
+    {
+      "collection": "about_page_translations",
+      "meta": {
+        "collection": "about_page_translations",
+        "icon": "import_export",
+        "hidden": true
+      },
+      "schema": {
+        "name": "about_page_translations"
+      }
+    },
+    {
+      "collection": "services_page",
+      "meta": {
+        "collection": "services_page",
+        "icon": "build",
+        "note": "Services page content, pillars, and approach",
+        "singleton": true,
+        "translations_path": "translations"
+      },
+      "schema": {
+        "name": "services_page"
+      }
+    },
+    {
+      "collection": "services_page_translations",
+      "meta": {
+        "collection": "services_page_translations",
+        "icon": "import_export",
+        "hidden": true
+      },
+      "schema": {
+        "name": "services_page_translations"
+      }
+    },
+    {
+      "collection": "experience_page",
+      "meta": {
+        "collection": "experience_page",
+        "icon": "work_history",
+        "note": "Experience page content, projects, and certifications",
+        "singleton": true,
+        "translations_path": "translations"
+      },
+      "schema": {
+        "name": "experience_page"
+      }
+    },
+    {
+      "collection": "experience_page_translations",
+      "meta": {
+        "collection": "experience_page_translations",
+        "icon": "import_export",
+        "hidden": true
+      },
+      "schema": {
+        "name": "experience_page_translations"
+      }
+    },
+    {
+      "collection": "contact_page",
+      "meta": {
+        "collection": "contact_page",
+        "icon": "contact_mail",
+        "note": "Contact page content, headquarters info, and form labels",
+        "singleton": true,
+        "translations_path": "translations"
+      },
+      "schema": {
+        "name": "contact_page"
+      }
+    },
+    {
+      "collection": "contact_page_translations",
+      "meta": {
+        "collection": "contact_page_translations",
+        "icon": "import_export",
+        "hidden": true
+      },
+      "schema": {
+        "name": "contact_page_translations"
+      }
+    }
+  ],
+  "fields": [
+    {
+      "collection": "languages",
+      "field": "code",
+      "type": "string",
+      "meta": {
+        "interface": "input",
+        "required": true,
+        "note": "Language code (e.g. en, pl, de)"
+      },
+      "schema": {
+        "is_primary_key": true
+      }
+    },
+    {
+      "collection": "languages",
+      "field": "name",
+      "type": "string",
+      "meta": {
+        "interface": "input",
+        "required": true,
+        "note": "Language name (e.g. English, Polski, Deutsch)"
+      }
+    },
+    {
+      "collection": "global_settings",
+      "field": "id",
+      "type": "uuid",
+      "meta": {
+        "hidden": true
+      },
+      "schema": {
+        "is_primary_key": true
+      }
+    },
+    {
+      "collection": "global_settings",
+      "field": "logo",
+      "type": "uuid",
+      "meta": {
+        "interface": "file-image",
+        "note": "Main site logo image"
+      }
+    },
+    {
+      "collection": "global_settings",
+      "field": "backgroundColor",
+      "type": "string",
+      "meta": {
+        "interface": "select-color",
+        "note": "Background Color Theme"
+      }
+    },
+    {
+      "collection": "global_settings",
+      "field": "colorPrimary",
+      "type": "string",
+      "meta": {
+        "interface": "select-color",
+        "note": "Primary Color Theme"
+      }
+    },
+    {
+      "collection": "global_settings",
+      "field": "colorSecondary",
+      "type": "string",
+      "meta": {
+        "interface": "select-color",
+        "note": "Secondary Color Theme"
+      }
+    },
+    {
+      "collection": "global_settings",
+      "field": "colorNavy",
+      "type": "string",
+      "meta": {
+        "interface": "select-color",
+        "note": "Navy Color Theme"
+      }
+    },
+    {
+      "collection": "global_settings",
+      "field": "translations",
+      "type": "alias",
+      "meta": {
+        "interface": "translations",
+        "special": [
+          "translations"
+        ],
+        "display": "translations",
+        "options": {
+          "languageField": "languages_code",
+          "languageNameField": "name"
+        }
+      }
+    },
+    {
+      "collection": "global_settings_translations",
+      "field": "id",
+      "type": "integer",
+      "meta": {
+        "hidden": true
+      },
+      "schema": {
+        "is_primary_key": true,
+        "has_auto_increment": true
+      }
+    },
+    {
+      "collection": "global_settings_translations",
+      "field": "global_settings_id",
+      "type": "uuid",
+      "meta": {
+        "hidden": true
+      }
+    },
+    {
+      "collection": "global_settings_translations",
+      "field": "languages_code",
+      "type": "string",
+      "meta": {
+        "hidden": true
+      }
+    },
+    {
+      "collection": "global_settings_translations",
+      "field": "logoText",
+      "type": "string",
+      "meta": {
+        "interface": "input",
+        "note": "Logo alt text / fallback name"
+      }
+    },
+    {
+      "collection": "global_settings_translations",
+      "field": "footerText",
+      "type": "string",
+      "meta": {
+        "interface": "input",
+        "note": "Footer Copyright Notice"
+      }
+    },
+    {
+      "collection": "global_settings_translations",
+      "field": "footerDesc",
+      "type": "text",
+      "meta": {
+        "interface": "input-multiline",
+        "note": "Footer company description text"
+      }
+    },
+    {
+      "collection": "global_settings_translations",
+      "field": "footerServicesLabel",
+      "type": "string",
+      "meta": {
+        "interface": "input",
+        "note": "Footer column heading: Services"
+      }
+    },
+    {
+      "collection": "global_settings_translations",
+      "field": "footerLegalLabel",
+      "type": "string",
+      "meta": {
+        "interface": "input",
+        "note": "Footer column heading: Legal"
+      }
+    },
+    {
+      "collection": "global_settings_translations",
+      "field": "weldingLabel",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "global_settings_translations",
+      "field": "ndtLabel",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "global_settings_translations",
+      "field": "corrosionLabel",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "global_settings_translations",
+      "field": "qaqcLabel",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "navigation",
+      "field": "id",
+      "type": "string",
+      "meta": {
+        "interface": "input",
+        "required": true,
+        "note": "Navigation item slug/id (e.g. nav1)"
+      },
+      "schema": {
+        "is_primary_key": true
+      }
+    },
+    {
+      "collection": "navigation",
+      "field": "sort",
+      "type": "integer",
+      "meta": {
+        "interface": "input",
+        "note": "Sort order"
+      }
+    },
+    {
+      "collection": "navigation",
+      "field": "translations",
+      "type": "alias",
+      "meta": {
+        "interface": "translations",
+        "special": [
+          "translations"
+        ],
+        "display": "translations",
+        "options": {
+          "languageField": "languages_code",
+          "languageNameField": "name"
+        }
+      }
+    },
+    {
+      "collection": "navigation_translations",
+      "field": "id",
+      "type": "integer",
+      "meta": {
+        "hidden": true
+      },
+      "schema": {
+        "is_primary_key": true,
+        "has_auto_increment": true
+      }
+    },
+    {
+      "collection": "navigation_translations",
+      "field": "navigation_id",
+      "type": "string",
+      "meta": {
+        "hidden": true
+      }
+    },
+    {
+      "collection": "navigation_translations",
+      "field": "languages_code",
+      "type": "string",
+      "meta": {
+        "hidden": true
+      }
+    },
+    {
+      "collection": "navigation_translations",
+      "field": "title",
+      "type": "string",
+      "meta": {
+        "interface": "input",
+        "note": "Menu link text"
+      }
+    },
+    {
+      "collection": "navigation_translations",
+      "field": "path",
+      "type": "string",
+      "meta": {
+        "interface": "input",
+        "note": "Target URL path (e.g. /, /about.html)"
+      }
+    },
+    {
+      "collection": "home_page",
+      "field": "id",
+      "type": "uuid",
+      "meta": {
+        "hidden": true
+      },
+      "schema": {
+        "is_primary_key": true
+      }
+    },
+    {
+      "collection": "home_page",
+      "field": "heroImage",
+      "type": "uuid",
+      "meta": {
+        "interface": "file-image",
+        "note": "Hero Section visual element / photo"
+      }
+    },
+    {
+      "collection": "home_page",
+      "field": "modelImage",
+      "type": "uuid",
+      "meta": {
+        "interface": "file-image",
+        "note": "Cooperation Model section photo"
+      }
+    },
+    {
+      "collection": "home_page",
+      "field": "bremaImage",
+      "type": "uuid",
+      "meta": {
+        "interface": "file-image",
+        "note": "Bremen Headquarters photo"
+      }
+    },
+    {
+      "collection": "home_page",
+      "field": "translations",
+      "type": "alias",
+      "meta": {
+        "interface": "translations",
+        "special": [
+          "translations"
+        ],
+        "display": "translations",
+        "options": {
+          "languageField": "languages_code",
+          "languageNameField": "name"
+        }
+      }
+    },
+    {
+      "collection": "home_page_translations",
+      "field": "id",
+      "type": "integer",
+      "meta": {
+        "hidden": true
+      },
+      "schema": {
+        "is_primary_key": true,
+        "has_auto_increment": true
+      }
+    },
+    {
+      "collection": "home_page_translations",
+      "field": "home_page_id",
+      "type": "uuid",
+      "meta": {
+        "hidden": true
+      }
+    },
+    {
+      "collection": "home_page_translations",
+      "field": "languages_code",
+      "type": "string",
+      "meta": {
+        "hidden": true
+      }
+    },
+    {
+      "collection": "home_page_translations",
+      "field": "title",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "home_page_translations",
+      "field": "seoTitle",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "home_page_translations",
+      "field": "seoDesc",
+      "type": "text",
+      "meta": {
+        "interface": "input-multiline"
+      }
+    },
+    {
+      "collection": "home_page_translations",
+      "field": "heroBadge",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "home_page_translations",
+      "field": "heroTitle",
+      "type": "text",
+      "meta": {
+        "interface": "input-multiline",
+        "note": "Main H1 title (supports HTML/spans)"
+      }
+    },
+    {
+      "collection": "home_page_translations",
+      "field": "heroDesc",
+      "type": "text",
+      "meta": {
+        "interface": "input-multiline"
+      }
+    },
+    {
+      "collection": "home_page_translations",
+      "field": "heroBtnService",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "home_page_translations",
+      "field": "heroBtnAbout",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "home_page_translations",
+      "field": "pillarsTitle",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "home_page_translations",
+      "field": "pillar1Title",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "home_page_translations",
+      "field": "pillar1Desc",
+      "type": "text",
+      "meta": {
+        "interface": "input-multiline"
+      }
+    },
+    {
+      "collection": "home_page_translations",
+      "field": "pillar2Title",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "home_page_translations",
+      "field": "pillar2Desc",
+      "type": "text",
+      "meta": {
+        "interface": "input-multiline"
+      }
+    },
+    {
+      "collection": "home_page_translations",
+      "field": "pillar3Title",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "home_page_translations",
+      "field": "pillar3Desc",
+      "type": "text",
+      "meta": {
+        "interface": "input-multiline"
+      }
+    },
+    {
+      "collection": "home_page_translations",
+      "field": "modelTitle",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "home_page_translations",
+      "field": "modelSubTitle",
+      "type": "text",
+      "meta": {
+        "interface": "input-multiline"
+      }
+    },
+    {
+      "collection": "home_page_translations",
+      "field": "modelDesc",
+      "type": "text",
+      "meta": {
+        "interface": "input-multiline"
+      }
+    },
+    {
+      "collection": "home_page_translations",
+      "field": "modelList",
+      "type": "json",
+      "meta": {
+        "interface": "list",
+        "note": "Array of bullet points"
+      }
+    },
+    {
+      "collection": "home_page_translations",
+      "field": "supportTitle",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "home_page_translations",
+      "field": "supportDesc",
+      "type": "text",
+      "meta": {
+        "interface": "input-multiline"
+      }
+    },
+    {
+      "collection": "home_page_translations",
+      "field": "supportItems",
+      "type": "json",
+      "meta": {
+        "interface": "list",
+        "note": "Array of objects: { icon, title }"
+      }
+    },
+    {
+      "collection": "home_page_translations",
+      "field": "whyTitle",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "home_page_translations",
+      "field": "whyDesc",
+      "type": "text",
+      "meta": {
+        "interface": "input-multiline"
+      }
+    },
+    {
+      "collection": "home_page_translations",
+      "field": "why1Title",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "home_page_translations",
+      "field": "why1Desc",
+      "type": "text",
+      "meta": {
+        "interface": "input-multiline"
+      }
+    },
+    {
+      "collection": "home_page_translations",
+      "field": "why2Title",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "home_page_translations",
+      "field": "why2Desc",
+      "type": "text",
+      "meta": {
+        "interface": "input-multiline"
+      }
+    },
+    {
+      "collection": "home_page_translations",
+      "field": "why3Title",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "home_page_translations",
+      "field": "why3Desc",
+      "type": "text",
+      "meta": {
+        "interface": "input-multiline"
+      }
+    },
+    {
+      "collection": "home_page_translations",
+      "field": "why4Title",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "home_page_translations",
+      "field": "why4Desc",
+      "type": "text",
+      "meta": {
+        "interface": "input-multiline"
+      }
+    },
+    {
+      "collection": "home_page_translations",
+      "field": "why5Title",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "home_page_translations",
+      "field": "why5Desc",
+      "type": "text",
+      "meta": {
+        "interface": "input-multiline"
+      }
+    },
+    {
+      "collection": "home_page_translations",
+      "field": "bremaTitle",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "home_page_translations",
+      "field": "bremaDesc",
+      "type": "text",
+      "meta": {
+        "interface": "wysiwyg"
+      }
+    },
+    {
+      "collection": "home_page_translations",
+      "field": "bremaBadgeTitle",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "home_page_translations",
+      "field": "bremaBadgeSub",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "home_page_translations",
+      "field": "contactTitle",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "home_page_translations",
+      "field": "contactDesc",
+      "type": "text",
+      "meta": {
+        "interface": "input-multiline"
+      }
+    },
+    {
+      "collection": "home_page_translations",
+      "field": "phoneLabel",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "home_page_translations",
+      "field": "emailLabel",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "home_page_translations",
+      "field": "officeLabel",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "home_page_translations",
+      "field": "formNameLabel",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "home_page_translations",
+      "field": "formEmailLabel",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "home_page_translations",
+      "field": "formTopicLabel",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "home_page_translations",
+      "field": "formMsgLabel",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "home_page_translations",
+      "field": "formSubmitLabel",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "about_page",
+      "field": "id",
+      "type": "uuid",
+      "meta": {
+        "hidden": true
+      },
+      "schema": {
+        "is_primary_key": true
+      }
+    },
+    {
+      "collection": "about_page",
+      "field": "heroImage",
+      "type": "uuid",
+      "meta": {
+        "interface": "file-image",
+        "note": "Bremen office visual photo"
+      }
+    },
+    {
+      "collection": "about_page",
+      "field": "translations",
+      "type": "alias",
+      "meta": {
+        "interface": "translations",
+        "special": [
+          "translations"
+        ],
+        "display": "translations",
+        "options": {
+          "languageField": "languages_code",
+          "languageNameField": "name"
+        }
+      }
+    },
+    {
+      "collection": "about_page_translations",
+      "field": "id",
+      "type": "integer",
+      "meta": {
+        "hidden": true
+      },
+      "schema": {
+        "is_primary_key": true,
+        "has_auto_increment": true
+      }
+    },
+    {
+      "collection": "about_page_translations",
+      "field": "about_page_id",
+      "type": "uuid",
+      "meta": {
+        "hidden": true
+      }
+    },
+    {
+      "collection": "about_page_translations",
+      "field": "languages_code",
+      "type": "string",
+      "meta": {
+        "hidden": true
+      }
+    },
+    {
+      "collection": "about_page_translations",
+      "field": "title",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "about_page_translations",
+      "field": "seoTitle",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "about_page_translations",
+      "field": "seoDesc",
+      "type": "text",
+      "meta": {
+        "interface": "input-multiline"
+      }
+    },
+    {
+      "collection": "about_page_translations",
+      "field": "badge",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "about_page_translations",
+      "field": "mainTitle",
+      "type": "text",
+      "meta": {
+        "interface": "input-multiline"
+      }
+    },
+    {
+      "collection": "about_page_translations",
+      "field": "mainContent",
+      "type": "text",
+      "meta": {
+        "interface": "wysiwyg"
+      }
+    },
+    {
+      "collection": "about_page_translations",
+      "field": "philosophyTitle",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "about_page_translations",
+      "field": "phil1Title",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "about_page_translations",
+      "field": "phil1Desc",
+      "type": "text",
+      "meta": {
+        "interface": "input-multiline"
+      }
+    },
+    {
+      "collection": "about_page_translations",
+      "field": "phil2Title",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "about_page_translations",
+      "field": "phil2Desc",
+      "type": "text",
+      "meta": {
+        "interface": "input-multiline"
+      }
+    },
+    {
+      "collection": "about_page_translations",
+      "field": "phil3Title",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "about_page_translations",
+      "field": "phil3Desc",
+      "type": "text",
+      "meta": {
+        "interface": "input-multiline"
+      }
+    },
+    {
+      "collection": "about_page_translations",
+      "field": "stat1Val",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "about_page_translations",
+      "field": "stat1Lbl",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "about_page_translations",
+      "field": "stat2Val",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "about_page_translations",
+      "field": "stat2Lbl",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "about_page_translations",
+      "field": "stat3Val",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "about_page_translations",
+      "field": "stat3Lbl",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "about_page_translations",
+      "field": "stat4Val",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "about_page_translations",
+      "field": "stat4Lbl",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "about_page_translations",
+      "field": "ctaTitle",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "about_page_translations",
+      "field": "ctaDesc",
+      "type": "text",
+      "meta": {
+        "interface": "input-multiline"
+      }
+    },
+    {
+      "collection": "about_page_translations",
+      "field": "ctaBtn",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "services_page",
+      "field": "id",
+      "type": "uuid",
+      "meta": {
+        "hidden": true
+      },
+      "schema": {
+        "is_primary_key": true
+      }
+    },
+    {
+      "collection": "services_page",
+      "field": "pillar1Image",
+      "type": "uuid",
+      "meta": {
+        "interface": "file-image"
+      }
+    },
+    {
+      "collection": "services_page",
+      "field": "pillar2Image",
+      "type": "uuid",
+      "meta": {
+        "interface": "file-image"
+      }
+    },
+    {
+      "collection": "services_page",
+      "field": "pillar3Image",
+      "type": "uuid",
+      "meta": {
+        "interface": "file-image"
+      }
+    },
+    {
+      "collection": "services_page",
+      "field": "translations",
+      "type": "alias",
+      "meta": {
+        "interface": "translations",
+        "special": [
+          "translations"
+        ],
+        "display": "translations",
+        "options": {
+          "languageField": "languages_code",
+          "languageNameField": "name"
+        }
+      }
+    },
+    {
+      "collection": "services_page_translations",
+      "field": "id",
+      "type": "integer",
+      "meta": {
+        "hidden": true
+      },
+      "schema": {
+        "is_primary_key": true,
+        "has_auto_increment": true
+      }
+    },
+    {
+      "collection": "services_page_translations",
+      "field": "services_page_id",
+      "type": "uuid",
+      "meta": {
+        "hidden": true
+      }
+    },
+    {
+      "collection": "services_page_translations",
+      "field": "languages_code",
+      "type": "string",
+      "meta": {
+        "hidden": true
+      }
+    },
+    {
+      "collection": "services_page_translations",
+      "field": "title",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "services_page_translations",
+      "field": "seoTitle",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "services_page_translations",
+      "field": "seoDesc",
+      "type": "text",
+      "meta": {
+        "interface": "input-multiline"
+      }
+    },
+    {
+      "collection": "services_page_translations",
+      "field": "badge",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "services_page_translations",
+      "field": "heroTitle",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "services_page_translations",
+      "field": "heroDesc",
+      "type": "text",
+      "meta": {
+        "interface": "input-multiline"
+      }
+    },
+    {
+      "collection": "services_page_translations",
+      "field": "pillar1Title",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "services_page_translations",
+      "field": "pillar1Desc",
+      "type": "text",
+      "meta": {
+        "interface": "input-multiline"
+      }
+    },
+    {
+      "collection": "services_page_translations",
+      "field": "pillar1List",
+      "type": "json",
+      "meta": {
+        "interface": "list"
+      }
+    },
+    {
+      "collection": "services_page_translations",
+      "field": "pillar2Title",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "services_page_translations",
+      "field": "pillar2Desc",
+      "type": "text",
+      "meta": {
+        "interface": "input-multiline"
+      }
+    },
+    {
+      "collection": "services_page_translations",
+      "field": "pillar2List",
+      "type": "json",
+      "meta": {
+        "interface": "list"
+      }
+    },
+    {
+      "collection": "services_page_translations",
+      "field": "pillar3Title",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "services_page_translations",
+      "field": "pillar3Desc",
+      "type": "text",
+      "meta": {
+        "interface": "input-multiline"
+      }
+    },
+    {
+      "collection": "services_page_translations",
+      "field": "pillar3List",
+      "type": "json",
+      "meta": {
+        "interface": "list"
+      }
+    },
+    {
+      "collection": "services_page_translations",
+      "field": "processTitle",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "services_page_translations",
+      "field": "proc1Title",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "services_page_translations",
+      "field": "proc1Desc",
+      "type": "text",
+      "meta": {
+        "interface": "input-multiline"
+      }
+    },
+    {
+      "collection": "services_page_translations",
+      "field": "proc2Title",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "services_page_translations",
+      "field": "proc2Desc",
+      "type": "text",
+      "meta": {
+        "interface": "input-multiline"
+      }
+    },
+    {
+      "collection": "services_page_translations",
+      "field": "proc3Title",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "services_page_translations",
+      "field": "proc3Desc",
+      "type": "text",
+      "meta": {
+        "interface": "input-multiline"
+      }
+    },
+    {
+      "collection": "services_page_translations",
+      "field": "proc4Title",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "services_page_translations",
+      "field": "proc4Desc",
+      "type": "text",
+      "meta": {
+        "interface": "input-multiline"
+      }
+    },
+    {
+      "collection": "services_page_translations",
+      "field": "ctaTitle",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "services_page_translations",
+      "field": "ctaDesc",
+      "type": "text",
+      "meta": {
+        "interface": "input-multiline"
+      }
+    },
+    {
+      "collection": "services_page_translations",
+      "field": "ctaBtn",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "experience_page",
+      "field": "id",
+      "type": "uuid",
+      "meta": {
+        "hidden": true
+      },
+      "schema": {
+        "is_primary_key": true
+      }
+    },
+    {
+      "collection": "experience_page",
+      "field": "image1",
+      "type": "uuid",
+      "meta": {
+        "interface": "file-image"
+      }
+    },
+    {
+      "collection": "experience_page",
+      "field": "translations",
+      "type": "alias",
+      "meta": {
+        "interface": "translations",
+        "special": [
+          "translations"
+        ],
+        "display": "translations",
+        "options": {
+          "languageField": "languages_code",
+          "languageNameField": "name"
+        }
+      }
+    },
+    {
+      "collection": "experience_page_translations",
+      "field": "id",
+      "type": "integer",
+      "meta": {
+        "hidden": true
+      },
+      "schema": {
+        "is_primary_key": true,
+        "has_auto_increment": true
+      }
+    },
+    {
+      "collection": "experience_page_translations",
+      "field": "experience_page_id",
+      "type": "uuid",
+      "meta": {
+        "hidden": true
+      }
+    },
+    {
+      "collection": "experience_page_translations",
+      "field": "languages_code",
+      "type": "string",
+      "meta": {
+        "hidden": true
+      }
+    },
+    {
+      "collection": "experience_page_translations",
+      "field": "title",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "experience_page_translations",
+      "field": "seoTitle",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "experience_page_translations",
+      "field": "seoDesc",
+      "type": "text",
+      "meta": {
+        "interface": "input-multiline"
+      }
+    },
+    {
+      "collection": "experience_page_translations",
+      "field": "badge",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "experience_page_translations",
+      "field": "heroTitle",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "experience_page_translations",
+      "field": "heroDesc",
+      "type": "text",
+      "meta": {
+        "interface": "input-multiline"
+      }
+    },
+    {
+      "collection": "experience_page_translations",
+      "field": "modelTitle",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "experience_page_translations",
+      "field": "modelDesc",
+      "type": "text",
+      "meta": {
+        "interface": "wysiwyg"
+      }
+    },
+    {
+      "collection": "experience_page_translations",
+      "field": "stat1Val",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "experience_page_translations",
+      "field": "stat1Lbl",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "experience_page_translations",
+      "field": "stat2Val",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "experience_page_translations",
+      "field": "stat2Lbl",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "experience_page_translations",
+      "field": "stat3Val",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "experience_page_translations",
+      "field": "stat3Lbl",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "experience_page_translations",
+      "field": "projectsTitle",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "experience_page_translations",
+      "field": "projectsDesc",
+      "type": "text",
+      "meta": {
+        "interface": "input-multiline"
+      }
+    },
+    {
+      "collection": "experience_page_translations",
+      "field": "projectsList",
+      "type": "json",
+      "meta": {
+        "interface": "list",
+        "note": "Array of objects: { title, desc }"
+      }
+    },
+    {
+      "collection": "experience_page_translations",
+      "field": "certTitle",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "experience_page_translations",
+      "field": "certDesc",
+      "type": "text",
+      "meta": {
+        "interface": "input-multiline"
+      }
+    },
+    {
+      "collection": "experience_page_translations",
+      "field": "certList",
+      "type": "json",
+      "meta": {
+        "interface": "list",
+        "note": "Array of strings"
+      }
+    },
+    {
+      "collection": "experience_page_translations",
+      "field": "ctaTitle",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "experience_page_translations",
+      "field": "ctaDesc",
+      "type": "text",
+      "meta": {
+        "interface": "input-multiline"
+      }
+    },
+    {
+      "collection": "experience_page_translations",
+      "field": "ctaBtn",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "contact_page",
+      "field": "id",
+      "type": "uuid",
+      "meta": {
+        "hidden": true
+      },
+      "schema": {
+        "is_primary_key": true
+      }
+    },
+    {
+      "collection": "contact_page",
+      "field": "mapImg",
+      "type": "uuid",
+      "meta": {
+        "interface": "file-image"
+      }
+    },
+    {
+      "collection": "contact_page",
+      "field": "translations",
+      "type": "alias",
+      "meta": {
+        "interface": "translations",
+        "special": [
+          "translations"
+        ],
+        "display": "translations",
+        "options": {
+          "languageField": "languages_code",
+          "languageNameField": "name"
+        }
+      }
+    },
+    {
+      "collection": "contact_page_translations",
+      "field": "id",
+      "type": "integer",
+      "meta": {
+        "hidden": true
+      },
+      "schema": {
+        "is_primary_key": true,
+        "has_auto_increment": true
+      }
+    },
+    {
+      "collection": "contact_page_translations",
+      "field": "contact_page_id",
+      "type": "uuid",
+      "meta": {
+        "hidden": true
+      }
+    },
+    {
+      "collection": "contact_page_translations",
+      "field": "languages_code",
+      "type": "string",
+      "meta": {
+        "hidden": true
+      }
+    },
+    {
+      "collection": "contact_page_translations",
+      "field": "title",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "contact_page_translations",
+      "field": "seoTitle",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "contact_page_translations",
+      "field": "seoDesc",
+      "type": "text",
+      "meta": {
+        "interface": "input-multiline"
+      }
+    },
+    {
+      "collection": "contact_page_translations",
+      "field": "badge",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "contact_page_translations",
+      "field": "heroTitle",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "contact_page_translations",
+      "field": "heroDesc",
+      "type": "text",
+      "meta": {
+        "interface": "input-multiline"
+      }
+    },
+    {
+      "collection": "contact_page_translations",
+      "field": "formTitle",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "contact_page_translations",
+      "field": "addressTitle",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "contact_page_translations",
+      "field": "addressText",
+      "type": "text",
+      "meta": {
+        "interface": "input-multiline"
+      }
+    },
+    {
+      "collection": "contact_page_translations",
+      "field": "emailText",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "contact_page_translations",
+      "field": "phoneText",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "contact_page_translations",
+      "field": "nameLabel",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "contact_page_translations",
+      "field": "emailLabel",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "contact_page_translations",
+      "field": "topicLabel",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "contact_page_translations",
+      "field": "msgLabel",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "contact_page_translations",
+      "field": "submitLabel",
+      "type": "string",
+      "meta": {
+        "interface": "input"
+      }
+    },
+    {
+      "collection": "languages",
+      "field": "languages_code",
+      "type": "string",
+      "schema": {
+        "name": "languages_code",
+        "table": "languages",
+        "data_type": "character varying",
+        "max_length": 255,
+        "is_nullable": true
+      },
+      "meta": {
+        "collection": "languages",
+        "field": "languages_code",
+        "interface": "input",
+        "readonly": false,
+        "hidden": true,
+        "sort": 3,
+        "width": "full"
+      }
+    }
+  ],
+  "relations": [
+    {
+      "collection": "global_settings_translations",
+      "field": "global_settings_id",
+      "related_collection": "global_settings",
+      "meta": {
+        "one_field": "translations",
+        "sort_field": null,
+        "one_deselect_action": "delete",
+        "junction_field": "languages_code"
+      },
+      "schema": {
+        "on_delete": "CASCADE"
+      }
+    },
+    {
+      "collection": "global_settings_translations",
+      "field": "languages_code",
+      "related_collection": "languages",
+      "meta": {
+        "one_field": null,
+        "junction_field": "global_settings_id"
+      },
+      "schema": {
+        "on_delete": "CASCADE"
+      }
+    },
+    {
+      "collection": "navigation_translations",
+      "field": "navigation_id",
+      "related_collection": "navigation",
+      "meta": {
+        "one_field": "translations",
+        "one_deselect_action": "delete",
+        "junction_field": "languages_code"
+      },
+      "schema": {
+        "on_delete": "CASCADE"
+      }
+    },
+    {
+      "collection": "navigation_translations",
+      "field": "languages_code",
+      "related_collection": "languages",
+      "meta": {
+        "one_field": null,
+        "junction_field": "navigation_id"
+      },
+      "schema": {
+        "on_delete": "CASCADE"
+      }
+    },
+    {
+      "collection": "home_page_translations",
+      "field": "home_page_id",
+      "related_collection": "home_page",
+      "meta": {
+        "one_field": "translations",
+        "one_deselect_action": "delete",
+        "junction_field": "languages_code"
+      },
+      "schema": {
+        "on_delete": "CASCADE"
+      }
+    },
+    {
+      "collection": "home_page_translations",
+      "field": "languages_code",
+      "related_collection": "languages",
+      "meta": {
+        "one_field": null,
+        "junction_field": "home_page_id"
+      },
+      "schema": {
+        "on_delete": "CASCADE"
+      }
+    },
+    {
+      "collection": "about_page_translations",
+      "field": "about_page_id",
+      "related_collection": "about_page",
+      "meta": {
+        "one_field": "translations",
+        "one_deselect_action": "delete",
+        "junction_field": "languages_code"
+      },
+      "schema": {
+        "on_delete": "CASCADE"
+      }
+    },
+    {
+      "collection": "about_page_translations",
+      "field": "languages_code",
+      "related_collection": "languages",
+      "meta": {
+        "one_field": null,
+        "junction_field": "about_page_id"
+      },
+      "schema": {
+        "on_delete": "CASCADE"
+      }
+    },
+    {
+      "collection": "services_page_translations",
+      "field": "services_page_id",
+      "related_collection": "services_page",
+      "meta": {
+        "one_field": "translations",
+        "one_deselect_action": "delete",
+        "junction_field": "languages_code"
+      },
+      "schema": {
+        "on_delete": "CASCADE"
+      }
+    },
+    {
+      "collection": "services_page_translations",
+      "field": "languages_code",
+      "related_collection": "languages",
+      "meta": {
+        "one_field": null,
+        "junction_field": "services_page_id"
+      },
+      "schema": {
+        "on_delete": "CASCADE"
+      }
+    },
+    {
+      "collection": "experience_page_translations",
+      "field": "experience_page_id",
+      "related_collection": "experience_page",
+      "meta": {
+        "one_field": "translations",
+        "one_deselect_action": "delete",
+        "junction_field": "languages_code"
+      },
+      "schema": {
+        "on_delete": "CASCADE"
+      }
+    },
+    {
+      "collection": "experience_page_translations",
+      "field": "languages_code",
+      "related_collection": "languages",
+      "meta": {
+        "one_field": null,
+        "junction_field": "experience_page_id"
+      },
+      "schema": {
+        "on_delete": "CASCADE"
+      }
+    },
+    {
+      "collection": "contact_page_translations",
+      "field": "contact_page_id",
+      "related_collection": "contact_page",
+      "meta": {
+        "one_field": "translations",
+        "one_deselect_action": "delete",
+        "junction_field": "languages_code"
+      },
+      "schema": {
+        "on_delete": "CASCADE"
+      }
+    },
+    {
+      "collection": "contact_page_translations",
+      "field": "languages_code",
+      "related_collection": "languages",
+      "meta": {
+        "one_field": null,
+        "junction_field": "contact_page_id"
+      },
+      "schema": {
+        "on_delete": "CASCADE"
+      }
+    }
+  ]
+}

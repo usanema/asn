@@ -2,40 +2,17 @@
 import { getMedia } from '../lib/data';
 const { lang = 'en', globalSettings } = Astro.props;
 
-const t = {
-  en: {
-    desc: "Professional engineering network specializing in the coordination and supervision of welding processes and NDT testing. Headquartered in Bremen, European reach.",
-    services: "Services",
-    legal: "Legal",
-    welding: "Welding Coordination",
-    ndt: "NDT Testing",
-    corrosion: "Anti-Corrosion Protection",
-    qaqc: "QA/QC Support"
-  },
-  pl: {
-    desc: "Profesjonalna sieć inżynieryjna specjalizująca się w koordynacji i nadzorze procesów spawalniczych oraz badaniach NDT. Siedziba w Bremie, zasięg europejski.",
-    services: "Usługi",
-    legal: "Informacje prawne",
-    welding: "Spawalnictwo",
-    ndt: "Badania NDT",
-    corrosion: "Antykorozyjna",
-    qaqc: "Wsparcie QA/QC"
-  },
-  de: {
-    desc: "Professionelles Ingenieurnetzwerk, spezialisiert auf die Koordination und Überwachung von Schweißprozessen und ZfP-Prüfungen. Hauptsitz in Bremen, europaweite Reichweite.",
-    services: "Dienstleistungen",
-    legal: "Rechtliches",
-    welding: "Schweißkoordination",
-    ndt: "ZfP-Prüfung",
-    corrosion: "Korrosionsschutz",
-    qaqc: "QA/QC Unterstützung"
-  }
-};
-
-const texts = t[lang] || t['en'];
 const footerCopyright = globalSettings?.footerText || "© 2024 ASN Weld & Inspection Network. All rights reserved. Brema Headquarters.";
 const logoUrl = getMedia(globalSettings?.logo, globalSettings);
 const logoText = globalSettings?.logoText || "ASN Weld & Inspection Network";
+
+const desc = globalSettings?.footerDesc || "Professional engineering network specializing in the coordination and supervision of welding processes and NDT testing. Headquartered in Bremen, European reach.";
+const servicesLabel = globalSettings?.footerServicesLabel || "Services";
+const legalLabel = globalSettings?.footerLegalLabel || "Legal";
+const weldingLabel = globalSettings?.weldingLabel || "Welding Coordination";
+const ndtLabel = globalSettings?.ndtLabel || "NDT Testing";
+const corrosionLabel = globalSettings?.corrosionLabel || "Anti-Corrosion Protection";
+const qaqcLabel = globalSettings?.qaqcLabel || "QA/QC Support";
 
 const getLink = (path) => {
   if (lang === 'en') return path;
@@ -53,7 +30,7 @@ const getLink = (path) => {
         )}
       </a>
       <p class="text-on-surface-variant max-w-md mb-8 leading-relaxed">
-        {texts.desc}
+        {desc}
       </p>
       <div class="flex gap-4">
         <a class="w-10 h-10 border border-outline flex items-center justify-center hover:bg-navy hover:text-white transition-all rounded-full shadow-sm" href="#" aria-label="Share">
@@ -62,16 +39,16 @@ const getLink = (path) => {
       </div>
     </div>
     <div>
-      <h4 class="font-bold mb-6 uppercase text-label-md tracking-wider text-primary">{texts.services}</h4>
+      <h4 class="font-bold mb-6 uppercase text-label-md tracking-wider text-primary">{servicesLabel}</h4>
       <ul class="space-y-3">
-        <li><a class="text-on-surface-variant hover:text-primary transition-colors block py-1" href={getLink("/uslugi.html")}>{texts.welding}</a></li>
-        <li><a class="text-on-surface-variant hover:text-primary transition-colors block py-1" href={getLink("/uslugi.html")}>{texts.ndt}</a></li>
-        <li><a class="text-on-surface-variant hover:text-primary transition-colors block py-1" href={getLink("/uslugi.html")}>{texts.corrosion}</a></li>
-        <li><a class="text-on-surface-variant hover:text-primary transition-colors block py-1" href={getLink("/uslugi.html")}>{texts.qaqc}</a></li>
+        <li><a class="text-on-surface-variant hover:text-primary transition-colors block py-1" href={getLink("/uslugi.html")}>{weldingLabel}</a></li>
+        <li><a class="text-on-surface-variant hover:text-primary transition-colors block py-1" href={getLink("/uslugi.html")}>{ndtLabel}</a></li>
+        <li><a class="text-on-surface-variant hover:text-primary transition-colors block py-1" href={getLink("/uslugi.html")}>{corrosionLabel}</a></li>
+        <li><a class="text-on-surface-variant hover:text-primary transition-colors block py-1" href={getLink("/uslugi.html")}>{qaqcLabel}</a></li>
       </ul>
     </div>
     <div>
-      <h4 class="font-bold mb-6 uppercase text-label-md tracking-wider text-primary">{texts.legal}</h4>
+      <h4 class="font-bold mb-6 uppercase text-label-md tracking-wider text-primary">{legalLabel}</h4>
       <ul class="space-y-3">
         <li><a class="text-on-surface-variant hover:text-primary transition-colors block py-1" href="#">Privacy Policy</a></li>
         <li><a class="text-on-surface-variant hover:text-primary transition-colors block py-1" href="#">Terms of Service</a></li>

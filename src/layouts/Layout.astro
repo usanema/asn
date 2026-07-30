@@ -8,7 +8,8 @@ const { title, seoTitle, seoDescription, lang = 'en' } = Astro.props;
 
 // Pobranie globalnych ustawień z CMS
 const globalSettings = await fetchApi({
-  collection: 'global_settings'
+  collection: 'global_settings',
+  locale: lang
 });
 
 const bgColor = globalSettings?.backgroundColor || '#fcf8fa';
