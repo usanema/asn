@@ -27,6 +27,13 @@ const p2Img = getMedia(attrs.pillar2Image, pageData) || "https://lh3.googleuserc
 const p3Title = attrs.pillar3Title || "Anti-Corrosion Protection & FROSIO/NACE Inspection";
 const p3Desc = attrs.pillar3Desc || "Comprehensive coating inspections, surface preparation analysis, and quality assurance.";
 const p3Img = getMedia(attrs.pillar3Image, pageData) || "https://lh3.googleusercontent.com/aida-public/AB6AXuBBrGiolNSi1aj_eMj1dC52n6Fhn9p1dzew3rJjbium6Hcp0su75LUGgByvEvfD7gzxGp6dkOqMh4sDXy5yUXgpQujccUM6Igb5FOBweEzo5oiELmnPTZFp3HeqCcWxzH0JlyKhYpKb8AN_yCCzbt_697NM4eYFHYx68s0z4LxT19W_czhbgEk9HExO1APRQli5cfWmoCZdipk2ZqcVJQfAEZCl3VJwEXF1keSSA4XtPYcoMlMFW7uZeRnGsvWpOY63Kbj49EQHhV8";
+const processTitle = attrs.processTitle || `Technical Support Areas`;
+const proc1Title = attrs.proc1Title || `QA/QC`;
+const proc2Title = attrs.proc2Title || `QS/QM`;
+const proc3Title = attrs.proc3Title || `Documentation`;
+const proc4Title = attrs.proc4Title || `Engineering`;
+const ctaTitle = attrs.ctaTitle || `Need Technical Expertise?`;
+const ctaDesc = attrs.ctaDesc || `Contact our Bremen headquarters to discuss your project requirements and receive a tailored technical solution.`;
 ---
 <Layout title={title} seoTitle={seoTitle} seoDescription={seoDesc} lang="en">
   <!-- Hero Section -->
@@ -143,27 +150,27 @@ const p3Img = getMedia(attrs.pillar3Image, pageData) || "https://lh3.googleuserc
   <section class="bg-surface-container-low py-20 border-y border-outline-variant/30">
     <div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
       <div class="text-center mb-14">
-        <h2 class="font-display text-3xl font-bold mb-3 text-primary">Technical Support Areas</h2>
+        <h2 class="font-display text-3xl font-bold mb-3 text-primary" set:html={processTitle}></h2>
         <p class="text-on-surface-variant max-w-2xl mx-auto text-sm md:text-base">Additional engineering capabilities supporting major industrial projects.</p>
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
         <div class="bg-surface p-6 rounded-xl border border-outline-variant/30 hover:border-primary transition-all flex flex-col items-center text-center shadow-sm">
-          <span class="material-symbols-outlined text-3xl mb-3 text-secondary">verified</span>
+          <span class="material-symbols-outlined text-3xl mb-3 text-secondary" set:html={proc1Title}></span>
           <h3 class="font-bold text-base mb-1">QA/QC</h3>
           <p class="text-xs text-on-surface-variant leading-relaxed">Quality assurance and control at every stage of fabrication.</p>
         </div>
         <div class="bg-surface p-6 rounded-xl border border-outline-variant/30 hover:border-primary transition-all flex flex-col items-center text-center shadow-sm">
-          <span class="material-symbols-outlined text-3xl mb-3 text-secondary">rule</span>
+          <span class="material-symbols-outlined text-3xl mb-3 text-secondary" set:html={proc2Title}></span>
           <h3 class="font-bold text-base mb-1">QS/QM</h3>
           <p class="text-xs text-on-surface-variant leading-relaxed">Systemic safety and quality management systems.</p>
         </div>
         <div class="bg-surface p-6 rounded-xl border border-outline-variant/30 hover:border-primary transition-all flex flex-col items-center text-center shadow-sm">
-          <span class="material-symbols-outlined text-3xl mb-3 text-secondary">description</span>
+          <span class="material-symbols-outlined text-3xl mb-3 text-secondary" set:html={proc3Title}></span>
           <h3 class="font-bold text-base mb-1">Documentation</h3>
           <p class="text-xs text-on-surface-variant leading-relaxed">Complete as-built technical documentation preparation.</p>
         </div>
         <div class="bg-surface p-6 rounded-xl border border-outline-variant/30 hover:border-primary transition-all flex flex-col items-center text-center shadow-sm">
-          <span class="material-symbols-outlined text-3xl mb-3 text-secondary">engineering</span>
+          <span class="material-symbols-outlined text-3xl mb-3 text-secondary" set:html={proc4Title}></span>
           <h3 class="font-bold text-base mb-1">Engineering</h3>
           <p class="text-xs text-on-surface-variant leading-relaxed">Engineering support for process optimization and welding.</p>
         </div>
@@ -181,8 +188,8 @@ const p3Img = getMedia(attrs.pillar3Image, pageData) || "https://lh3.googleuserc
     <div class="bg-navy text-white rounded-2xl p-10 md:p-16 relative overflow-hidden shadow-xl">
       <div class="absolute inset-0 industrial-grid opacity-10"></div>
       <div class="relative z-10 max-w-2xl mx-auto">
-        <h2 class="font-display text-3xl md:text-4xl font-bold mb-4">Need Technical Expertise?</h2>
-        <p class="text-gray-300 mb-8 leading-relaxed">Contact our Bremen headquarters to discuss your project requirements and receive a tailored technical solution.</p>
+        <h2 class="font-display text-3xl md:text-4xl font-bold mb-4" set:html={ctaTitle}></h2>
+        <p class="text-gray-300 mb-8 leading-relaxed">{ctaDesc}</p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
           <a href="/kontakt" class="bg-secondary text-white px-8 py-3.5 rounded-lg font-bold hover:opacity-90 transition-all shadow-md">Request a Quote</a>
           <a href="/about" class="border border-white/40 text-white px-8 py-3.5 rounded-lg font-bold hover:bg-white hover:text-navy transition-all">Learn More About Us</a>

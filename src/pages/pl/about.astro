@@ -14,6 +14,21 @@ const seoDesc = attrs.seoDesc || "Poznaj bliżej sieć inżynieryjną ASN Weld &
 
 const mainTitle = attrs.mainTitle || "Eksperci od jakości.<br/><span class=\"text-secondary\">Partnerzy w biznesie.</span>";
 const mainContent = attrs.mainContent || "<p class=\"mb-6\">Nasza przewaga rynkowa wynika z bezpośredniego doświadczenia w przemyśle i zrozumienia wyzwań operacyjnych naszych klientów. Łączymy najlepszych ekspertów w branży, tworząc unikalny ekosystem wiedzy technicznej zarządzany z naszej centrali w Bremie.</p><p>Jesteśmy dumni, że stajemy się fundamentem bezpieczeństwa w najważniejszych gałęziach europejskiego przemysłu, od Offshore po energetykę.</p>";
+const heroBadge = attrs.heroBadge || `O sieci ASN`;
+const whyUsTitle = attrs.whyUsTitle || `Filozofia naszego działania`;
+const whyUs1Title = attrs.whyUs1Title || `Bezkompromisowa Jakość`;
+const whyUs1Desc = attrs.whyUs1Desc || `Nie idziemy na skróty. W świecie spawalnictwa i NDT jakość bezpośrednio przekłada się na bezpieczeństwo ludzkie i środowiskowe.`;
+const whyUs2Title = attrs.whyUs2Title || `Wiedza i Doświadczenie`;
+const whyUs2Desc = attrs.whyUs2Desc || `Zatrudniamy certyfikowanych ekspertów z wieloletnim stażem. Wiemy jak interpretować normy w zderzeniu z rzeczywistością produkcyjną.`;
+const whyUs3Title = attrs.whyUs3Title || `Partnerstwo Biznesowe`;
+const whyUs3Desc = attrs.whyUs3Desc || `Twój sukces to nasz sukces. Pracujemy ramię w ramię z Twoim zespołem, rozwiązując problemy u źródła i optymalizując procesy produkcyjne.`;
+const metric1Value = attrs.metric1Value || `15+`;
+const metric2Value = attrs.metric2Value || `500+`;
+const metric3Value = attrs.metric3Value || `12`;
+const metric4Value = attrs.metric4Value || `100%`;
+const ctaTitle = attrs.ctaTitle || `Gotowy na współpracę?`;
+const ctaDesc = attrs.ctaDesc || `Zaufaj inżynierom, którzy wiedzą, jak zagwarantować najwyższe standardy wykonania w Twoim projekcie.`;
+const ctaBtn = attrs.ctaBtn || `Skontaktuj się z ekspertem`;
 ---
 
 <Layout title={title} seoTitle={seoTitle} seoDescription={seoDesc} lang="pl">
@@ -27,7 +42,7 @@ const mainContent = attrs.mainContent || "<p class=\"mb-6\">Nasza przewaga rynko
       <div>
         <div class="inline-flex items-center gap-2 px-3 py-1 bg-secondary-container text-on-secondary-container text-label-md rounded-full mb-6">
           <span class="material-symbols-outlined text-[18px]">hub</span>
-          <span>O sieci ASN</span>
+          <span>{heroBadge}</span>
         </div>
         <h1 class="font-display text-headline-lg-mobile md:text-display mb-8 text-primary uppercase tracking-tight" set:html={mainTitle}></h1>
         <div class="font-body-md text-body-lg text-on-surface-variant leading-relaxed" set:html={mainContent}></div>
@@ -43,7 +58,7 @@ const mainContent = attrs.mainContent || "<p class=\"mb-6\">Nasza przewaga rynko
   <section class="py-24 bg-white border-y border-outline-variant/30">
     <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
       <div class="text-center mb-16">
-        <h2 class="font-display text-headline-md text-primary mb-4">Filozofia naszego działania</h2>
+        <h2 class="font-display text-headline-md text-primary mb-4" set:html={whyUsTitle}></h2>
         <div class="w-20 h-1 bg-secondary mx-auto"></div>
       </div>
       
@@ -52,24 +67,24 @@ const mainContent = attrs.mainContent || "<p class=\"mb-6\">Nasza przewaga rynko
           <div class="w-14 h-14 bg-secondary-container rounded-lg flex items-center justify-center mb-6 text-secondary group-hover:scale-110 transition-transform">
             <span class="material-symbols-outlined text-3xl">verified_user</span>
           </div>
-          <h3 class="font-display text-headline-sm text-primary mb-4">Bezkompromisowa Jakość</h3>
-          <p class="text-on-surface-variant">Nie idziemy na skróty. W świecie spawalnictwa i NDT jakość bezpośrednio przekłada się na bezpieczeństwo ludzkie i środowiskowe.</p>
+          <h3 class="font-display text-headline-sm text-primary mb-4">{whyUs1Title}</h3>
+          <p class="text-on-surface-variant">{whyUs1Desc}</p>
         </div>
         
         <div class="p-8 border border-outline-variant hover:border-navy transition-all duration-300 bg-surface-container-lowest group rounded-lg">
           <div class="w-14 h-14 bg-secondary-container rounded-lg flex items-center justify-center mb-6 text-secondary group-hover:scale-110 transition-transform">
             <span class="material-symbols-outlined text-3xl">psychology</span>
           </div>
-          <h3 class="font-display text-headline-sm text-primary mb-4">Wiedza i Doświadczenie</h3>
-          <p class="text-on-surface-variant">Zatrudniamy certyfikowanych ekspertów z wieloletnim stażem. Wiemy jak interpretować normy w zderzeniu z rzeczywistością produkcyjną.</p>
+          <h3 class="font-display text-headline-sm text-primary mb-4">{whyUs2Title}</h3>
+          <p class="text-on-surface-variant">{whyUs2Desc}</p>
         </div>
 
         <div class="p-8 border border-outline-variant hover:border-navy transition-all duration-300 bg-surface-container-lowest group rounded-lg">
           <div class="w-14 h-14 bg-secondary-container rounded-lg flex items-center justify-center mb-6 text-secondary group-hover:scale-110 transition-transform">
             <span class="material-symbols-outlined text-3xl">handshake</span>
           </div>
-          <h3 class="font-display text-headline-sm text-primary mb-4">Partnerstwo Biznesowe</h3>
-          <p class="text-on-surface-variant">Twój sukces to nasz sukces. Pracujemy ramię w ramię z Twoim zespołem, rozwiązując problemy u źródła i optymalizując procesy produkcyjne.</p>
+          <h3 class="font-display text-headline-sm text-primary mb-4">{whyUs3Title}</h3>
+          <p class="text-on-surface-variant">{whyUs3Desc}</p>
         </div>
       </div>
     </div>
@@ -79,19 +94,19 @@ const mainContent = attrs.mainContent || "<p class=\"mb-6\">Nasza przewaga rynko
   <section class="py-24 bg-navy text-white relative">
     <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop grid grid-cols-2 md:grid-cols-4 gap-8 text-center divide-x divide-white/10">
       <div>
-        <div class="font-display text-display font-bold text-secondary-fixed mb-2">15+</div>
+        <div class="font-display text-display font-bold text-secondary-fixed mb-2">{metric1Value}</div>
         <div class="font-bold text-label-md uppercase tracking-wider text-white/80">Lat Doświadczenia</div>
       </div>
       <div>
-        <div class="font-display text-display font-bold text-secondary-fixed mb-2">500+</div>
+        <div class="font-display text-display font-bold text-secondary-fixed mb-2">{metric2Value}</div>
         <div class="font-bold text-label-md uppercase tracking-wider text-white/80">Zrealizowanych Audytów</div>
       </div>
       <div>
-        <div class="font-display text-display font-bold text-secondary-fixed mb-2">12</div>
+        <div class="font-display text-display font-bold text-secondary-fixed mb-2">{metric3Value}</div>
         <div class="font-bold text-label-md uppercase tracking-wider text-white/80">Krajów Europy</div>
       </div>
       <div>
-        <div class="font-display text-display font-bold text-secondary-fixed mb-2">100%</div>
+        <div class="font-display text-display font-bold text-secondary-fixed mb-2">{metric4Value}</div>
         <div class="font-bold text-label-md uppercase tracking-wider text-white/80">Gwarancji Zgodności</div>
       </div>
     </div>
@@ -100,10 +115,10 @@ const mainContent = attrs.mainContent || "<p class=\"mb-6\">Nasza przewaga rynko
   <!-- Call to Action -->
   <section class="py-24 bg-surface text-center">
     <div class="max-w-3xl mx-auto px-margin-mobile">
-      <h2 class="font-display text-headline-md text-primary mb-6">Gotowy na współpracę?</h2>
-      <p class="text-body-lg text-on-surface-variant mb-10">Zaufaj inżynierom, którzy wiedzą, jak zagwarantować najwyższe standardy wykonania w Twoim projekcie.</p>
+      <h2 class="font-display text-headline-md text-primary mb-6" set:html={ctaTitle}></h2>
+      <p class="text-body-lg text-on-surface-variant mb-10">{ctaDesc}</p>
       <a href="/pl/kontakt" class="inline-flex items-center gap-2 px-8 py-4 bg-navy text-white font-display text-label-md rounded-DEFAULT hover:bg-secondary transition-all group">
-        Skontaktuj się z ekspertem
+        {ctaBtn}
         <span class="material-symbols-outlined transition-transform group-hover:translate-x-1">arrow_forward</span>
       </a>
     </div>
