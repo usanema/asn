@@ -45,8 +45,8 @@ const ctaBtn = attrs.ctaBtn || `Kontaktieren Sie einen Experten`;
           <span class="material-symbols-outlined text-[18px]">hub</span>
           <span>{heroBadge}</span>
         </div>
-        <h1 class="font-display text-headline-lg-mobile md:text-display mb-8 text-primary uppercase tracking-tight" data-directus={setAttr({ collection: 'about_page', item: pageData?.id || 1, fields: 'mainTitle' })} set:html={mainTitle}></h1>
-        <div class="font-body-md text-body-lg text-on-surface-variant leading-relaxed" data-directus={setAttr({ collection: 'about_page', item: pageData?.id || 1, fields: 'mainContent' })} set:html={mainContent}></div>
+        <h1 class="font-display text-headline-lg-mobile md:text-display mb-8 text-primary uppercase tracking-tight" data-directus={setAttr({ collection: 'about_page', item: pageData?.id || '39b770e0-6ca4-4561-aa3e-dc97654447a2', fields: 'mainTitle' })} set:html={mainTitle}></h1>
+        <div class="font-body-md text-body-lg text-on-surface-variant leading-relaxed" data-directus={setAttr({ collection: 'about_page', item: pageData?.id || '39b770e0-6ca4-4561-aa3e-dc97654447a2', fields: 'mainContent' })} set:html={mainContent}></div>
       </div>
       <div class="relative">
         <div class="absolute -inset-4 bg-gradient-to-tr from-secondary/20 to-primary/5 rounded-2xl transform rotate-3"></div>
@@ -59,7 +59,7 @@ const ctaBtn = attrs.ctaBtn || `Kontaktieren Sie einen Experten`;
   <section class="py-24 bg-white border-y border-outline-variant/30">
     <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
       <div class="text-center mb-16">
-        <h2 class="font-display text-headline-md text-primary mb-4" data-directus={setAttr({ collection: 'about_page', item: pageData?.id || 1, fields: 'whyUsTitle' })} set:html={whyUsTitle}></h2>
+        <h2 class="font-display text-headline-md text-primary mb-4" data-directus={setAttr({ collection: 'about_page', item: pageData?.id || '39b770e0-6ca4-4561-aa3e-dc97654447a2', fields: 'whyUsTitle' })} set:html={whyUsTitle}></h2>
         <div class="w-20 h-1 bg-secondary mx-auto"></div>
       </div>
       
@@ -69,7 +69,7 @@ const ctaBtn = attrs.ctaBtn || `Kontaktieren Sie einen Experten`;
             <span class="material-symbols-outlined text-3xl">verified_user</span>
           </div>
           <h3 class="font-display text-headline-sm text-primary mb-4">{whyUs1Title}</h3>
-          <p class="text-on-surface-variant" data-directus={setAttr({ collection: 'about_page', item: pageData?.id || 1, fields: 'whyUs1Desc' })}>
+          <p class="text-on-surface-variant" data-directus={setAttr({ collection: 'about_page', item: pageData?.id || '39b770e0-6ca4-4561-aa3e-dc97654447a2', fields: 'whyUs1Desc' })}>
                             {whyUs1Desc}
                         </p>
         </div>
@@ -79,7 +79,7 @@ const ctaBtn = attrs.ctaBtn || `Kontaktieren Sie einen Experten`;
             <span class="material-symbols-outlined text-3xl">psychology</span>
           </div>
           <h3 class="font-display text-headline-sm text-primary mb-4">{whyUs2Title}</h3>
-          <p class="text-on-surface-variant" data-directus={setAttr({ collection: 'about_page', item: pageData?.id || 1, fields: 'whyUs2Desc' })}>
+          <p class="text-on-surface-variant" data-directus={setAttr({ collection: 'about_page', item: pageData?.id || '39b770e0-6ca4-4561-aa3e-dc97654447a2', fields: 'whyUs2Desc' })}>
                             {whyUs2Desc}
                         </p>
         </div>
@@ -89,7 +89,7 @@ const ctaBtn = attrs.ctaBtn || `Kontaktieren Sie einen Experten`;
             <span class="material-symbols-outlined text-3xl">handshake</span>
           </div>
           <h3 class="font-display text-headline-sm text-primary mb-4">{whyUs3Title}</h3>
-          <p class="text-on-surface-variant" data-directus={setAttr({ collection: 'about_page', item: pageData?.id || 1, fields: 'whyUs3Desc' })}>
+          <p class="text-on-surface-variant" data-directus={setAttr({ collection: 'about_page', item: pageData?.id || '39b770e0-6ca4-4561-aa3e-dc97654447a2', fields: 'whyUs3Desc' })}>
                             {whyUs3Desc}
                         </p>
         </div>
@@ -122,8 +122,8 @@ const ctaBtn = attrs.ctaBtn || `Kontaktieren Sie einen Experten`;
   <!-- Call to Action -->
   <section class="py-24 bg-surface text-center">
     <div class="max-w-3xl mx-auto px-margin-mobile">
-      <h2 class="font-display text-headline-md text-primary mb-6" data-directus={setAttr({ collection: 'about_page', item: pageData?.id || 1, fields: 'ctaTitle' })} set:html={ctaTitle}></h2>
-      <p class="text-body-lg text-on-surface-variant mb-10" data-directus={setAttr({ collection: 'about_page', item: pageData?.id || 1, fields: 'ctaDesc' })}>
+      <h2 class="font-display text-headline-md text-primary mb-6" data-directus={setAttr({ collection: 'about_page', item: pageData?.id || '39b770e0-6ca4-4561-aa3e-dc97654447a2', fields: 'ctaTitle' })} set:html={ctaTitle}></h2>
+      <p class="text-body-lg text-on-surface-variant mb-10" data-directus={setAttr({ collection: 'about_page', item: pageData?.id || '39b770e0-6ca4-4561-aa3e-dc97654447a2', fields: 'ctaDesc' })}>
                             {ctaDesc}
                         </p>
       <a href="/de/kontakt" class="inline-flex items-center gap-2 px-8 py-4 bg-navy text-white font-display text-label-md rounded-DEFAULT hover:bg-secondary transition-all group">

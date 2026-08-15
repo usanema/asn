@@ -42,8 +42,8 @@ const ctaDesc = attrs.ctaDesc || `Kontaktieren Sie unseren Hauptsitz in Bremen, 
     <div class="relative z-10 px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto w-full">
       <div class="max-w-2xl">
         <span class="font-label-md text-secondary bg-white/10 px-3 py-1 rounded-full mb-6 inline-block tracking-wider uppercase font-bold">{badge}</span>
-        <h1 class="font-display text-4xl md:text-6xl font-bold text-white mb-6 leading-tight" data-directus={setAttr({ collection: 'services_page', item: pageData?.id || 1, fields: 'heroTitle' })} set:html={heroTitle} />
-        <p class="font-body-md text-lg text-gray-300 max-w-xl leading-relaxed" data-directus={setAttr({ collection: 'services_page', item: pageData?.id || 1, fields: 'heroDesc' })} set:html={heroDesc} />
+        <h1 class="font-display text-4xl md:text-6xl font-bold text-white mb-6 leading-tight" data-directus={setAttr({ collection: 'services_page', item: pageData?.id || '8b2b279d-8b12-46e9-a4aa-6322e3714933', fields: 'heroTitle' })} set:html={heroTitle} />
+        <p class="font-body-md text-lg text-gray-300 max-w-xl leading-relaxed" data-directus={setAttr({ collection: 'services_page', item: pageData?.id || '8b2b279d-8b12-46e9-a4aa-6322e3714933', fields: 'heroDesc' })} set:html={heroDesc} />
       </div>
     </div>
     <div class="absolute bottom-0 right-0 p-margin-desktop hidden lg:block pointer-events-none">
@@ -58,7 +58,7 @@ const ctaDesc = attrs.ctaDesc || `Kontaktieren Sie unseren Hauptsitz in Bremen, 
       <div class="group grid md:grid-cols-12 gap-12 items-center border-b border-outline-variant/30 pb-16">
         <div class="md:col-span-5">
           <div class="aspect-video bg-surface-container rounded-xl overflow-hidden border border-outline-variant/30 group-hover:border-primary transition-all shadow-md">
-            <img data-directus={setAttr({ collection: 'services_page', item: pageData?.id || 1, fields: 'p1Img' })} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src={p1Img} alt={p1Title} />
+            <img data-directus={setAttr({ collection: 'services_page', item: pageData?.id || '8b2b279d-8b12-46e9-a4aa-6322e3714933', fields: 'p1Img' })} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src={p1Img} alt={p1Title} />
           </div>
         </div>
         <div class="md:col-span-7">
@@ -68,7 +68,7 @@ const ctaDesc = attrs.ctaDesc || `Kontaktieren Sie unseren Hauptsitz in Bremen, 
             </div>
             <h2 class="font-display text-2xl md:text-3xl font-bold text-primary">{p1Title}</h2>
           </div>
-          <div class="text-on-surface-variant font-body-md mb-8 leading-relaxed prose max-w-none" data-directus={setAttr({ collection: 'services_page', item: pageData?.id || 1, fields: 'p1Desc' })} set:html={p1Desc} />
+          <div class="text-on-surface-variant font-body-md mb-8 leading-relaxed prose max-w-none" data-directus={setAttr({ collection: 'services_page', item: pageData?.id || '8b2b279d-8b12-46e9-a4aa-6322e3714933', fields: 'p1Desc' })} set:html={p1Desc} />
           <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
             <div class="flex items-start gap-3 bg-surface-container/50 p-4 rounded-lg border border-outline-variant/20">
               <span class="material-symbols-outlined text-secondary mt-0.5">check_circle</span>
@@ -97,7 +97,7 @@ const ctaDesc = attrs.ctaDesc || `Kontaktieren Sie unseren Hauptsitz in Bremen, 
             </div>
             <h2 class="font-display text-2xl md:text-3xl font-bold text-primary">{p2Title}</h2>
           </div>
-          <div class="text-on-surface-variant font-body-md mb-8 leading-relaxed prose max-w-none" data-directus={setAttr({ collection: 'services_page', item: pageData?.id || 1, fields: 'p2Desc' })} set:html={p2Desc} />
+          <div class="text-on-surface-variant font-body-md mb-8 leading-relaxed prose max-w-none" data-directus={setAttr({ collection: 'services_page', item: pageData?.id || '8b2b279d-8b12-46e9-a4aa-6322e3714933', fields: 'p2Desc' })} set:html={p2Desc} />
           <div class="flex flex-wrap gap-2.5">
             <span class="px-3.5 py-1.5 bg-surface-container rounded-full text-xs font-bold border border-outline-variant/30 text-on-surface">VT - Visuell</span>
             <span class="px-3.5 py-1.5 bg-surface-container rounded-full text-xs font-bold border border-outline-variant/30 text-on-surface">PT - Eindringprüfung</span>
@@ -108,7 +108,7 @@ const ctaDesc = attrs.ctaDesc || `Kontaktieren Sie unseren Hauptsitz in Bremen, 
         </div>
         <div class="md:col-span-5 order-1 md:order-2">
           <div class="aspect-video bg-surface-container rounded-xl overflow-hidden border border-outline-variant/30 group-hover:border-primary transition-all shadow-md">
-            <img data-directus={setAttr({ collection: 'services_page', item: pageData?.id || 1, fields: 'p2Img' })} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src={p2Img} alt={p2Title} />
+            <img data-directus={setAttr({ collection: 'services_page', item: pageData?.id || '8b2b279d-8b12-46e9-a4aa-6322e3714933', fields: 'p2Img' })} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src={p2Img} alt={p2Title} />
           </div>
         </div>
       </div>
@@ -117,7 +117,7 @@ const ctaDesc = attrs.ctaDesc || `Kontaktieren Sie unseren Hauptsitz in Bremen, 
       <div class="group grid md:grid-cols-12 gap-12 items-center">
         <div class="md:col-span-5">
           <div class="aspect-video bg-surface-container rounded-xl overflow-hidden border border-outline-variant/30 group-hover:border-primary transition-all shadow-md">
-            <img data-directus={setAttr({ collection: 'services_page', item: pageData?.id || 1, fields: 'p3Img' })} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src={p3Img} alt={p3Title} />
+            <img data-directus={setAttr({ collection: 'services_page', item: pageData?.id || '8b2b279d-8b12-46e9-a4aa-6322e3714933', fields: 'p3Img' })} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" src={p3Img} alt={p3Title} />
           </div>
         </div>
         <div class="md:col-span-7">
@@ -127,7 +127,7 @@ const ctaDesc = attrs.ctaDesc || `Kontaktieren Sie unseren Hauptsitz in Bremen, 
             </div>
             <h2 class="font-display text-2xl md:text-3xl font-bold text-primary">{p3Title}</h2>
           </div>
-          <div class="text-on-surface-variant font-body-md mb-8 leading-relaxed prose max-w-none" data-directus={setAttr({ collection: 'services_page', item: pageData?.id || 1, fields: 'p3Desc' })} set:html={p3Desc} />
+          <div class="text-on-surface-variant font-body-md mb-8 leading-relaxed prose max-w-none" data-directus={setAttr({ collection: 'services_page', item: pageData?.id || '8b2b279d-8b12-46e9-a4aa-6322e3714933', fields: 'p3Desc' })} set:html={p3Desc} />
           <ul class="space-y-2.5">
             <li class="flex items-center gap-3 text-sm text-on-surface font-medium">
               <span class="w-2 h-2 bg-secondary rounded-full"></span>
@@ -151,27 +151,27 @@ const ctaDesc = attrs.ctaDesc || `Kontaktieren Sie unseren Hauptsitz in Bremen, 
   <section class="bg-surface-container-low py-20 border-y border-outline-variant/30">
     <div class="px-margin-mobile md:px-margin-desktop max-w-container-max mx-auto">
       <div class="text-center mb-14">
-        <h2 class="font-display text-3xl font-bold mb-3 text-primary" data-directus={setAttr({ collection: 'services_page', item: pageData?.id || 1, fields: 'processTitle' })} set:html={processTitle}></h2>
+        <h2 class="font-display text-3xl font-bold mb-3 text-primary" data-directus={setAttr({ collection: 'services_page', item: pageData?.id || '8b2b279d-8b12-46e9-a4aa-6322e3714933', fields: 'processTitle' })} set:html={processTitle}></h2>
         <p class="text-on-surface-variant max-w-2xl mx-auto text-sm md:text-base">Zusätzliche Ingenieurkompetenzen zur Unterstützung wichtiger Industrieprojekte.</p>
       </div>
       <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-5 gap-6">
         <div class="bg-surface p-6 rounded-xl border border-outline-variant/30 hover:border-primary transition-all flex flex-col items-center text-center shadow-sm">
-          <span class="material-symbols-outlined text-3xl mb-3 text-secondary" data-directus={setAttr({ collection: 'services_page', item: pageData?.id || 1, fields: 'proc1Title' })} set:html={proc1Title}></span>
+          <span class="material-symbols-outlined text-3xl mb-3 text-secondary" data-directus={setAttr({ collection: 'services_page', item: pageData?.id || '8b2b279d-8b12-46e9-a4aa-6322e3714933', fields: 'proc1Title' })} set:html={proc1Title}></span>
           <h3 class="font-bold text-base mb-1">QA/QC</h3>
           <p class="text-xs text-on-surface-variant leading-relaxed">Qualitätssicherung und -kontrolle in jeder Phase der Fertigung.</p>
         </div>
         <div class="bg-surface p-6 rounded-xl border border-outline-variant/30 hover:border-primary transition-all flex flex-col items-center text-center shadow-sm">
-          <span class="material-symbols-outlined text-3xl mb-3 text-secondary" data-directus={setAttr({ collection: 'services_page', item: pageData?.id || 1, fields: 'proc2Title' })} set:html={proc2Title}></span>
+          <span class="material-symbols-outlined text-3xl mb-3 text-secondary" data-directus={setAttr({ collection: 'services_page', item: pageData?.id || '8b2b279d-8b12-46e9-a4aa-6322e3714933', fields: 'proc2Title' })} set:html={proc2Title}></span>
           <h3 class="font-bold text-base mb-1">QS/QM</h3>
           <p class="text-xs text-on-surface-variant leading-relaxed">Systemisches Sicherheits- und Qualitätsmanagement.</p>
         </div>
         <div class="bg-surface p-6 rounded-xl border border-outline-variant/30 hover:border-primary transition-all flex flex-col items-center text-center shadow-sm">
-          <span class="material-symbols-outlined text-3xl mb-3 text-secondary" data-directus={setAttr({ collection: 'services_page', item: pageData?.id || 1, fields: 'proc3Title' })} set:html={proc3Title}></span>
+          <span class="material-symbols-outlined text-3xl mb-3 text-secondary" data-directus={setAttr({ collection: 'services_page', item: pageData?.id || '8b2b279d-8b12-46e9-a4aa-6322e3714933', fields: 'proc3Title' })} set:html={proc3Title}></span>
           <h3 class="font-bold text-base mb-1">Dokumentation</h3>
           <p class="text-xs text-on-surface-variant leading-relaxed">Vollständige Erstellung technischer Bestandsdokumentationen.</p>
         </div>
         <div class="bg-surface p-6 rounded-xl border border-outline-variant/30 hover:border-primary transition-all flex flex-col items-center text-center shadow-sm">
-          <span class="material-symbols-outlined text-3xl mb-3 text-secondary" data-directus={setAttr({ collection: 'services_page', item: pageData?.id || 1, fields: 'proc4Title' })} set:html={proc4Title}></span>
+          <span class="material-symbols-outlined text-3xl mb-3 text-secondary" data-directus={setAttr({ collection: 'services_page', item: pageData?.id || '8b2b279d-8b12-46e9-a4aa-6322e3714933', fields: 'proc4Title' })} set:html={proc4Title}></span>
           <h3 class="font-bold text-base mb-1">Engineering</h3>
           <p class="text-xs text-on-surface-variant leading-relaxed">Ingenieurtechnische Unterstützung bei der Prozessoptimierung.</p>
         </div>
@@ -189,8 +189,8 @@ const ctaDesc = attrs.ctaDesc || `Kontaktieren Sie unseren Hauptsitz in Bremen, 
     <div class="bg-navy text-white rounded-2xl p-10 md:p-16 relative overflow-hidden shadow-xl">
       <div class="absolute inset-0 industrial-grid opacity-10"></div>
       <div class="relative z-10 max-w-2xl mx-auto">
-        <h2 class="font-display text-3xl md:text-4xl font-bold mb-4" data-directus={setAttr({ collection: 'services_page', item: pageData?.id || 1, fields: 'ctaTitle' })} set:html={ctaTitle}></h2>
-        <p class="text-gray-300 mb-8 leading-relaxed" data-directus={setAttr({ collection: 'services_page', item: pageData?.id || 1, fields: 'ctaDesc' })}>
+        <h2 class="font-display text-3xl md:text-4xl font-bold mb-4" data-directus={setAttr({ collection: 'services_page', item: pageData?.id || '8b2b279d-8b12-46e9-a4aa-6322e3714933', fields: 'ctaTitle' })} set:html={ctaTitle}></h2>
+        <p class="text-gray-300 mb-8 leading-relaxed" data-directus={setAttr({ collection: 'services_page', item: pageData?.id || '8b2b279d-8b12-46e9-a4aa-6322e3714933', fields: 'ctaDesc' })}>
                             {ctaDesc}
                         </p>
         <div class="flex flex-col sm:flex-row gap-4 justify-center">
