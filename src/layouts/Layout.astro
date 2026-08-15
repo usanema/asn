@@ -78,8 +78,23 @@ const finalDesc = seoDescription || "Professional engineering network specializi
     });
   </script>
   <script>
-    import { apply } from '@directus/visual-editing';
-    apply({ directusUrl: 'http://srv50.mikr.us:40249' });
+    console.log("Directus Visual Editor script initialized");
+    const initDirectusVisualEditor = async () => {
+      try {
+        console.log("Attempting to apply Directus Visual Editing...");
+        const { apply } = await import('@directus/visual-editing');
+        await apply({ directusUrl: 'http://srv50.mikr.us:40249' });
+        console.log("Directus Visual Editing successfully applied!");
+      } catch (e) {
+        console.error('Directus init failed:', e);
+      }
+    };
+
+    if (document.readyState === 'loading') {
+      document.addEventListener('DOMContentLoaded', initDirectusVisualEditor);
+    } else {
+      initDirectusVisualEditor();
+    }
   </script>
 </body>
 </html>
