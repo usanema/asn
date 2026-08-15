@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import { setAttr } from '@directus/visual-editing';
 import { fetchApi, getMedia } from '../lib/data';
 
 const pageData = await fetchApi({
@@ -54,9 +55,9 @@ const locationBtn = attrs.locationBtn || "Skontaktuj się z centralą";
 <span class="material-symbols-outlined text-[18px]">verified</span>
 <span>Engineering Excellence</span>
 </div>
-<h1 class="font-display text-headline-lg-mobile md:text-display mb-6 text-primary uppercase tracking-tight" set:html={heroTitle}>
+<h1 class="font-display text-headline-lg-mobile md:text-display mb-6 text-primary uppercase tracking-tight" data-directus={pageData?.id ? setAttr({ collection: 'home_page', item: pageData.id, fields: 'heroTitle' }) : undefined} set:html={heroTitle}>
 </h1>
-<p class="font-body-md text-body-lg text-on-surface-variant mb-10 max-w-2xl" set:html={heroDesc}>
+<p class="font-body-md text-body-lg text-on-surface-variant mb-10 max-w-2xl" data-directus={pageData?.id ? setAttr({ collection: 'home_page', item: pageData.id, fields: 'heroDesc' }) : undefined} set:html={heroDesc}>
 </p>
 <div class="flex flex-wrap gap-4">
 <a class="px-8 py-4 bg-navy text-white font-display text-label-md rounded-DEFAULT hover:bg-secondary transition-all flex items-center gap-2 group" href="/uslugi">
@@ -71,14 +72,14 @@ const locationBtn = attrs.locationBtn || "Skontaktuj się z centralą";
 </div>
 <!-- Visual Element -->
 <div class="absolute right-0 bottom-0 w-1/3 h-full hidden lg:block opacity-10 pointer-events-none">
-<img class="object-contain w-full h-full object-right-bottom" src={heroImage} />
+<img data-directus={pageData?.id ? setAttr({ collection: 'home_page', item: pageData.id, fields: 'heroImage' }) : undefined} class="object-contain w-full h-full object-right-bottom" src={heroImage} />
 </div>
 </section>
 <!-- The Three Pillars Section -->
 <section class="py-24 bg-white" id="services">
 <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
 <div class="mb-16">
-<h2 class="font-display text-headline-md text-primary mb-4" set:html={pillarsTitle}></h2>
+<h2 class="font-display text-headline-md text-primary mb-4" data-directus={pageData?.id ? setAttr({ collection: 'home_page', item: pageData.id, fields: 'pillarsTitle' }) : undefined} set:html={pillarsTitle}></h2>
 <div class="w-20 h-1 bg-secondary"></div>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -87,8 +88,8 @@ const locationBtn = attrs.locationBtn || "Skontaktuj się z centralą";
 <div class="mb-8 text-secondary">
 <span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'wght' 300">precision_manufacturing</span>
 </div>
-<h3 class="font-display text-headline-sm text-primary mb-4" set:html={pillar1Title}></h3>
-<p class="font-body-md text-on-surface-variant mb-8 flex-grow">
+<h3 class="font-display text-headline-sm text-primary mb-4" data-directus={pageData?.id ? setAttr({ collection: 'home_page', item: pageData.id, fields: 'pillar1Title' }) : undefined} set:html={pillar1Title}></h3>
+<p class="font-body-md text-on-surface-variant mb-8 flex-grow" data-directus={pageData?.id ? setAttr({ collection: 'home_page', item: pageData.id, fields: 'pillar1Desc' }) : undefined}>
                             {pillar1Desc}
                         </p>
 <div class="flex items-center text-label-md text-primary font-bold group-hover:gap-4 transition-all">
@@ -100,8 +101,8 @@ const locationBtn = attrs.locationBtn || "Skontaktuj się z centralą";
 <div class="mb-8 text-secondary">
 <span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'wght' 300">microwave</span>
 </div>
-<h3 class="font-display text-headline-sm text-primary mb-4" set:html={pillar2Title}></h3>
-<p class="font-body-md text-on-surface-variant mb-8 flex-grow">
+<h3 class="font-display text-headline-sm text-primary mb-4" data-directus={pageData?.id ? setAttr({ collection: 'home_page', item: pageData.id, fields: 'pillar2Title' }) : undefined} set:html={pillar2Title}></h3>
+<p class="font-body-md text-on-surface-variant mb-8 flex-grow" data-directus={pageData?.id ? setAttr({ collection: 'home_page', item: pageData.id, fields: 'pillar2Desc' }) : undefined}>
                             {pillar2Desc}
                         </p>
 <div class="flex items-center text-label-md text-primary font-bold group-hover:gap-4 transition-all">
@@ -113,8 +114,8 @@ const locationBtn = attrs.locationBtn || "Skontaktuj się z centralą";
 <div class="mb-8 text-secondary">
 <span class="material-symbols-outlined text-4xl" style="font-variation-settings: 'wght' 300">layers</span>
 </div>
-<h3 class="font-display text-headline-sm text-primary mb-4" set:html={pillar3Title}></h3>
-<p class="font-body-md text-on-surface-variant mb-8 flex-grow">
+<h3 class="font-display text-headline-sm text-primary mb-4" data-directus={pageData?.id ? setAttr({ collection: 'home_page', item: pageData.id, fields: 'pillar3Title' }) : undefined} set:html={pillar3Title}></h3>
+<p class="font-body-md text-on-surface-variant mb-8 flex-grow" data-directus={pageData?.id ? setAttr({ collection: 'home_page', item: pageData.id, fields: 'pillar3Desc' }) : undefined}>
                             {pillar3Desc}
                         </p>
 <div class="flex items-center text-label-md text-primary font-bold group-hover:gap-4 transition-all">
@@ -129,9 +130,9 @@ const locationBtn = attrs.locationBtn || "Skontaktuj się z centralą";
 <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop relative z-10">
 <div class="grid grid-cols-1 md:grid-cols-2 gap-16 items-center">
 <div>
-<h2 class="font-display text-headline-md mb-4" set:html={modelTitle}></h2>
-<h3 class="font-display text-headline-sm mb-8 text-secondary-fixed" set:html={modelSubTitle}></h3>
-<p class="text-body-lg text-white/80 mb-10 leading-relaxed" set:html={modelDesc}></p>
+<h2 class="font-display text-headline-md mb-4" data-directus={pageData?.id ? setAttr({ collection: 'home_page', item: pageData.id, fields: 'modelTitle' }) : undefined} set:html={modelTitle}></h2>
+<h3 class="font-display text-headline-sm mb-8 text-secondary-fixed" data-directus={pageData?.id ? setAttr({ collection: 'home_page', item: pageData.id, fields: 'modelSubTitle' }) : undefined} set:html={modelSubTitle}></h3>
+<p class="text-body-lg text-white/80 mb-10 leading-relaxed" data-directus={pageData?.id ? setAttr({ collection: 'home_page', item: pageData.id, fields: 'modelDesc' }) : undefined} set:html={modelDesc}></p>
 </div>
 <div class="relative">
 <div class="aspect-square bg-surface/5 rounded-full absolute -top-20 -right-20 w-full h-full"></div>
@@ -144,8 +145,8 @@ const locationBtn = attrs.locationBtn || "Skontaktuj się z centralą";
 <section class="py-24 bg-surface">
 <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
 <div class="text-center mb-16">
-<h2 class="font-display text-headline-md text-primary mb-4" set:html={supportTitle}></h2>
-<p class="text-on-surface-variant max-w-2xl mx-auto" set:html={supportDesc}></p>
+<h2 class="font-display text-headline-md text-primary mb-4" data-directus={pageData?.id ? setAttr({ collection: 'home_page', item: pageData.id, fields: 'supportTitle' }) : undefined} set:html={supportTitle}></h2>
+<p class="text-on-surface-variant max-w-2xl mx-auto" data-directus={pageData?.id ? setAttr({ collection: 'home_page', item: pageData.id, fields: 'supportDesc' }) : undefined} set:html={supportDesc}></p>
 </div>
 <div class="grid grid-cols-2 md:grid-cols-4 lg:grid-cols-5 gap-4">
 <div class="bg-white p-6 border border-outline-variant hover:border-secondary transition-colors group">
@@ -176,8 +177,8 @@ const locationBtn = attrs.locationBtn || "Skontaktuj się z centralą";
 <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop">
 <div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-center">
 <div class="lg:col-span-4">
-<h2 class="font-display text-headline-md text-primary mb-6" set:html={whyTitle}></h2>
-<p class="text-on-surface-variant mb-8" set:html={whyDesc}></p>
+<h2 class="font-display text-headline-md text-primary mb-6" data-directus={pageData?.id ? setAttr({ collection: 'home_page', item: pageData.id, fields: 'whyTitle' }) : undefined} set:html={whyTitle}></h2>
+<p class="text-on-surface-variant mb-8" data-directus={pageData?.id ? setAttr({ collection: 'home_page', item: pageData.id, fields: 'whyDesc' }) : undefined} set:html={whyDesc}></p>
 <div class="h-px w-full bg-outline-variant/30 mb-8"></div>
 <div class="space-y-6">
 <div class="flex gap-4">
@@ -185,8 +186,8 @@ const locationBtn = attrs.locationBtn || "Skontaktuj się z centralą";
 <span class="material-symbols-outlined text-secondary">update</span>
 </div>
 <div>
-<h4 class="font-bold" set:html={why1Title}></h4>
-<p class="text-sm text-on-surface-variant" set:html={why1Desc}></p>
+<h4 class="font-bold" data-directus={pageData?.id ? setAttr({ collection: 'home_page', item: pageData.id, fields: 'why1Title' }) : undefined} set:html={why1Title}></h4>
+<p class="text-sm text-on-surface-variant" data-directus={pageData?.id ? setAttr({ collection: 'home_page', item: pageData.id, fields: 'why1Desc' }) : undefined} set:html={why1Desc}></p>
 </div>
 </div>
 <div class="flex gap-4">
@@ -194,20 +195,20 @@ const locationBtn = attrs.locationBtn || "Skontaktuj się z centralą";
 <span class="material-symbols-outlined text-secondary">handshake</span>
 </div>
 <div>
-<h4 class="font-bold" set:html={why2Title}></h4>
-<p class="text-sm text-on-surface-variant" set:html={why2Desc}></p>
+<h4 class="font-bold" data-directus={pageData?.id ? setAttr({ collection: 'home_page', item: pageData.id, fields: 'why2Title' }) : undefined} set:html={why2Title}></h4>
+<p class="text-sm text-on-surface-variant" data-directus={pageData?.id ? setAttr({ collection: 'home_page', item: pageData.id, fields: 'why2Desc' }) : undefined} set:html={why2Desc}></p>
 </div>
 </div>
 </div>
 </div>
 <div class="lg:col-start-6 lg:col-span-7 grid grid-cols-1 md:grid-cols-2 gap-6">
 <div class="p-8 bg-surface-container rounded-lg border border-outline-variant/30">
-<h4 class="font-display font-bold text-headline-sm mb-4" set:html={why3Title}></h4>
-<p class="text-on-surface-variant" set:html={why3Desc}></p>
+<h4 class="font-display font-bold text-headline-sm mb-4" data-directus={pageData?.id ? setAttr({ collection: 'home_page', item: pageData.id, fields: 'why3Title' }) : undefined} set:html={why3Title}></h4>
+<p class="text-on-surface-variant" data-directus={pageData?.id ? setAttr({ collection: 'home_page', item: pageData.id, fields: 'why3Desc' }) : undefined} set:html={why3Desc}></p>
 </div>
 <div class="p-8 bg-surface-container rounded-lg border border-outline-variant/30">
-<h4 class="font-display font-bold text-headline-sm mb-4" set:html={why4Title}></h4>
-<p class="text-on-surface-variant" set:html={why4Desc}></p>
+<h4 class="font-display font-bold text-headline-sm mb-4" data-directus={pageData?.id ? setAttr({ collection: 'home_page', item: pageData.id, fields: 'why4Title' }) : undefined} set:html={why4Title}></h4>
+<p class="text-on-surface-variant" data-directus={pageData?.id ? setAttr({ collection: 'home_page', item: pageData.id, fields: 'why4Desc' }) : undefined} set:html={why4Desc}></p>
 </div>
 </div>
 </div>
@@ -221,8 +222,8 @@ const locationBtn = attrs.locationBtn || "Skontaktuj się z centralą";
 <div class="w-full aspect-video bg-cover bg-center rounded-lg shadow-lg" data-alt="A modern, high-tech architectural office building in Bremen, Germany, featuring glass and steel elements. The photo is captured at dusk with warm interior lights glowing against the deep blue twilight sky. The setting reflects stability, professional headquarters, and European engineering standards." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCYNJUdF8iJGjIp_gSgXSNT4HFetvsvTY46A5dgKZayiiZguisQxpMCCNQQbqF0LO90IOZJcUprOCQkcZA9DfmWpslXe9FJ5Vih2xRZlBUS6kfcVmKzh-q29Kr4N6FbNOd3ZwMQ3r5BNrHGFBCa17mTLc24q_OEnV75qK5_dNFc9tFk0nbXlT-DUFdbnVMqrJZGmG7aH6GAafobNcp3055byb8fimpS5Qjy-1Cg6nBGqt6TexplE_TXmAMPyd9c_9sI2bSpc7wbTfw')"></div>
 </div>
 <div class="md:w-1/2">
-<h2 class="font-display text-headline-md text-primary mb-6" set:html={locationTitle}></h2>
-<p class="text-body-lg text-on-surface-variant mb-8" set:html={locationDesc}></p>
+<h2 class="font-display text-headline-md text-primary mb-6" data-directus={pageData?.id ? setAttr({ collection: 'home_page', item: pageData.id, fields: 'locationTitle' }) : undefined} set:html={locationTitle}></h2>
+<p class="text-body-lg text-on-surface-variant mb-8" data-directus={pageData?.id ? setAttr({ collection: 'home_page', item: pageData.id, fields: 'locationDesc' }) : undefined} set:html={locationDesc}></p>
 <div class="flex items-center gap-4 p-4 border-l-4 border-secondary bg-white mb-8">
 <span class="material-symbols-outlined text-4xl text-secondary">location_on</span>
 <div>
@@ -231,7 +232,7 @@ const locationBtn = attrs.locationBtn || "Skontaktuj się z centralą";
 </div>
 </div>
 <a href="/kontakt" class="inline-flex items-center gap-2 px-6 py-3 bg-navy text-white font-display font-bold rounded-DEFAULT hover:bg-secondary transition-all">
-  <span set:html={locationBtn}></span>
+  <span data-directus={pageData?.id ? setAttr({ collection: 'home_page', item: pageData.id, fields: 'locationBtn' }) : undefined} set:html={locationBtn}></span>
   <span class="material-symbols-outlined">arrow_forward</span>
 </a>
 </div>
