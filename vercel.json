@@ -1,0 +1,13 @@
+{
+  "headers": [
+    {
+      "source": "/(.*)",
+      "headers": [
+        {
+          "key": "Content-Security-Policy",
+          "value": "frame-ancestors 'self' http://srv50.mikr.us:40249 https://srv50.mikr.us:40249"
+        }
+      ]
+    }
+  ]
+}
