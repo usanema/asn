@@ -29,7 +29,8 @@ export async function fetchApi({ collection, endpoint, locale = 'en', query = {}
                 t.languages_id === locale || 
                 (typeof t.languages_code === 'object' && t.languages_code?.code === locale)
               ) || item.translations[0] || {};
-              merged = { ...merged, ...trans };
+              const { id: transId, ...transWithoutId } = trans;
+              merged = { ...merged, ...transWithoutId };
             }
             if (typeof merged.path === 'string') {
               merged.path = merged.path.replace(/\.html$/, '');
