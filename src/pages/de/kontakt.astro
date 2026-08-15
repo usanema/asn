@@ -34,8 +34,8 @@ const labelConsent = attrs.labelConsent || `Ich stimme der Verarbeitung meiner p
     <div class="max-w-container-max mx-auto px-margin-mobile md:px-margin-desktop relative z-10">
       <div class="max-w-3xl">
         <span class="font-display text-sm font-bold text-secondary tracking-widest uppercase mb-4 block">{badge}</span>
-        <h1 class="font-display text-4xl md:text-6xl font-bold mb-6 leading-tight" data-directus={pageData?.id ? setAttr({ collection: 'contact_page', item: pageData.id, fields: 'heroTitle' }) : undefined} set:html={heroTitle} />
-        <p class="font-body-md text-lg text-gray-300 max-w-2xl leading-relaxed" data-directus={pageData?.id ? setAttr({ collection: 'contact_page', item: pageData.id, fields: 'heroDesc' }) : undefined} set:html={heroDesc} />
+        <h1 class="font-display text-4xl md:text-6xl font-bold mb-6 leading-tight" data-directus={setAttr({ collection: 'contact_page', fields: 'heroTitle' })} set:html={heroTitle} />
+        <p class="font-body-md text-lg text-gray-300 max-w-2xl leading-relaxed" data-directus={setAttr({ collection: 'contact_page', fields: 'heroDesc' })} set:html={heroDesc} />
       </div>
     </div>
   </section>
@@ -49,7 +49,7 @@ const labelConsent = attrs.labelConsent || `Ich stimme der Verarbeitung meiner p
         <form class="space-y-6" onsubmit="event.preventDefault(); alert('Nachricht erfolgreich gesendet! Unser Team wird sich in Kürze bei Ihnen melden.');">
           <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
             <div class="space-y-2">
-              <label class="font-bold text-xs text-on-surface uppercase tracking-wider block" data-directus={pageData?.id ? setAttr({ collection: 'contact_page', item: pageData.id, fields: 'labelName' }) : undefined} set:html={labelName}></label>
+              <label class="font-bold text-xs text-on-surface uppercase tracking-wider block" data-directus={setAttr({ collection: 'contact_page', fields: 'labelName' })} set:html={labelName}></label>
               <input required class="w-full bg-surface-container-low border border-outline-variant/30 focus:border-primary p-3.5 rounded-lg text-sm outline-none transition-all" placeholder="Max Mustermann" type="text"/>
             </div>
             <div class="space-y-2">
@@ -75,7 +75,7 @@ const labelConsent = attrs.labelConsent || `Ich stimme der Verarbeitung meiner p
           </div>
           <div class="flex items-center gap-3 pt-2">
             <input required class="rounded border-outline-variant/30 text-primary w-4 h-4 cursor-pointer" id="consent_de" type="checkbox"/>
-            <label class="text-xs text-on-surface-variant cursor-pointer select-none" for="consent_de" data-directus={pageData?.id ? setAttr({ collection: 'contact_page', item: pageData.id, fields: 'labelConsent' }) : undefined} set:html={labelConsent}></label>
+            <label class="text-xs text-on-surface-variant cursor-pointer select-none" for="consent_de" data-directus={setAttr({ collection: 'contact_page', fields: 'labelConsent' })} set:html={labelConsent}></label>
           </div>
           <button class="w-full md:w-auto bg-primary text-white px-8 py-4 font-bold rounded-lg hover:bg-secondary transition-all flex items-center justify-center gap-2 shadow-md group" type="submit">
             {btnSubmit}
@@ -114,7 +114,7 @@ const labelConsent = attrs.labelConsent || `Ich stimme der Verarbeitung meiner p
               </div>
               <div>
                 <p class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-1">Standort</p>
-                <div class="font-display text-base font-bold leading-relaxed text-white" data-directus={pageData?.id ? setAttr({ collection: 'contact_page', item: pageData.id, fields: 'addressText' }) : undefined} set:html={addressText} />
+                <div class="font-display text-base font-bold leading-relaxed text-white" data-directus={setAttr({ collection: 'contact_page', fields: 'addressText' })} set:html={addressText} />
               </div>
             </div>
           </div>
@@ -122,7 +122,7 @@ const labelConsent = attrs.labelConsent || `Ich stimme der Verarbeitung meiner p
 
         <!-- Map/Visual Representation -->
         <div class="aspect-video bg-surface-container rounded-2xl overflow-hidden border border-outline-variant/30 relative group shadow-md">
-          <img data-directus={pageData?.id ? setAttr({ collection: 'contact_page', item: pageData.id, fields: 'mapImg' }) : undefined} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src={mapImg} alt="Bremen Karte" />
+          <img data-directus={setAttr({ collection: 'contact_page', fields: 'mapImg' })} class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" src={mapImg} alt="Bremen Karte" />
           <div class="absolute inset-0 bg-navy/40 flex items-center justify-center pointer-events-none">
             <div class="bg-navy text-white px-4 py-2 rounded-full text-xs font-bold flex items-center gap-2 border border-white/20 shadow-xl">
               <span class="material-symbols-outlined text-secondary text-sm">location_on</span>
